@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+nav {
+  background: blue;
+  height: 80px;
+  width: 100%;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+.nav__logo {
+  height: 80px;
+  padding-left: 40px;
+}
+a.active,
+a:hover {
+  background: rgb(10, 10, 22);
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+#check {
+  display: none;
+}
