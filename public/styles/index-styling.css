@@ -3,6 +3,7 @@
   --color-secondary: #d6dfed;
   --color-third: #4dd2c4;
   --color-fourth: #1fa496;
+  --color-primary-gradient: #2a407897;
 }
 
 * {
@@ -60,10 +61,75 @@ a:hover {
   display: none;
 }
 
+.container {
+  width: 100%;
+  min-height: 800px;
+  padding: 5%;
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container h1 {
+  color: white;
+  font-size: 46px;
+  text-align: end;
+  padding-right: 50px;
+}
+.search-area {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-area input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 30px;
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+::placeholder {
+  color: var(--color-primary);
+}
+.search-area select {
+  background: transparent;
+  flex: 1;
+  border-color: rgba(255, 255, 255, 0.5);
+  scroll-behavior: smooth;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+.search-area button img {
+  width: 25px;
+}
+
+.search-area button {
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: var(--color-third);
+  cursor: pointer;
+}
+
 @media (max-width: 952px) {
   .nav__logo {
     height: 75px;
     padding-left: 50px;
+    padding-top: 10px;
   }
   nav ul li a {
     font-size: 16px;

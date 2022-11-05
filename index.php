@@ -37,5 +37,37 @@
         </ul>
       </nav>
     </header>
+    <div class="container">
+        <h1>Welcome to DocWebox, the place where you find your doctor!</h1><br>
+        <form action="" class="search-area">
+            <select id="Doc-Specialities" name="Doc-Specialities">
+                <option value="None">Choose Doctor Specialization</option>
+                <option value="General doctor">General doctor</option>
+                <option value="Pathologist">Pathologist</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Urologist andrologist">Urologist andrologist</option>
+                <option value="Gynecologist">Gynecologist</option>
+                <option value="Ophthalmologist">Ophthalmologist</option>
+                <option value="General surgeon">General surgeon</option>
+                <option value="Dental Surgeon">Dental Surgeon</option>
+                <option value="Dentist">Dentist</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Endocrinologist">Endocrinologist</option>
+                <option value="Dermatologist-Venereologist">Dermatologist-Venereologist</option>
+                <option value="Anesthetist">Anesthetist</option>
+                <option value="Allergist">Allergist</option>
+                <option value="Dietitian-Nutritionist">Dietitian-Nutritionist</option>
+                <option value="Oncologist">Oncologist</option>
+                <option value="Orthopedist">Orthopedist</option>
+                <option value="Pulmonologist">Pulmonologist</option>
+                <option value="Physiotherapist">Physiotherapist</option>
+                <option value="Psychiatrist">Psychiatrist</option>
+                <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
+            </select>
+            <input type="text" placeholder="Location" name="location">
+            <button type="submit"><img src="./public/resources/images/search.png"></button>
+        </form>
+    </div>
     </body>
+    
 </html>
