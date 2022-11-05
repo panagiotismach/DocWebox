@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="./public/resources/favicon/icon.ico" />
+    <link rel="icon" href="./public/resources/favicon/the-icon.ico" />
   </head>
   <body>
     <header>
@@ -20,7 +20,10 @@
         <img src="./public/resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         <ul>
           <li>
-            <a class="active" href="/public/views/news.php">News</a>
+            <a class="active" href="/DocWebox/index.php">Home</a>
+          </li>
+          <li>
+            <a href="/public/views/news.php">News</a>
           </li>
           <li>
             <a href="/public/views/contact.php">Contact</a>
