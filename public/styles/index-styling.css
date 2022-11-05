@@ -245,6 +245,46 @@ a:hover {
   width: 2.25em;
 }
 
+.footer {
+  padding: 2rem 0.5rem;
+  /* background-color: var(--color-secondary); */
+}
+
+.footer__nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__item {
+  margin-right: 4rem;
+}
+
+.footer__link {
+  font-size: 1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer__logo {
+  height: 10rem;
+  display: block;
+  margin: 0 auto;
+  /* margin-bottom: 5rem; */
+}
+
+.footer__copyright {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.footer__copyright .footer__link {
+  font-size: 0.9rem;
+}
+
 @media (max-width: 952px) {
   .nav__logo {
     height: 75px;

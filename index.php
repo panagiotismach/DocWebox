@@ -113,6 +113,27 @@
         <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming"</h2>
         <h3><a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/">Dionisios Lougaris</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/">Georgios Stefou</a>, <a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/">Minas-Theodoros Charakopoulos</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/">Panagiotis Machairas</a></h3>
     </div>
+    <footer class="footer">
+      <ul class="footer__nav">
+        <li class="footer__item">
+          <a class="footer__link" href="#">News</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Contact</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Sign up</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Login</a>
+        </li>
+      </ul>
+      <img src="./public/resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />
+      <p class="footer__copyright">
+        &copy; Project owned by 
+        <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us</a>.
+      </p>
+    </footer>
 
   </body>
     
