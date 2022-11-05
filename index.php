@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>DocWebox - Find your Doctor!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="" defer></script>
@@ -68,6 +69,51 @@
             <button type="submit"><img src="./public/resources/images/search.png"></button>
         </form>
     </div>
-    </body>
+    <section>
+        <div class="row">
+            <h1>Why use DocWebox?</h1>
+        </div>
+        <div class="row">
+            <!-- Column One -->
+            <div class="column">
+                <div class="card">
+                    <div class="icon">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3>Associate Doctors</h3>
+                    <p>Hundreds of doctors have already joined DocWebox and are ready to assist you.</p>
+                </div>
+            </div>
+            <!-- Column Two -->
+            <div class="column">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fa-brands fa-searchengin"></i>
+                    </div>
+                    <h3>Results by the thousands</h3>
+                    <p>Finding doctors near you has never been easier. Just select the doctor's specialization and your location and you are good to go!</p>
+                </div>
+            </div>
+            <!-- Column Three -->
+            <div class="column">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3>Shedule an appointment whithin a minute</h3>
+                    <p>See the available times, fill in your contact details, the reason for your visit and you're ready!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-us">
+        <div id="info-icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming"</h2>
+        <h3><a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/">Dionisios Lougaris</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/">Georgios Stefou</a>, <a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/">Minas-Theodoros Charakopoulos</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/">Panagiotis Machairas</a></h3>
+    </div>
+
+  </body>
     
 </html>

@@ -72,12 +72,54 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+.container-us {
+  width: 100%;
+  min-height: 400px;
+  padding: 5%;
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/pamak.jpg);
+  background-position: center;
+  background-size: cover;
+}
 .container h1 {
   color: white;
   font-size: 46px;
   text-align: end;
   padding-right: 50px;
 }
+
+.container-us h2 {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding-right: 50px;
+  padding: 2%;
+}
+.container-us h3 {
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  padding-right: 50px;
+}
+.us-link {
+  /* font-size: 1.6rem; */
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+#info-icon {
+  font-size: 1.5em;
+  height: 2em;
+  width: 2em;
+  margin: auto;
+  background-color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  /* justify-items: center;
+    align-items: center; */
+  border-radius: 50%;
+  color: white;
+}
+
 .search-area {
   width: 100%;
   max-width: 800px;
@@ -125,6 +167,84 @@ a:hover {
   cursor: pointer;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.row h1 {
+  width: 100%;
+  text-align: center;
+  margin: 0.6em 0;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.column {
+  padding: 1em;
+}
+
+.card {
+  padding: 3.1em 1.25em;
+  text-align: center;
+  background: linear-gradient(0deg, var(--color-fourth) 10px, transparent 10px);
+  background-repeat: no-repeat;
+  background-position: 0 0.62em;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  transition: 0.5s;
+}
+
+.card .icon {
+  font-size: 2.5em;
+  height: 2em;
+  width: 2em;
+  margin: auto;
+  background-color: var(--color-fourth);
+  display: grid;
+  place-items: center;
+  /* justify-items: center;
+  align-items: center; */
+  border-radius: 50%;
+  color: white;
+}
+
+.icon :before {
+  /* position: absolute; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  border: 0.12em solid var(--color-fourth);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin: 1em 0 1.4em 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--color-primary);
+}
+
+.card p {
+  line-height: 2em;
+  color: #505664;
+}
+
+.card:hover {
+  background-position: 0;
+}
+
+.card:hover .icon:before {
+  height: 2.25em;
+  width: 2.25em;
+}
+
 @media (max-width: 952px) {
   .nav__logo {
     height: 75px;
@@ -164,5 +284,24 @@ a:hover {
   }
   #check:checked ~ ul {
     left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    padding: 1em 7em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    padding: 1em;
+  }
+  .card {
+    padding: 5em 2em;
+  }
+  .column {
+    flex: 0 0 33.33%;
+    padding: 0 1em;
   }
 }
