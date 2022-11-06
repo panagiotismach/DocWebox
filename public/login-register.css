@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d6dfed;
+}
+
+.row {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.btns {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.section-img {
+  background-color: #4dd2c4;
+  border-top-left-radius: 30px;
+
+  border-bottom-left-radius: 30px;
+}
+
+hr {
+  width: 100px;
+}
+
+.header {
+  text-align: center;
+}
+
+img {
+  width: 60%;
+}
+
+.text {
+  text-align: center;
+}
