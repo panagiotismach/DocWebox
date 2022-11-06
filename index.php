@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <script src="./public/src/js/index-controller.js" defer></script>
+    <script src="./public/src/js/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./public/resources/favicon/the-icon.ico" />
   </head>
