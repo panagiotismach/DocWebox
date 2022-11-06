@@ -24,16 +24,16 @@
             <a class="active" href="/DocWebox/index.php">Home</a>
           </li>
           <li>
-            <a href="/public/views/news.php">News</a>
+            <a href="/DocWebox/public/views/news.php">News</a>
           </li>
           <li>
-            <a href="/public/views/contact.php">Contact</a>
+            <a href="/DocWebox/public/views/contact.php">Contact</a>
           </li>
           <li>
-            <a href="/public/views/sign-up.php">Sign up</a>
+            <a href="/DocWebox/public/views/sign-up.php">Sign up</a>
           </li>
           <li>
-            <a href="/public/views/login.php">Login</a>
+            <a href="/DocWebox/public/views/login.php">Login</a>
           </li>
         </ul>
       </nav>
@@ -118,16 +118,16 @@
     <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">
-          <a class="footer__link" href="#">News</a>
+          <a class="footer__link" href="/DocWebox/public/views/news.php">News</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="#">Contact</a>
+          <a class="footer__link" href="/DocWebox/public/views/contact.php">Contact</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="#">Sign up</a>
+          <a class="footer__link" href="/DocWebox/public/views/sign-up.php">Sign up</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="#">Login</a>
+          <a class="footer__link" href="/DocWebox/public/views/login.php">Login</a>
         </li>
       </ul>
       <img src="./public/resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />

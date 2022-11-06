@@ -343,14 +343,15 @@ a:hover {
 }
 @media (max-width: 860px) {
   .search-area {
-    display: inline-block;
+    display: flex;
     width: 80%;
+    margin: 0 auto;
   }
   .search-area input {
-    width: 80%;
+    width: 30%;
   }
   .search-area select {
-    width: 95%;
+    width: 50%;
   }
 }
 
