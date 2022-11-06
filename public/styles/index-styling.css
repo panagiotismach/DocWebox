@@ -68,9 +68,9 @@ a:hover {
   background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background.jpg);
   background-position: center;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
 }
 .container-us {
   width: 100%;
@@ -83,8 +83,15 @@ a:hover {
 .container h1 {
   color: white;
   font-size: 46px;
-  text-align: end;
-  padding-right: 50px;
+  text-align: center;
+  padding-top: 140px;
+  padding-bottom: 10px;
+}
+.container h3 {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 .container-us h2 {
@@ -99,6 +106,7 @@ a:hover {
   font-size: 17px;
   text-align: center;
   padding-right: 50px;
+  padding-bottom: 10px;
 }
 .us-link {
   /* font-size: 1.6rem; */
@@ -122,6 +130,7 @@ a:hover {
 
 .search-area {
   width: 100%;
+  margin: 0 auto;
   max-width: 800px;
   background: rgba(255, 255, 255, 0.5);
   display: flex;
@@ -133,10 +142,10 @@ a:hover {
 
 .search-area input {
   background: transparent;
-  /* flex: 1; */
+  flex: 1;
   border: 0;
   outline: none;
-  padding: 24px 30px;
+  padding: 24px 20px;
   font-size: 20px;
   color: var(--color-primary);
 }
@@ -165,6 +174,7 @@ a:hover {
   height: 60px;
   background: var(--color-third);
   cursor: pointer;
+  /* float: right; */
 }
 
 .row {
@@ -329,6 +339,18 @@ a:hover {
   }
   #check:checked ~ ul {
     left: 0;
+  }
+}
+@media (max-width: 860px) {
+  .search-area {
+    display: inline-block;
+    width: 80%;
+  }
+  .search-area input {
+    width: 80%;
+  }
+  .search-area select {
+    width: 95%;
   }
 }
 
