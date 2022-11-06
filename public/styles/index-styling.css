@@ -133,7 +133,7 @@ a:hover {
 
 .search-area input {
   background: transparent;
-  flex: 1;
+  /* flex: 1; */
   border: 0;
   outline: none;
   padding: 24px 30px;
@@ -146,7 +146,7 @@ a:hover {
 }
 .search-area select {
   background: transparent;
-  flex: 1;
+  /* flex: 1; */
   border-color: rgba(255, 255, 255, 0.5);
   scroll-behavior: smooth;
   padding: 24px 20px;
@@ -285,6 +285,10 @@ a:hover {
   font-size: 0.9rem;
 }
 
+.no-scrolling {
+  overflow: hidden;
+}
+
 @media (max-width: 952px) {
   .nav__logo {
     height: 75px;
@@ -300,6 +304,7 @@ a:hover {
     display: block;
   }
   ul {
+    z-index: 1;
     position: fixed;
     width: 100%;
     height: 100vh;

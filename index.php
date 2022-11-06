@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <script src="" defer></script>
+    <script src="./public/src/js/index-controller.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./public/resources/favicon/the-icon.ico" />
   </head>
@@ -110,7 +110,7 @@
         <div id="info-icon">
             <i class="fa-solid fa-circle-info"></i>
         </div>
-        <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming"</h2>
+        <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming" of Uom</h2>
         <h3><a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/">Dionisios Lougaris</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/">Georgios Stefou</a>, <a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/">Minas-Theodoros Charakopoulos</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/">Panagiotis Machairas</a></h3>
     </div>
     <footer class="footer">
