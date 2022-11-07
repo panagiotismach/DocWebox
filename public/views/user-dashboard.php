@@ -53,8 +53,8 @@
       </nav>
     </header>
     <div class="container">
-      <h1>Welcome to DocWebox, the place where you find your doctor!</h1>
-      <h3>Book an appointment with 3 clicks</h3>
+      <h1>Welcome back {Name}!</h1>
+      <h3>Search for your doctor</h3>
       <form action="" class="search-area">
         <select id="Doc-Specialities" name="Doc-Specialities">
           <option value="None">Choose Doctor Specialization</option>
@@ -83,10 +83,10 @@
         <input type="text" placeholder="Location" name="location" />
         <button type="submit"><img src="../../public/resources/images/search.png" /></button>
       </form>
+      <div class="container-calendar">
+        <div id="calendar"></div>
+      </div>
     </div>
-    <section class="container-calendar">
-      <div id="calendar"></div>
-    </section>
     <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">

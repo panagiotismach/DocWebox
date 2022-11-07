@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+}
+
+body {
+  background-color: white;
+}
+
+.row {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.btns {
+  color: white;
+  width: 100%;
+}
+
+.btns:hover {
+  background-color: rgba(128, 0, 0, 0.6);
+}
+
+.doctor-c {
+  background-color: #ff9999;
+}
+
+#patient-c {
+  background-color: #bef2ec;
+}
+
+.section-img {
+  background-color: #ff9999;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#patient-first-btn {
+  border: none;
+  background-color: #1fa496;
+}
+
+.patient-second-btn {
+  background-color: white;
+  color: #1fa496;
+  border-color: #1fa496;
+}
+
+.patient-second-btn:hover {
+  background-color: rgba(31, 164, 150, 0.6);
+}
+
+.section-form {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+
+hr {
+  width: 80px;
+}
+
+.header {
+  text-align: center;
+}
+
+img {
+  width: 50%;
+}
+
+#back-home-patient {
+  color: #1fa496;
+}
+
+#back-home-doctor {
+  color: #800000;
+}
+
+#doctor-first-btn {
+  border: none;
+  background-color: #800000;
+}
+
+#doctor-second-btn {
+  background-color: white;
+  color: #800000;
+  border-color: #800000;
+}
+
+.text {
+  text-align: center;
+}
