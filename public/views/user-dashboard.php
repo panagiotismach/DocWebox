@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="../styles/user-dashboard.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const calendar = $("#calendar").fullCalendar({
+          editable: true,
+          header: {
+            left: "prev,next today",
+            center: "title",
+            right: "month,agendaWeek,agendaDay",
+          },
+          // events: "load.php",
+        });
+      });
+    </script>
     <script src="../src/js/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../resources/favicon/the-icon.ico" />
@@ -66,6 +84,9 @@
         <button type="submit"><img src="../../public/resources/images/search.png" /></button>
       </form>
     </div>
+    <section class="container-calendar">
+      <div id="calendar"></div>
+    </section>
     <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">
