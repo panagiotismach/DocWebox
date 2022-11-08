@@ -3,9 +3,9 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Split Screen</title>
+      <title>DocWebox - Find your Doctor!</title>
       <link rel="stylesheet" href="../styles/normalise.css">
-      <link rel="stylesheet" href="../styles/login.css">
+      <link rel="stylesheet" href="../styles/middle-login-register.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 

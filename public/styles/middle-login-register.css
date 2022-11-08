@@ -2,7 +2,7 @@ body {
   font-family: "Montserrat";
 }
 header {
-  background: #bef2ec;
+  background: #d6dfed;
 }
 
 .nav__logo {
@@ -101,7 +101,7 @@ header {
 }
 .footer {
   padding: 1rem 0.3rem;
-  background: #bef2ec;
+  background: #d6dfed;
   /* background-color: var(--color-secondary); */
 }
 
