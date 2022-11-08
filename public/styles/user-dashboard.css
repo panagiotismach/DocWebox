@@ -204,7 +204,7 @@ a:hover {
 
 .container h1 {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -212,7 +212,7 @@ a:hover {
 
 .container h3 {
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   padding-bottom: 30px;
 }
@@ -220,12 +220,12 @@ a:hover {
 .search-area {
   width: 100%;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   border-radius: 60px;
-  padding: 10px 20px;
+  padding: 5px 8px;
   backdrop-filter: blur(4px) saturate(180%);
 }
 
@@ -234,8 +234,8 @@ a:hover {
   flex: 1;
   border: 0;
   outline: none;
-  padding: 24px 20px;
-  font-size: 20px;
+  padding: 5px 5px;
+  font-size: 14px;
   color: var(--color-primary);
 }
 
@@ -247,8 +247,8 @@ a:hover {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.5);
   scroll-behavior: smooth;
-  padding: 24px 20px;
-  font-size: 20px;
+  padding: 5px 5px;
+  font-size: 14px;
   color: var(--color-primary);
 }
 
@@ -259,8 +259,8 @@ a:hover {
 .search-area button {
   border: 0;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 40px;
   background: var(--color-third);
   cursor: pointer;
   /* float: right; */
@@ -272,5 +272,5 @@ a:hover {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 35%;
 }
