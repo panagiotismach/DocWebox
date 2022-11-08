@@ -1,0 +1,276 @@
+:root {
+  --color-primary: #2a4078;
+  --color-secondary: #d6dfed;
+  --color-third: #4dd2c4;
+  --color-fourth: #1fa496;
+  --color-fifth: #063e37;
+  --color-sixth: #bef2ec;
+  --color-primary-gradient: #2a407897;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+  min-height: 100vh;
+  width: 100%;
+}
+
+.header-nav {
+  background: var(--color-sixth);
+  height: 70px;
+  width: 100%;
+}
+.header-nav ul {
+  float: right;
+  margin-right: 200px;
+}
+.header-nav ul li {
+  display: inline-block;
+  line-height: 70px;
+  margin: 0 5px;
+}
+.header-nav ul li a {
+  color: var(--color-fifth);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+.nav__logo {
+  height: 70px;
+  margin-left: 200px;
+}
+a.active,
+a:hover {
+  background: var(--color-fourth);
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: var(--color-primary);
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+
+.footer {
+  padding: 1rem 0.2rem;
+  background-color: var(--color-sixth);
+}
+
+.footer__nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__item {
+  margin-right: 3rem;
+}
+
+.footer__link {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer__logo {
+  height: 6rem;
+  display: block;
+  margin: 0 auto;
+  /* margin-bottom: 5rem; */
+}
+
+.footer__copyright {
+  font-size: 0.6rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.footer__copyright .footer__link {
+  font-size: 0.7rem;
+}
+
+.no-scrolling {
+  overflow: hidden;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  background-color: var(--color-secondary);
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin-top: 5px;
+  resize: none;
+  color: var(--color-primary);
+}
+::placeholder {
+  color: var(--color-primary);
+}
+input[type="submit"] {
+  width: 100px;
+  background: var(--color-fourth);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type="submit"]:active {
+  opacity: 0.8;
+}
+#date,
+select {
+  color: var(--color-primary);
+}
+
+.bf-body-box {
+  padding: 20px;
+}
+.bf-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.bf-col-12 {
+  width: 100%;
+}
+
+.bf-col-3 {
+  width: 30%;
+}
+
+.bf-col-6 {
+  width: 48%;
+}
+
+.bf-head {
+  text-align: center;
+}
+
+.bf-head,
+.bf-footer {
+  background-color: white;
+  padding: 20px 10px;
+}
+.bf-footer p span {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+.bf-head p {
+  color: #115035;
+}
+.bf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 20px 16px;
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/book-now.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.bf-body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 600px;
+  background-color: white;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
+}
+.label {
+  color: var(--color-fourth);
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+#header-label {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 18px;
+  padding-top: 7px;
+}
+
+@media screen and (max-width: 600px) {
+  .bf-row {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .bf-col-12 {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .bf-col-3 {
+    padding: 10px 0;
+    width: 30%;
+  }
+
+  .bf-col-6 {
+    padding: 10px 0;
+    width: 100%;
+  }
+  .bf-container {
+    padding: 50px 16px;
+  }
+}
+
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+  .nav__logo {
+    margin-left: 20px;
+  }
+  .header-nav {
+    height: 80px;
+  }
+  .header-nav ul {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-fourth);
+    top: 70px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  .header-nav ul li {
+    display: block;
+    margin: 50px;
+    line-height: 30px;
+  }
+  .header-nav ul li a {
+    font-size: 20px;
+  }
+  .header-nav ul li a:hover,
+  .header-nav ul li a.active {
+    background: none;
+    color: var(--color-secondary);
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}

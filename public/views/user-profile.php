@@ -44,18 +44,7 @@
           <p>Thessaloniki</p>
           <p>+30 69********</p>
 
-          <!-- <ul class="about profile-ul">
-            <li><span>4,073</span>Followers</li>
-            <li><span>322</span>Following</li>
-            <li><span>200,543</span>Attraction</li>
-          </ul> -->
-
           <div class="content">
-            <!-- <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam
-              erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl
-              ligula egestas nulla.
-            </p> -->
 
             <ul class="profile-ul">
               <div class="icon">
@@ -79,14 +68,6 @@
             <button>Book an appointment</button>
           </nav>
 
-          <!-- <div class="photos">
-            <img src="img/img_1.avif" alt="Photo" />
-            <img src="img/img_2.avif" alt="Photo" />
-            <img src="img/img_3.avif" alt="Photo" />
-            <img src="img/img_4.avif" alt="Photo" />
-            <img src="img/img_5.avif" alt="Photo" />
-            <img src="img/img_6.avif" alt="Photo" />
-          </div> -->
           <div class="card-container">
             <div class="card">
               <h3>Appointment at {{Doctor Name}}</h3>
