@@ -10,7 +10,7 @@
     <body>
     <header>
       <nav>
-        <a href="/DocWebox/index.php"><img src="../resources/logos/logo-back-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
+        <a href="./login.php"><img src="../resources/logos/logo-back-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
       </nav>
     </header>
 
