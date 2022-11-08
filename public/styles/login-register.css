@@ -22,10 +22,6 @@ body {
   width: 100%;
 }
 
-.btns:hover {
-  background-color: rgba(128, 0, 0, 0.6);
-}
-
 .doctor-c {
   background-color: #ff9999;
 }
@@ -45,13 +41,14 @@ body {
   background-color: #1fa496;
 }
 
-.patient-second-btn {
+#patient-second-btn {
   background-color: white;
   color: #1fa496;
   border-color: #1fa496;
 }
 
-.patient-second-btn:hover {
+#patient-second-btn:hover,
+#patient-first-btn:hover {
   background-color: rgba(31, 164, 150, 0.6);
 }
 
@@ -83,6 +80,10 @@ img {
 #doctor-first-btn {
   border: none;
   background-color: #800000;
+}
+
+#doctor-second-btn:hover {
+  background-color: rgba(128, 0, 0, 0.6);
 }
 
 #doctor-second-btn {
