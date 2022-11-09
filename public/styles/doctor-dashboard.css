@@ -24,7 +24,7 @@ body {
 
 /* FOR FOOTER AND HEADER */
 nav {
-  background: var(--color-sixth);
+  background: var(--color-seventh);
   height: 70px;
   width: 100%;
 }
@@ -56,7 +56,7 @@ nav ul li a {
 
 a.active,
 a:hover {
-  background: var(--color-fourth);
+  background: var(--color-ninth);
   transition: 0.5s;
 }
 
@@ -82,7 +82,7 @@ a:hover {
 
 .footer {
   padding: 1rem 0.2rem;
-  background-color: var(--color-sixth);
+  background-color: var(--color-seventh);
 }
 
 .footer__nav {
@@ -166,7 +166,7 @@ a:hover {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: var(--color-fourth);
+    background: var(--color-ninth);
     top: 70px;
     left: -100%;
     text-align: center;
@@ -218,9 +218,10 @@ a:hover {
   background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background.jpg);
   background-position: center;
   background-size: cover;
+  padding-bottom: 40px;
   /* display: flex; */
   /* align-items: center;
-  justify-content: center; */
+    justify-content: center; */
 }
 
 .main-container h1 {
