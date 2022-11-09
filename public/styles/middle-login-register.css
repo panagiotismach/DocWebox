@@ -1,0 +1,141 @@
+body {
+  font-family: "Montserrat";
+}
+header {
+  background: #d6dfed;
+}
+
+.nav__logo {
+  height: 90px;
+  padding-left: 50px;
+}
+
+.wrapper .left,
+.wrapper .right {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.25s ease all;
+}
+
+.patient {
+  background: url("../resources/images/patient-bg.jpg");
+}
+
+.doctor {
+  background: url("../resources/images/doctor-bg.jpg");
+}
+
+.wrapper .caption {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+}
+
+.wrapper .caption h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1em;
+}
+
+#patient-button {
+  background: #4dd2c4;
+  color: #fff;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.25s ease all;
+}
+#doctor-button {
+  background: #c23f3f;
+  color: #fff;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.25s ease all;
+}
+.block {
+  margin-bottom: 5rem;
+}
+
+.wrapper .caption .button:hover {
+  opacity: 0.8;
+}
+
+.wrapper .side::before {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6979166666666667) 0%, rgba(0, 0, 0, 0.2721463585434174) 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+  display: block;
+}
+
+.wrapper .left:hover .image,
+.wrapper .right:hover .image {
+  transform: scale(1.2);
+}
+.footer {
+  padding: 1rem 0.3rem;
+  background: #d6dfed;
+  /* background-color: var(--color-secondary); */
+}
+
+.footer__link {
+  font-size: 1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer__logo {
+  height: 7rem;
+  display: block;
+  margin: 0 auto;
+  /* margin-bottom: 5rem; */
+}
+
+.footer__copyright {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.footer__copyright .footer__link {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    display: flex;
+  }
+
+  .wrapper .left,
+  .wrapper .right {
+    width: 50%;
+    height: 100vh;
+  }
+}

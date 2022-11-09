@@ -7,9 +7,18 @@
 .container {
   box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
 }
-
 body {
+  font-family: "Montserrat";
   background-color: white;
+}
+header {
+  background: #d6dfed;
+}
+
+.nav__logo {
+  height: 90px;
+  width: auto;
+  padding-left: 50px;
 }
 
 .row {
@@ -94,4 +103,34 @@ img {
 
 .text {
   text-align: center;
+}
+
+.footer {
+  padding: 2rem 0.5rem;
+  background: #d6dfed;
+  /* background-color: var(--color-secondary); */
+}
+
+.footer__link {
+  font-size: 1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer__logo {
+  height: 7rem;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  /* margin-bottom: 5rem; */
+}
+
+.footer__copyright {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.footer__copyright .footer__link {
+  font-size: 0.8rem;
 }

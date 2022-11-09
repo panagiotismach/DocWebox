@@ -190,7 +190,7 @@ a:hover {
   }
 }
 
-.container {
+.main-container {
   width: 100%;
   min-height: 600px;
   padding: 2%;
@@ -202,17 +202,17 @@ a:hover {
   justify-content: center; */
 }
 
-.container h1 {
+.main-container h1 {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
-.container h3 {
+.main-container h3 {
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   padding-bottom: 30px;
 }
@@ -220,12 +220,12 @@ a:hover {
 .search-area {
   width: 100%;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   border-radius: 60px;
-  padding: 10px 20px;
+  padding: 5px 8px;
   backdrop-filter: blur(4px) saturate(180%);
 }
 
@@ -234,8 +234,8 @@ a:hover {
   flex: 1;
   border: 0;
   outline: none;
-  padding: 24px 20px;
-  font-size: 20px;
+  padding: 5px 5px;
+  font-size: 14px;
   color: var(--color-primary);
 }
 
@@ -247,8 +247,8 @@ a:hover {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.5);
   scroll-behavior: smooth;
-  padding: 24px 20px;
-  font-size: 20px;
+  padding: 5px 5px;
+  font-size: 14px;
   color: var(--color-primary);
 }
 
@@ -259,18 +259,51 @@ a:hover {
 .search-area button {
   border: 0;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 40px;
   background: var(--color-third);
   cursor: pointer;
   /* float: right; */
 }
 
+.previous-doctors__container h3 {
+  font-size: 25px;
+  padding: 0;
+  margin-bottom: 20px;
+  color: white;
+}
+
 /* FOR CALENDAR */
 .container-calendar {
-  margin-top: 120px;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  width: 35%;
+}
+
+.wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  column-gap: 100px;
+}
+
+.list-group-item {
+  max-width: 400px;
+  padding: 20px 30px;
+}
+
+.mb-1 {
+  max-width: 350px;
+  word-wrap: break-word !important;
+}
+
+.list-group {
+  max-width: 400px;
+}
+
+.pages-container {
+  background-color: white;
+}
+
+#calendar h2 {
+  color: white;
+  font-size: 25px;
 }

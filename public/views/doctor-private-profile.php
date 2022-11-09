@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>DocWebox - Find your Doctor!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../styles/doctor-profile.css" />
+    <link rel="stylesheet" href="../styles/doctor-private-profile.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="../src/js/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
