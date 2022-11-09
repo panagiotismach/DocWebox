@@ -1,6 +1,6 @@
 <?php
 
-    require_once "../../../db/connect.php";
+    require_once "../../../db/configuration/connect.php";
     include_once "../scripts/services/doctorService.php";
 
     
@@ -12,6 +12,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
+        
 
     
         
@@ -26,4 +27,6 @@
     }
 
     $mysqli->close();
+
+
 ?>
