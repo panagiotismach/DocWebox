@@ -1,3 +1,9 @@
+<?php
+
+  require_once "./src/scripts/configuration/init.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
