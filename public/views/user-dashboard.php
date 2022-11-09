@@ -11,9 +11,10 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="../styles/user-dashboard.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -95,7 +96,7 @@
           <div id="calendar"></div>
         </div>
         <div class="previous-doctors__container">
-          <h3>Looking for familiar doctors?</h3>
+          <h3>Doctors from previous appointments</h3>
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
@@ -135,6 +136,26 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="external-container">
+    <div class="doctor-search-container">
+      <h2>Are you trying to find a specific Doctor?</h2>
+      <div class="doctor-search-box">
+        <input type="text" class="search-doctor" placeholder="Type your Doctor's name..."/>
+        <button type="submit" class="doctor-search-btn"><i class="fa fa-search"></i></button>
+      </div>
+      <p>Results that match your search:</p>
+      <div class="card-container">
+            <div class="card">
+              <h3>{{Doctor Name}}</h3>
+              <p>{{Doctor Phone}} {{Doctor Address}}</p>
+            </div>
+            <div class="card">
+              <h3>{{Doctor Name}}</h3>
+              <p>{{Doctor Phone}} {{Doctor Address}}</p>
+            </div>
+      </div>
+    </div>
     </div>
     <footer class="footer">
       <ul class="footer__nav">

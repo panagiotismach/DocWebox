@@ -5,9 +5,11 @@
   --color-fourth: #1fa496;
   --color-fifth: #063e37;
   --color-sixth: #bef2ec;
+  --color-seventh: #fab9b9;
+  --color-eighth: #800000;
+  --color-ninth: #c23f3f;
   --color-primary-gradient: #2a407897;
 }
-
 * {
   padding: 0;
   margin: 0;
@@ -44,6 +46,7 @@ nav ul li a {
   font-weight: 600;
   padding: 7px 13px;
   border-radius: 3px;
+  text-decoration: none;
 }
 
 .nav__logo {
@@ -120,16 +123,33 @@ a:hover {
   overflow: hidden;
 }
 
-/* @media (max-width: 952px) {
-  .nav__logo {
-    height: 75px;
-    padding-left: 50px;
-    padding-top: 10px;
+@media (max-width: 993px) {
+  .doctor-search-container {
+    width: 80% !important;
+    max-width: 100%;
   }
-  nav ul li a {
-    font-size: 16px;
+}
+@media (max-width: 1100px) {
+  .wrapper {
+    flex-direction: column;
+    display: flex;
   }
-} */
+  .container-calendar {
+    width: 90% !important;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .previous-doctors__container {
+    width: 70% !important;
+    margin: 0 auto !important;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+}
 
 @media (max-width: 858px) {
   .checkbtn {
@@ -141,7 +161,7 @@ a:hover {
   }
 
   ul {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -275,7 +295,7 @@ a:hover {
 
 /* FOR CALENDAR */
 .container-calendar {
-  width: 35%;
+  width: 40%;
 }
 
 .wrapper {
@@ -297,6 +317,7 @@ a:hover {
 
 .list-group {
   max-width: 400px;
+  margin: 0 auto !important;
 }
 
 .pages-container {
@@ -306,4 +327,77 @@ a:hover {
 #calendar h2 {
   color: white;
   font-size: 25px;
+}
+.external-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.doctor-search-container {
+  width: 45%;
+  padding: 50px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+}
+.doctor-search-box {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.search-doctor {
+  width: 100%;
+  border: 3px solid var(--color-fourth);
+  padding: 5px;
+  height: 36px;
+  outline: none;
+  color: grey;
+}
+.search-doctor:focus {
+  color: black;
+  box-shadow: 0 0 5px var(--color-fourth);
+}
+.doctor-search-btn {
+  width: 40px;
+  height: 36px;
+  border: 1px solid var(--color-fourth);
+  background: var(--color-fourth);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.doctor-search-container h2 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.doctor-search-container p {
+  margin-top: 5px;
+  color: var(--color-fourth);
+}
+.card-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.card-container .card {
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.card-container h3 {
+  color: var(--color-primary);
+  font-size: 18px;
+}
+.card-container p {
+  color: var(--color-primary);
+  font-size: 12px;
+  margin: 0px;
 }
