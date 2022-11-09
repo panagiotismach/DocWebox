@@ -63,7 +63,8 @@ CREATE TABLE `doctor` (
   `password` varchar(50) NOT NULL,
   `specialization` varchar(255) NOT NULL,
   `vat` varchar(40) NOT NULL,
-  `location` varchar(255) NOT NULL
+  `location` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,7 +79,8 @@ CREATE TABLE `patient` (
   `lastname` varchar(40) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
