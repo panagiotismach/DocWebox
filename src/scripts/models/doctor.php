@@ -5,6 +5,7 @@
 // `username` varchar(20) NOT NULL,
 // `email` varchar(255) NOT NULL,
 // `password` varchar(50) NOT NULL,
+// `phone` varchar(50) NOT NULL,
 // `specialization` varchar(255) NOT NULL,
 // `vat` varchar(40) NOT NULL,
 // `location` varchar(255) NOT NULL
@@ -23,13 +24,14 @@ class Doctor {
     public $location;
     public $image;
 
-    public function __construct($id, $firstname, $lastname, $username, $email, $password, $specialization, $vat, $location, $image){
+    public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $location, $image){
         $this->id = $id;
         $this->firstname = $teamfirstnameid;
         $this->lastname = $lastname;
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
+        $this->phone = $phone;
         $this->specialization = $specialization;
         $this->vat = $vat;
         $this->location = $location;
