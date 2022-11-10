@@ -139,7 +139,7 @@
     </div>
     <div class="external-container">
     <div class="doctor-search-container">
-      <h2>Are you trying to find a specific Doctor?</h2>
+      <h2>Is your doctor on DocWebox?</h2>
       <div class="doctor-search-box">
         <input type="text" class="search-doctor" placeholder="Type your Doctor's name..."/>
         <button type="submit" class="doctor-search-btn"><i class="fa fa-search"></i></button>
