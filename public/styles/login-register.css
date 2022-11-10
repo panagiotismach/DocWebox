@@ -91,6 +91,7 @@ img {
   background-color: #800000;
 }
 
+#doctor-first-btn:hover,
 #doctor-second-btn:hover {
   background-color: rgba(128, 0, 0, 0.6);
 }

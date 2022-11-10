@@ -165,49 +165,49 @@
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="firstname">Firstname*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($firstnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" placeholder="Firstname" name="firstname" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($firstnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" placeholder="Firstname" name="firstname" autocomplete="on" required autofocus>
                     <span class="invalid-feedback"><?php echo $firstnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="lastname">Lastname*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($lastnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $lastname; ?>" placeholder="Lastname" name="lastname" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($lastnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $lastname; ?>" placeholder="Lastname" name="lastname" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $lastnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="username">Username*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($usernameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username" name="username" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($usernameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username" name="username" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $usernameErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                    <div class="col-lg-7">
                     <label class="form-label" for="email">Email*</label>
-                    <input type="email" class="form-control my-2 p-2 <?php echo (!empty($emailErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" placeholder="Email" name="email" autocomplete="on">
+                    <input type="email" class="form-control my-2 p-2 <?php echo (!empty($emailErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" placeholder="Email" name="email" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $emailErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                    <label class="form-label" for="phone">Phone number*</label>
-                   <input type="phone" class="form-control my-2 p-2 <?php echo (!empty($phoneErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>" placeholder="Phone" name="phone" autocomplete="on">
+                   <input type="tel" class="form-control my-2 p-2 <?php echo (!empty($phoneErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>" placeholder="Phone" name="phone" autocomplete="on" required>
                    <span class="invalid-feedback"><?php echo $phoneErr; ?></span>
                  </div>
                </div>
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="password">Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($passwordErr)) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" >
+                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($passwordErr)) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" required>
                     <span class="invalid-feedback"><?php echo $passwordErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="confirm-password">Confirm Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>" placeholder="Confirm Password" name="confirm-password" >
+                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>" placeholder="Confirm Password" name="confirm-password" required>
                     <span class="invalid-feedback"><?php echo $confirmPasswordErr; ?></span>
                   </div>
                 </div>

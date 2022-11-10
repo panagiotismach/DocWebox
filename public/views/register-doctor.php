@@ -26,32 +26,50 @@
                 <h4 class="font-weigth-bold header">Glad to have you on board Doc!</h4>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                    <label class="form-label">Firstname</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Firstname">
+                    <label class="form-label" for="firstname">Firstname*</label>
+                    <input type="text" class="form-control my-2 p-2" placeholder="Firstname" name="firstname" autofocus autocomplete="on">
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                    <label class="form-label">Lastname</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Lastname">
+                    <label class="form-label" for="lastname">Lastname*</label>
+                    <input type="text" class="form-control my-2 p-2" placeholder="Lastname" name="lastname" autocomplete="on">
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Username">
+                    <label class="form-label" for="username">Username*</label>
+                    <input type="text" class="form-control my-2 p-2" placeholder="Username" name="username" autocomplete="on">
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                    <div class="col-lg-7">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control my-2 p-2" placeholder="Email">
+                    <label class="form-label" for="email">Email*</label>
+                    <input type="email" class="form-control my-2 p-2" placeholder="Email" name="email" autocomplete="on">
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control my-2 p-2" placeholder="Password">
+                   <label class="form-label" for="phone">Phone number*</label>
+                   <input type="tel" class="form-control my-2 p-2" placeholder="Phone" name="phone" autocomplete="on">
+                 </div>
+               </div>
+               <div class="form-row d-flex justify-content-center align-items-center">
+                <div class="col-lg-7">
+                 <label class="form-label" for="vat">VAT number*</label>
+                 <input type="text" class="form-control my-2 p-2" placeholder="Vat" name="vat">
+                </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7">
+                    <label class="form-label" for="password">Password*</label>
+                    <input type="password" class="form-control my-2 p-2" placeholder="Password" name="password">
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7">
+                    <label class="form-label" for="confirm-password">Confirm Password*</label>
+                    <input type="password" class="form-control my-2 p-2" placeholder="Password" name="confirm-password">
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
