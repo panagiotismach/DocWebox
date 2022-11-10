@@ -1,7 +1,7 @@
 <?php
 
-    require_once "../../../db/configuration/connect.php";
-    include_once "../scripts/services/doctorService.php";
+    require_once "../../db/connect.php";
+    include_once "../../scripts/services/doctorService.php";
 
     
     
@@ -14,10 +14,14 @@
         $data = null;
         
 
-    
+      
         
-        if($id){
-            $data = $doctorService->findDoctorById($id);
+        $lastname = $_GET["lastname"];
+        
+        
+
+        if($lastname){
+            $data = $doctorService->findDoctorByLastname($lastname);
         }
 
         
