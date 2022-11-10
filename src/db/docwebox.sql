@@ -85,7 +85,7 @@ CREATE TABLE `patient` (
   `email` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NOT NULL,
   `created` DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

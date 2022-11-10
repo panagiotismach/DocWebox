@@ -1,9 +1,9 @@
 
 <?php 
     
-    require("../models/doctor.php");
+    require("../models/patient.php");
         
-    class DoctorService {
+    class PatientService {
 
         
         private $table;
@@ -15,52 +15,52 @@
             $this->mysqli = $mysqliConnection;
         }
 
-        public function findDoctorById($id){
-            $doctor = null;
+        public function findPatientById($id){
+            $patient = null;
             try {
                 $sql = "SELECT * FROM `$this->table` WHERE `id` = $id";
                 $result = $this->mysqli->query($sql);
                 $row = $result->fetch_assoc();
                 if($result->num_rows > 0){
-                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["location"], $row["image"]);
+                    $patient = new Patient($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["image"],$row["created"]);
                 }
             }catch(Exception $error){
                 echo 'Error Message: ' .$error->getMessage();
             } 
-            return $doctor;
+            return $patient;
         }
 
-        public function findDoctorByFirstname($firstname){
-            $doctor = null;
+        public function findPatientByFirstname($firstname){
+            $patient = null;
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `firstname` = '$firstname'";
                 $result = $this->mysqli->query($sql);
                 $row = $result->fetch_assoc();
                 if($result->num_rows > 0){
-                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"],  $row["specialization"], $row["vat"], $row["location"], $row["image"]);
+                    $patient = new Patient($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["image"],$row["created"]);
                 }
             }catch(Exception $e){
                 echo 'Message: ' .$e->getMessage();
             }
 
-            return $doctor;
+            return $patient;
    
         }
 
-        public function findDoctorByLastname($lastname){
-            $doctor = null;
+        public function findPatientByLastname($lastname){
+            $patient = null;
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `lastname` = '$lastname'";
                 $result = $this->mysqli->query($sql);
                 $row = $result->fetch_assoc();
                 if($result->num_rows > 0){
-                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["location"], $row["image"]);
+                    $patient = new Patient($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["image"],$row["created"]);
                 }
             }catch(Exception $e){
                 echo 'Message: ' .$e->getMessage();
             }
 
-            return $doctor;
+            return $patient;
    
         }
     }

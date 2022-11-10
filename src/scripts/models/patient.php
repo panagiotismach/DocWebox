@@ -21,7 +21,7 @@ class Patient {
 
     public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $image){
         $this->id = $id;
-        $this->firstname = $teamfirstnameid;
+        $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;
         $this->email = $email;
