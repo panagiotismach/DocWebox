@@ -43,72 +43,95 @@
           // Prepare a select statement
           $sql = "SELECT id FROM patient WHERE username = ?";
           
-          if($stmt = $mysqli->prepare($sql)) {
+          if($stmt_username = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $username);
+            $stmt_username->bind_param("s", $username);
                                           
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
+            if($stmt_username->execute()){
               // store result
-              $stmt->store_result();
+              $stmt_username->store_result();
                               
-              if($stmt->num_rows == 1){
+              if($stmt_username->num_rows == 1) {
                 $usernameErr = "Username not available!";
               } else {
 
-                // Validate password
-                if(empty(trim($_POST["password"]))){
-                    $passwordErr = "Please enter a password.";     
-                } else if(strlen(trim($_POST["password"])) < 8){
-                    $passwordErr = "Password must have at least 8 characters.";
-                } else {
-                    $password = trim($_POST["password"]);
-                }
+                // Prepare a select statement
+                $sql = "SELECT id FROM patient WHERE email = ?";
 
-                // Validate confirm password
-                if(empty(trim($_POST["confirm-password"]))){
-                    $confirmPasswordErr = "Please confirm password.";     
-                } else {
-                    $confirmPassword = trim($_POST["confirm-password"]);
-                    if(empty($passwordErr) && ($password != $confirmPassword)){
-                        $confirmPasswordErr = "Password did not match.";
+                if ($stmt_email = $mysqli->prepare($sql)) {
+                  // Bind variables to the prepared statement as parameters
+                  $stmt_email->bind_param("s", $email);
+
+                  // Attempt to execute the prepared statement
+                  if($stmt_email->execute()){
+                    // store result
+                    $stmt_email->store_result();
+                                    
+                    if($stmt_email->num_rows == 1) {
+                      $emailErr = "Email not available!";
+                    } else {
+
+                      // Validate password
+                      if(empty(trim($_POST["password"]))){
+                          $passwordErr = "Please enter a password.";     
+                      } else if(strlen(trim($_POST["password"])) < 8){
+                          $passwordErr = "Password must have at least 8 characters.";
+                      } else {
+                          $password = trim($_POST["password"]);
+                      }
+
+                      // Validate confirm password
+                      if(empty(trim($_POST["confirm-password"]))){
+                          $confirmPasswordErr = "Please confirm password.";     
+                      } else {
+                        $confirmPassword = trim($_POST["confirm-password"]);
+                        if(empty($passwordErr) && ($password != $confirmPassword)){
+                            $confirmPasswordErr = "Password did not match.";
+                        }
+                      }
+
+                      if(empty($passwordErr) && empty($confirmPasswordErr)){
+
+                        // Prepare an insert statement
+                        $sql = "INSERT INTO patient (firstname, lastname, username, email, password, phone) VALUES (?, ?, ?, ?, ?, ?)";
+                        if($stmt = $mysqli->prepare($sql)){
+                          // Bind variables to the prepared statement as parameters
+                          $stmt->bind_param("ssssss", $firstname, $lastname, $param_username, $email, $param_password, $phone);
+                          
+                          // Set parameters
+                          $param_username = $username;
+                          $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+                          
+                          // Attempt to execute the prepared statement
+                          if($stmt->execute()){
+                              // Redirect to login page
+                              header("location: login-patient.php");
+                          } else{
+                              echo "Oops! Something went wrong. Please try again later.";
+                          }
+          
+                          // Close statement
+                          $stmt->close();
+                        }
+                      }
+
+                      // Close connection
+                      $mysqli->close();
                     }
-                }
-
-                if(empty($passwordErr) && empty($confirmPasswordErr)){
-
-                  // Prepare an insert statement
-                  $sql = "INSERT INTO patient (firstname, lastname, username, email, password, phone) VALUES (?, ?, ?, ?, ?, ?)";
-                  if($stmt = $mysqli->prepare($sql)){
-                    // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param("ssssss", $firstname, $lastname, $param_username, $email, $param_password, $phone);
-                    
-                    // Set parameters
-                    $param_username = $username;
-                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-                    
-                    // Attempt to execute the prepared statement
-                    if($stmt->execute()){
-                        // Redirect to login page
-                        header("location: login-patient.php");
-                    } else{
-                        echo "Oops! Something went wrong. Please try again later.";
-                    }
-    
-                    // Close statement
-                    $stmt->close();
+                  } else {
+                    echo "Oops! Something went wrong. Please try again later.";
                   }
+                  // Close statement
+                  $stmt_email->close();
                 } 
-            
-                // Close connection
-                $mysqli->close();
               }
             }
           } else {
               echo "Oops! Something went wrong. Please try again later.";
           }
           // Close statement
-          $stmt->close();
+          $stmt_username->close();
        }
     }
 ?>
