@@ -30,10 +30,10 @@
             return $data;
         }
 
-        public function findDoctorAppointments($id){
+        public function findPatientAppointments($id){
             $data = array();
             try {
-                $sql = "SELECT * FROM `$this->table` WHERE `doctor_id` = $id";   
+                $sql = "SELECT * FROM `$this->table` WHERE `patient_id` = $id";   
                 $result = $this->mysqli->query($sql);
                 while($row = $result->fetch_assoc()) {
                     $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"]);

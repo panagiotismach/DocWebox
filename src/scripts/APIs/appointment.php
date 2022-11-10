@@ -9,10 +9,10 @@
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
         
-        $doctor_id = $_GET["doctor_id"]
+        $patient_id = $_GET["patient_id"];
 
         
-            $data = $appointmentService->findDoctorAppointments($doctor_id);
+        $data = $appointmentService->findDoctorAppointments($patient_id);
         
 
         
