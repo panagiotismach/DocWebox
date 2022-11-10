@@ -3,8 +3,8 @@
     require "../../src/db/connect.php";
 
     // Define variables and initialize with empty values
-    $firstname = $lastname = $username = $email = $phone = $password = $confirmPassword =  "";
-    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirmPasswordErr =  "";
+    $firstname = $lastname = $username = $email = $phone = $password = $confirmPassword = "";
+    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirmPasswordErr = "";
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -14,29 +14,28 @@
         $email = trim($_POST["email"]);
         $phone = $_POST["phone"];
 
-        // Validate username
         if (empty(trim($_POST["firstname"]))){
-            $firstnameErr = "Please enter a Firstname.";
+          $firstnameErr = "Please enter a Firstname.";
         } 
 
         if (empty(trim($_POST["lastname"]))){
-            $lastnameErr = "Please enter a Lastname.";
+          $lastnameErr = "Please enter a Lastname.";
         }
 
         if (empty(trim($_POST["username"]))){
-            $usernameErr = "Please enter a username.";
+          $usernameErr = "Please enter a username.";
         } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-            $usernameErr = "Username can only contain letters, numbers, and underscores.";
+          $usernameErr = "Username can only contain letters, numbers, and underscores.";
         } 
         
         if (empty(trim($_POST["email"]))) {
-            $emailErr = "Please enter a email.";
+          $emailErr = "Please enter a email.";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email address format!";
+          $emailErr = "Invalid email address format!";
         }  
         
         if (empty(trim($_POST["phone"]))) {
-            $phoneErr = "Please enter a phone.";
+          $phoneErr = "Please enter a phone.";
         }
 
         if (empty($firstnameErr) && empty($lastnameErr) && empty($usernameErr) && empty($emailErr) && empty($phoneErr)) {
