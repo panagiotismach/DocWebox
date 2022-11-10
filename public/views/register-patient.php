@@ -97,10 +97,8 @@
                         $sql = "INSERT INTO patient (firstname, lastname, username, email, password, phone) VALUES (?, ?, ?, ?, ?, ?)";
                         if($stmt = $mysqli->prepare($sql)){
                           // Bind variables to the prepared statement as parameters
-                          $stmt->bind_param("ssssss", $firstname, $lastname, $param_username, $email, $param_password, $phone);
+                          $stmt->bind_param("ssssss", $firstname, $lastname, $username, $email, $param_password, $phone);
                           
-                          // Set parameters
-                          $param_username = $username;
                           $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                           
                           // Attempt to execute the prepared statement
