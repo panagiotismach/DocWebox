@@ -1,26 +1,19 @@
 <?php
 
     require_once "../../db/connect.php";
-    include_once "../../scripts/services/doctorService.php";
+    include_once "../../scripts/services/appointmentService.php";
 
-    
-    
     $mysqli->select_db("docwebox");
-    $doctorService = new DoctorService("doctor", $mysqli);
+    $appointmentService = new AppointmentService("appointment", $mysqli);
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
         
+        $doctor_id = $_GET["doctor_id"]
 
-      
         
-        $lastname = $_GET["lastname"];
+            $data = $appointmentService->findDoctorAppointments($doctor_id);
         
-        
-
-        if($lastname){
-            $data = $doctorService->findDoctorByLastname($lastname);
-        }
 
         
         header("Content-Type: application/json");

@@ -39,8 +39,8 @@
                 if($result->num_rows > 0){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"],  $row["specialization"], $row["vat"], $row["location"], $row["image"]);
                 }
-            }catch(Exception $e){
-                echo 'Message: ' .$e->getMessage();
+            }catch(Exception $error){
+                echo 'Message: ' .$error->getMessage();
             }
 
             return $doctor;
@@ -56,7 +56,7 @@
                 if($result->num_rows > 0){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["location"], $row["image"]);
                 }
-            }catch(Exception $e){
+            }catch(Exception $error){
                 echo 'Message: ' .$e->getMessage();
             }
 
