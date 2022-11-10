@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Βάση δεδομένων: `docwebox`
@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
-  `password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(40) NOT NULL,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -40,13 +41,14 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `appointment` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `doctor_id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
   `date` varchar(50) NOT NULL,
   `time` varchar(20) NOT NULL,
-  `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` varchar(255) NOT NULL,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,7 @@ CREATE TABLE `appointment` (
 --
 
 CREATE TABLE `doctor` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `firstname` varchar(40) NOT NULL,
   `lastname` varchar(40) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -65,8 +67,9 @@ CREATE TABLE `doctor` (
   `specialization` varchar(255) NOT NULL,
   `vat` varchar(40) NOT NULL,
   `location` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) NOT NULL,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,7 +78,7 @@ CREATE TABLE `doctor` (
 --
 
 CREATE TABLE `patient` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `firstname` varchar(40) NOT NULL,
   `lastname` varchar(40) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -83,7 +86,8 @@ CREATE TABLE `patient` (
   `password` varchar(50) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Ευρετήρια για άχρηστους πίνακες
