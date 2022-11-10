@@ -52,7 +52,7 @@
               $stmt_username->store_result();
                               
               if($stmt_username->num_rows == 1) {
-                $usernameErr = "Username not available!";
+                $usernameErr = "Username already in use!";
               } else {
 
                 // Prepare a select statement
@@ -68,7 +68,7 @@
                     $stmt_email->store_result();
                                     
                     if($stmt_email->num_rows == 1) {
-                      $emailErr = "Email not available!";
+                      $emailErr = "Email already in use!";
                     } else {
 
                       // Validate password
@@ -197,14 +197,14 @@
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="password">Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($passwordErr)) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" required>
+                    <input type="password" class="form-control my-2 p-2" placeholder="Password" name="password" required>
                     <span class="invalid-feedback"><?php echo $passwordErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="confirm-password">Confirm Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>" placeholder="Confirm Password" name="confirm-password" required>
+                    <input type="password" class="form-control my-2 p-2" placeholder="Confirm Password" name="confirm-password" required>
                     <span class="invalid-feedback"><?php echo $confirmPasswordErr; ?></span>
                   </div>
                 </div>

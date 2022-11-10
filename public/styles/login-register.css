@@ -135,3 +135,7 @@ img {
 .footer__copyright .footer__link {
   font-size: 0.8rem;
 }
+
+.invalid-feedback {
+  display: block !important;
+}

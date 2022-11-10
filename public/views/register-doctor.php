@@ -62,7 +62,7 @@
               $stmt_username->store_result();
                               
               if($stmt_username->num_rows == 1) {
-                $usernameErr = "Username not available!";
+                $usernameErr = "Username already in use";
               } else {
 
                 // Prepare a select statement
@@ -78,7 +78,7 @@
                     $stmt_email->store_result();
                                     
                     if($stmt_email->num_rows == 1) {
-                      $emailErr = "Email not available!";
+                      $emailErr = "Email already in use";
                     } else {
 
                       // Validate password
@@ -172,42 +172,42 @@
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="firstname">Firstname*</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Firstname" name="firstname" autofocus autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($firstnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" placeholder="Firstname" name="firstname" autofocus autocomplete="on">
                     <span class="invalid-feedback"><?php echo $firstnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="lastname">Lastname*</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Lastname" name="lastname" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($lastnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $lastname; ?>" placeholder="Lastname" name="lastname" autocomplete="on">
                     <span class="invalid-feedback"><?php echo $lastnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="username">Username*</label>
-                    <input type="text" class="form-control my-2 p-2" placeholder="Username" name="username" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($usernameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username" name="username" autocomplete="on">
                     <span class="invalid-feedback"><?php echo $usernameErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                    <div class="col-lg-7">
                     <label class="form-label" for="email">Email*</label>
-                    <input type="email" class="form-control my-2 p-2" placeholder="Email" name="email" autocomplete="on">
+                    <input type="email" class="form-control my-2 p-2 <?php echo (!empty($emailErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" placeholder="Email" name="email" autocomplete="on">
                     <span class="invalid-feedback"><?php echo $emailErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                    <label class="form-label" for="phone">Phone number*</label>
-                   <input type="tel" class="form-control my-2 p-2" placeholder="Phone" name="phone" autocomplete="on">
+                   <input type="tel" class="form-control my-2 p-2 <?php echo (!empty($phoneErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>" placeholder="Phone" name="phone" autocomplete="on">
                    <span class="invalid-feedback"><?php echo $phoneErr; ?></span>
                  </div>
                </div>
                <div class="form-row d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
                  <label class="form-label" for="vat">VAT number*</label>
-                 <input type="text" class="form-control my-2 p-2" placeholder="Vat" name="vat">
+                 <input type="text" class="form-control my-2 p-2 <?php echo (!empty($vatErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $vat; ?>" placeholder="Vat" name="vat">
                  <span class="invalid-feedback"><?php echo $vatErr; ?></span>
                 </div>
                 </div>
@@ -227,32 +227,33 @@
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                     <div class="col-lg-7">
+                      <label class="form-label" for="specialization">Please, select your Specialization*</label>
                       <select id="Doc-Specialities" name="specialization">
-                        <option value="">Choose Doctor Specialization</option>
-                        <option value="General doctor">General doctor</option>
-                        <option value="Pathologist">Pathologist</option>
-                        <option value="Pediatrician">Pediatrician</option>
-                        <option value="Urologist andrologist">Urologist andrologist</option>
-                        <option value="Gynecologist">Gynecologist</option>
-                        <option value="Ophthalmologist">Ophthalmologist</option>
-                        <option value="General surgeon">General surgeon</option>
-                        <option value="Dental Surgeon">Dental Surgeon</option>
-                        <option value="Dentist">Dentist</option>
-                        <option value="Cardiologist">Cardiologist</option>
-                        <option value="Endocrinologist">Endocrinologist</option>
-                        <option value="Dermatologist-Venereologist">Dermatologist-Venereologist</option>
-                        <option value="Anesthetist">Anesthetist</option>
-                        <option value="Allergist">Allergist</option>
-                        <option value="Dietitian-Nutritionist">Dietitian-Nutritionist</option>
-                        <option value="Oncologist">Oncologist</option>
-                        <option value="Orthopedist">Orthopedist</option>
-                        <option value="Pulmonologist">Pulmonologist</option>
-                        <option value="Physiotherapist">Physiotherapist</option>
-                        <option value="Psychiatrist">Psychiatrist</option>
-                        <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
+                        <option <?php if ($specialization == "") { ?>selected="true" <?php }; ?> value="">Choose Doctor Specialization</option>
+                        <option <?php if ($specialization == "General doctor") { ?>selected="true" <?php }; ?> value="General doctor">General doctor</option>
+                        <option <?php if ($specialization == "Pathologist") { ?>selected="true" <?php }; ?> value="Pathologist">Pathologist</option>
+                        <option <?php if ($specialization == "Pediatrician") { ?>selected="true" <?php }; ?> value="Pediatrician">Pediatrician</option>
+                        <option <?php if ($specialization == "Urologist andrologist") { ?>selected="true" <?php }; ?> value="Urologist andrologist">Urologist andrologist</option>
+                        <option <?php if ($specialization == "Gynecologist") { ?>selected="true" <?php }; ?> value="Gynecologist">Gynecologist</option>
+                        <option <?php if ($specialization == "Ophthalmologist") { ?>selected="true" <?php }; ?> value="Ophthalmologist">Ophthalmologist</option>
+                        <option <?php if ($specialization == "General surgeon") { ?>selected="true" <?php }; ?> value="General surgeon">General surgeon</option>
+                        <option <?php if ($specialization == "Dental Surgeon") { ?>selected="true" <?php }; ?> value="Dental Surgeon">Dental Surgeon</option>
+                        <option <?php if ($specialization == "Dentist") { ?>selected="true" <?php }; ?> value="Dentist">Dentist</option>
+                        <option <?php if ($specialization == "Cardiologist") { ?>selected="true" <?php }; ?> value="Cardiologist">Cardiologist</option>
+                        <option <?php if ($specialization == "Endocrinologist") { ?>selected="true" <?php }; ?> value="Endocrinologist">Endocrinologist</option>
+                        <option <?php if ($specialization == "Dermatologist-Venereologist") { ?>selected="true" <?php }; ?> value="Dermatologist-Venereologist">Dermatologist-Venereologist</option>
+                        <option <?php if ($specialization == "Anesthetist") { ?>selected="true" <?php }; ?> value="Anesthetist">Anesthetist</option>
+                        <option <?php if ($specialization == "Allergist") { ?>selected="true" <?php }; ?> value="Allergist">Allergist</option>
+                        <option <?php if ($specialization == "Dietitian-Nutritionist") { ?>selected="true" <?php }; ?> value="Dietitian-Nutritionist">Dietitian-Nutritionist</option>
+                        <option <?php if ($specialization == "Oncologist") { ?>selected="true" <?php }; ?> value="Oncologist">Oncologist</option>
+                        <option <?php if ($specialization == "Orthopedist") { ?>selected="true" <?php }; ?> value="Orthopedist">Orthopedist</option>
+                        <option <?php if ($specialization == "Pulmonologist") { ?>selected="true" <?php }; ?> value="Pulmonologist">Pulmonologist</option>
+                        <option <?php if ($specialization == "Physiotherapist") { ?>selected="true" <?php }; ?> value="Physiotherapist">Physiotherapist</option>
+                        <option <?php if ($specialization == "Psychiatrist") { ?>selected="true" <?php }; ?> value="Psychiatrist">Psychiatrist</option>
+                        <option <?php if ($specialization == "Otorhinolaryngologist") { ?>selected="true" <?php }; ?> value="Otorhinolaryngologist">Otorhinolaryngologist</option>
                       </select>
+                        <span class="invalid-feedback"><?php echo $specializationErr; ?></span>
                     </div>
-                    <span class="invalid-feedback"><?php echo $specializationErr; ?></span>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
