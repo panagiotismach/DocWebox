@@ -14,16 +14,20 @@
 
       
         
-        $lastname = $_GET["lastname"];
-        
+        $specialization = $_GET["specialization"];
+        $location = $_GET["location"];
+
         
 
-        if($lastname){
-            $data = $doctorService->findDoctorByLastname($lastname);
+        if($specialization && $location){
+            $data = $doctorService->findAllDoctorsByLocationSpecialization($location,$specialization);
         }
 
+
+        
         
         header("Content-Type: application/json");
+        
         echo json_encode($data);
 
     }
