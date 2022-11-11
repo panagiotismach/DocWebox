@@ -55,7 +55,7 @@
             <a href="/DocWebox/public/views/user-profile.php">Profile</a>
           </li>
           <li>
-            <a href="/DocWebox/public">Logout ↪</a>
+            <a href="logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>
