@@ -10,31 +10,31 @@
 
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
-        $username = trim($_POST["username"]);
-        $email = trim($_POST["email"]);
+        $username = $_POST["username"];
+        $email = $_POST["email"];
         $phone = $_POST["phone"];
 
-        if (empty(trim($_POST["firstname"]))){
+        if (empty(trim($firstname))){
           $firstnameErr = "Please enter a Firstname.";
         } 
 
-        if (empty(trim($_POST["lastname"]))){
+        if (empty(trim($lastname))){
           $lastnameErr = "Please enter a Lastname.";
         }
 
-        if (empty(trim($_POST["username"]))){
+        if (empty(trim($username))){
           $usernameErr = "Please enter a username.";
         } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
           $usernameErr = "Username can only contain letters, numbers, and underscores.";
         } 
         
-        if (empty(trim($_POST["email"]))) {
+        if (empty(trim($email))) {
           $emailErr = "Please enter a email.";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
           $emailErr = "Invalid email address format!";
         }  
         
-        if (empty(trim($_POST["phone"]))) {
+        if (empty(trim($phone))) {
           $phoneErr = "Please enter a phone.";
         }
 
