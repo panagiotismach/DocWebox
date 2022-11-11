@@ -39,6 +39,10 @@ header {
   background-color: #bef2ec;
 }
 
+#admin-c {
+  background-color: rgb(177, 177, 177);
+}
+
 .section-img {
   background-color: #ff9999;
   padding-top: 70px;
@@ -59,6 +63,15 @@ header {
 #patient-second-btn:hover,
 #patient-first-btn:hover {
   background-color: rgba(31, 164, 150, 0.6);
+}
+
+#admin-first-btn {
+  border: none;
+  background-color: #666666;
+}
+
+#admin-first-btn:hover {
+  background-color: rgba(119, 116, 116, 0.6);
 }
 
 .section-form {
