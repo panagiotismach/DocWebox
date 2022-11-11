@@ -91,6 +91,7 @@ img {
   background-color: #800000;
 }
 
+#doctor-first-btn:hover,
 #doctor-second-btn:hover {
   background-color: rgba(128, 0, 0, 0.6);
 }
@@ -133,4 +134,8 @@ img {
 
 .footer__copyright .footer__link {
   font-size: 0.8rem;
+}
+
+.invalid-feedback {
+  display: block !important;
 }

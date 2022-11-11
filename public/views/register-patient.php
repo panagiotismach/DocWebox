@@ -3,40 +3,39 @@
     require "../../src/db/connect.php";
 
     // Define variables and initialize with empty values
-    $firstname = $lastname = $username = $email = $phone = $password = $confirmPassword =  "";
-    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirmPasswordErr =  "";
+    $firstname = $lastname = $username = $email = $phone = $password = $confirmPassword = "";
+    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $passwordErr = $confirmPasswordErr = "";
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
-        $username = trim($_POST["username"]);
-        $email = trim($_POST["email"]);
+        $username = $_POST["username"];
+        $email = $_POST["email"];
         $phone = $_POST["phone"];
 
-        // Validate username
-        if (empty(trim($_POST["firstname"]))){
-            $firstnameErr = "Please enter a Firstname.";
+        if (empty(trim($firstname))){
+          $firstnameErr = "Please enter a Firstname.";
         } 
 
-        if (empty(trim($_POST["lastname"]))){
-            $lastnameErr = "Please enter a Lastname.";
+        if (empty(trim($lastname))){
+          $lastnameErr = "Please enter a Lastname.";
         }
 
-        if (empty(trim($_POST["username"]))){
-            $usernameErr = "Please enter a username.";
+        if (empty(trim($username))){
+          $usernameErr = "Please enter a username.";
         } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-            $usernameErr = "Username can only contain letters, numbers, and underscores.";
+          $usernameErr = "Username can only contain letters, numbers, and underscores.";
         } 
         
-        if (empty(trim($_POST["email"]))) {
-            $emailErr = "Please enter a email.";
+        if (empty(trim($email))) {
+          $emailErr = "Please enter a email.";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email address format!";
+          $emailErr = "Invalid email address format!";
         }  
         
-        if (empty(trim($_POST["phone"]))) {
-            $phoneErr = "Please enter a phone.";
+        if (empty(trim($phone))) {
+          $phoneErr = "Please enter a phone.";
         }
 
         if (empty($firstnameErr) && empty($lastnameErr) && empty($usernameErr) && empty($emailErr) && empty($phoneErr)) {
@@ -53,7 +52,7 @@
               $stmt_username->store_result();
                               
               if($stmt_username->num_rows == 1) {
-                $usernameErr = "Username not available!";
+                $usernameErr = "Username already in use!";
               } else {
 
                 // Prepare a select statement
@@ -69,7 +68,7 @@
                     $stmt_email->store_result();
                                     
                     if($stmt_email->num_rows == 1) {
-                      $emailErr = "Email not available!";
+                      $emailErr = "Email already in use!";
                     } else {
 
                       // Validate password
@@ -97,10 +96,8 @@
                         $sql = "INSERT INTO patient (firstname, lastname, username, email, password, phone) VALUES (?, ?, ?, ?, ?, ?)";
                         if($stmt = $mysqli->prepare($sql)){
                           // Bind variables to the prepared statement as parameters
-                          $stmt->bind_param("ssssss", $firstname, $lastname, $param_username, $email, $param_password, $phone);
+                          $stmt->bind_param("ssssss", $firstname, $lastname, $username, $email, $param_password, $phone);
                           
-                          // Set parameters
-                          $param_username = $username;
                           $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                           
                           // Attempt to execute the prepared statement
@@ -165,49 +162,49 @@
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="firstname">Firstname*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($firstnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" placeholder="Firstname" name="firstname" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($firstnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>" placeholder="Firstname" name="firstname" autocomplete="on" required autofocus>
                     <span class="invalid-feedback"><?php echo $firstnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="lastname">Lastname*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($lastnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $lastname; ?>" placeholder="Lastname" name="lastname" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($lastnameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $lastname; ?>" placeholder="Lastname" name="lastname" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $lastnameErr; ?></span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="username">Username*</label>
-                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($usernameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username" name="username" autocomplete="on">
+                    <input type="text" class="form-control my-2 p-2 <?php echo (!empty($usernameErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username" name="username" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $usernameErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                    <div class="col-lg-7">
                     <label class="form-label" for="email">Email*</label>
-                    <input type="email" class="form-control my-2 p-2 <?php echo (!empty($emailErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" placeholder="Email" name="email" autocomplete="on">
+                    <input type="email" class="form-control my-2 p-2 <?php echo (!empty($emailErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>" placeholder="Email" name="email" autocomplete="on" required>
                     <span class="invalid-feedback"><?php echo $emailErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                    <label class="form-label" for="phone">Phone number*</label>
-                   <input type="phone" class="form-control my-2 p-2 <?php echo (!empty($phoneErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>" placeholder="Phone" name="phone" autocomplete="on">
+                   <input type="tel" class="form-control my-2 p-2 <?php echo (!empty($phoneErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>" placeholder="Phone" name="phone" autocomplete="on" required>
                    <span class="invalid-feedback"><?php echo $phoneErr; ?></span>
                  </div>
                </div>
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="password">Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($passwordErr)) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" >
+                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($passwordErr)) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" required>
                     <span class="invalid-feedback"><?php echo $passwordErr; ?></span>
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center" >
                   <div class="col-lg-7">
                     <label class="form-label" for="confirm-password">Confirm Password*</label>
-                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>" placeholder="Confirm Password" name="confirm-password" >
+                    <input type="password" class="form-control my-2 p-2 <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>" placeholder="Confirm Password" name="confirm-password" required>
                     <span class="invalid-feedback"><?php echo $confirmPasswordErr; ?></span>
                   </div>
                 </div>

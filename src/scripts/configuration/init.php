@@ -20,7 +20,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS docwebox.`admin` (
         `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `username` varchar(20) NOT NULL,
-        `password` varchar(40) NOT NULL,
+        `password` varchar(255) NOT NULL,
         `created` DATETIME DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
       ";
@@ -50,7 +50,7 @@
         `lastname` varchar(40) NOT NULL,
         `username` varchar(20) NOT NULL,
         `email` varchar(255) NOT NULL,
-        `password` varchar(50) NOT NULL,
+        `password` varchar(255) NOT NULL,
         `phone` varchar(50) NOT NULL,
         `specialization` varchar(255) NOT NULL,
         `vat` varchar(40) NOT NULL,
@@ -70,7 +70,7 @@
         `lastname` varchar(40) NOT NULL,
         `username` varchar(20) NOT NULL,
         `email` varchar(255) NOT NULL,
-        `password` varchar(50) NOT NULL,
+        `password` varchar(255) NOT NULL,
         `phone` varchar(50) NOT NULL,
         `image` varchar(255) NOT NULL,
         `created` DATETIME DEFAULT CURRENT_TIMESTAMP
