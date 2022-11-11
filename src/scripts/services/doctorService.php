@@ -103,6 +103,26 @@
             return $doctors;
    
         }
+
+        public function findAllDoctorsByLocationSpecialization($location,$specialization){
+            $doctors = array();
+            try{
+                $sql = "SELECT * FROM `$this->table` WHERE `location` = '$location' AND `specialization` = '$specialization'";
+                $result = $this->mysqli->query($sql);
+                while($row = $result->fetch_assoc()){
+                   
+                   $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["location"], $row["image"]);
+                    array_push($doctors, $doctor);
+                 }  
+
+
+            }catch(Exception $error){
+                echo 'Message: ' .$error->getMessage();
+            }
+
+            return $doctors;
+   
+        }
     }
 
         

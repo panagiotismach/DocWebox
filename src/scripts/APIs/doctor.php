@@ -15,10 +15,12 @@
       
         
         $specialization = $_GET["specialization"];
+        $location = $_GET["location"];
+
         
 
-        if($specialization){
-            $data = $doctorService->findAllDoctorsBySpecialization($specialization);
+        if($specialization && $location){
+            $data = $doctorService->findAllDoctorsByLocationSpecialization($location,$specialization);
         }
 
 
