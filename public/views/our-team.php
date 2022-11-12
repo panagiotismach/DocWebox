@@ -1,5 +1,5 @@
 <?php
-  include '../views/includes/file-begin/landing-file-begin.php';
+  include '../views/includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="../styles/our-team.css" />
 <?php

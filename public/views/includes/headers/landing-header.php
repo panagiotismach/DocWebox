@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="/DocWebox/public/src/js/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="./public/resources/favicon/the-icon.ico" />
+    <link rel="icon" href="/DocWebox/public/resources/favicon/the-icon.ico" />
     
   </head>
   <body>
