@@ -1,5 +1,13 @@
 <?php
-  	include '../includes/file-begin/file-begin.php';
+    include '../includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if(isset($_SESSION["firstname"])) {
+      $firstname = $_SESSION["firstname"];
+    } else {
+      $firstname = "Undefined";
+    }	
 ?>
 <!-- CSS only from bootsrap-->
 <link
@@ -34,7 +42,7 @@
   include '../includes/headers/patient-view-header.php';
 ?>
     <div class="main-container">
-      <h1>Welcome back {Name}!</h1>
+      <h1>Welcome back <?php echo $firstname?>!</h1>
       <h3>Search for your doctor</h3>
       <form action="" class="search-area">
         <select id="Doc-Specialities" name="Doc-Specialities">
@@ -62,7 +70,7 @@
           <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
         </select>
         <input type="text" placeholder="Location" name="location" />
-        <button type="submit"><img src="../../public/resources/images/search.png" /></button>
+        <button type="submit"><img src="../../../public/resources/images/tools/search.png" /></button>
       </form>
       <div class="wrapper">
         <div class="container-calendar">
