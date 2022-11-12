@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
-    <title>DocWebox - Find your Doctor!</title>
+<?php
+  	include '../views/includes/file-begin/file-begin.php';
+?>
     <!-- CSS only from bootsrap-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -33,33 +30,9 @@
         });
       });
     </script>
-    <script src="../src/js/no-scrolling.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="../resources/favicon/the-icon.ico" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <input type="checkbox" id="check" />
-        <label for="check" class="checkbtn">
-          <i class="fas fa-bars"></i>
-        </label>
-        <a id="logo__link" href="../../index.php">
-          <img src="../resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
-        </a>
-        <ul>
-          <li>
-            <a class="active" href="/DocWebox/public/views/user-dashboard.php">Dashboard</a>
-          </li>
-          <li>
-            <a href="/DocWebox/public/views/user-profile.php">Profile</a>
-          </li>
-          <li>
-            <a href="logout.php">Logout ↪</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<?php
+  include '../views/includes/headers/doctor-view-header.php';
+?>
     <div class="main-container">
       <h1>Welcome back Dr. {Lastname}!</h1>
       <div class="wrapper">
@@ -94,26 +67,6 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <ul class="footer__nav">
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/user-dashboard.php">Dashboard</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/user-profile.php">Profile</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/help.php">Help</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/logout.php">Logout</a>
-        </li>
-      </ul>
-      <img src="../resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />
-      <p class="footer__copyright">
-        &copy; Project owned by
-        <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us</a>.
-      </p>
-    </footer>
-  </body>
-</html>
+<?php
+  include '../views/includes/footers/patient-view-footer.php';
+?>
