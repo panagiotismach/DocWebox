@@ -6,8 +6,8 @@
   session_start();
   
   // Check if the doctor is already logged in, if yes then redirect his dashboard
-  if(isset($_SESSION["patient-loggedin"]) && $_SESSION["patient-loggedin"] === true){
-    header("location: user-dashboard.php");
+  if(isset($_SESSION["admin-loggedin"]) && $_SESSION["admin-loggedin"] === true){
+    header("location: admin-dashboard.php");
     exit;
   }
   
@@ -34,7 +34,7 @@
     // Validate credentials
     if (empty($usernameErr) && empty($passwordErr)){
       // Prepare a select statement
-      $sql = "SELECT id, username, password FROM patient WHERE username = ?";
+      $sql = "SELECT id, username, password FROM admin WHERE username = ?";
           
       if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -49,22 +49,23 @@
           $stmt->store_result();
                   
           // Check if username exists, if yes then verify password
-          if($stmt->num_rows == 1){                   
-
+          if($stmt->num_rows == 1){      
+            
             $stmt->bind_result($id, $username, $hashed_password);
 
             if($stmt->fetch()){
-
-              if (password_verify($password, $hashed_password)) {
+              
+              // Admin will created only from phpmyadmin, selectin MD5 function to encrypt the password
+              if (md5($password) == $hashed_password) {
                 // Password is correct, so start a new session
                 session_start();
                               
                 // Store data in session variables
-                $_SESSION["patient-loggedin"] = true;
+                $_SESSION["admin-loggedin"] = true;
                 $_SESSION["id"] = $id;                           
                               
                 // Redirect user to welcome page
-                header("location: user-dashboard.php");
+                header("location: admin-dashboard.php");
               } else {
                 // Password is not valid
                 $loginErr = "Invalid username or password.";
@@ -110,14 +111,12 @@
     <section class="my-5 mx-5">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-lg-6 section-img" id="patient-c">
-            <img src="../resources/logos/main-logo-transparent.png" class="mx-auto d-block" />
-            <!-- <h4 class="header">Welcome to DocWebox</h4> -->
-            <!-- <a href="../../../DocWebox/index.php" id="back-home-patient" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
+          <div class="col-lg-6 section-img" id="admin-c">
+            <img src="../resources/images/admin-photo.png" class="mx-auto d-block" />
           </div>
           <div class="col-lg-6 section-form">
             <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-              <h4 class="font-weigth-bold header">Welcome back!</h4>
+              <h4 class="font-weigth-bold header">Welcome Admin!</h4>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
                   <label class="form-label" for="username">Username</label>
@@ -135,21 +134,7 @@
               </div>
               <div class="form-row d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
-                  <button type="submit" class="btns my-2 p-2 first-btn mt-4" id="patient-first-btn">Login as a Patient</button>
-                </div>
-              </div>
-              <div class="d-flex justify-content-around">
-                <div class="d-flex align-items-center">
-                  <hr />
-                </div>
-                <p>No account?</p>
-                <div class="d-flex align-items-center">
-                  <hr />
-                </div>
-              </div>
-              <div class="form-row d-flex justify-content-center align-items-center">
-                <div class="col-lg-7">
-                  <button type="button" class="btns my-2 p-1" id="patient-second-btn">Register as a Patient</button>
+                  <button type="submit" class="btns my-2 p-2 first-btn mt-4" id="admin-first-btn">Login as a Admin</button>
                 </div>
               </div>
             </form>

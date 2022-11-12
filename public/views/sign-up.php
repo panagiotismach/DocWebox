@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>DocWebox - Find your Doctor!</title>
+<?php
+  	include '../views/includes/file-begin/file-begin.php';
+?>
       <link rel="stylesheet" href="../styles/normalise.css">
       <link rel="stylesheet" href="../styles/middle-login-register.css">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-
-</head>
-<body>
-<header>
-      <nav>
-        <a href="/DocWebox/index.php"><img src="../resources/logos/logo-back-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
-      </nav>
-    </header>
+<?php
+  include '../views/includes/headers/form-pages-header.php';
+?>
       <div class="wrapper">
             <div class="side left">
                   <div class="image patient"></div>
@@ -36,12 +26,6 @@
                   </div>
             </div>
       </div>
-      <footer class="footer">
-      <img src="../resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />
-      <p class="footer__copyright">
-        &copy; Project owned by 
-        <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us</a>.
-      </p>
-    </footer>
-</body>
-</html>
+<?php
+  include '../views/includes/footers/form-pages-footer.php';
+?>

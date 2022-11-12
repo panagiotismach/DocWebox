@@ -123,9 +123,6 @@ section {
   padding: 0.2rem 0.5rem;
   font-size: 1.2rem;
 }
-.fa-minus {
-  display: none;
-}
 
 .answer {
   position: relative;
@@ -156,12 +153,9 @@ section {
 .accordion-item:target .answer {
   max-height: 10rem;
 }
-.accordion-item:target .accordion-link .fa-plus {
+/* .accordion-item:target .accordion-link .down-icon {
   display: none;
-}
-.accordion-item:target .accordion-link .fa-minus {
-  display: block;
-}
+} */
 
 .footer {
   padding: 2rem 0.5rem;
