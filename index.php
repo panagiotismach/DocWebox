@@ -1,50 +1,12 @@
 <?php
-
-  require_once "./src/scripts/configuration/init.php";
-  require "./src/db/connect.php";
-
+    require_once "./src/scripts/configuration/init.php";
+    require "./src/db/connect.php";
+    include 'public/views/includes/file-begin/landing-file-begin.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
-    <title>DocWebox - Find your Doctor!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <script src="./public/src/js/no-scrolling.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="./public/resources/favicon/the-icon.ico" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <img src="./public/resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
-        <ul>
-          <li>
-            <a class="active" href="/DocWebox/index.php">Home</a>
-          </li>
-          <li>
-            <a href="/DocWebox/public/views/news.php">News</a>
-          </li>
-          <li>
-            <a href="/DocWebox/public/views/contact.php">Contact</a>
-          </li>
-          <li>
-            <a href="/DocWebox/public/views/sign-up.php">Sign up</a>
-          </li>
-          <li>
-            <a href="/DocWebox/public/views/login.php">Login</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<?php
+    include 'public/views/includes/headers/landing-header.php';
+?>
     <div class="container">
         <h1>Welcome to DocWebox, the place where you find your doctor!</h1>
         <h3>Book an appointment with 3 clicks</h3>
@@ -121,29 +83,4 @@
         <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming" of Uom</h2>
         <h3>Meet our team:</h3>
         <h3><a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/" target=blank>Charakopoulos Minas-Theodoros</a>, <a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/" target=blank>Lougaris Dionisios</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/" target=blank>Machairas Panagiotis</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/" target=blank>Stefou Georgios-Ioannis</a></h3>
-    </div>
-    <footer class="footer">
-      <ul class="footer__nav">
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/news.php">News</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/contact.php">Contact</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/sign-up.php">Sign up</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/login.php">Login</a>
-        </li>
-      </ul>
-      <img src="./public/resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />
-      <p class="footer__copyright">
-        &copy; Project owned by 
-        <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us</a>.
-      </p>
-    </footer>
-
-  </body>
-    
-</html>
+    </div>  
