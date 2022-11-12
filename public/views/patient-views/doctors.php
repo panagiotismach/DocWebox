@@ -1,9 +1,9 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../../views/includes/file-begin/file-begin.php';
 ?>
-    <link rel="stylesheet" href="../styles/doctors.css" />
+    <link rel="stylesheet" href="../../styles/patient-views-styles/doctors.css" />
 <?php
-  include '../views/includes/headers/patient-view-header.php';
+  include '../../views/includes/headers/patient-view-header.php';
 ?>
     <section class="welcome">
         <div class="content">
@@ -35,7 +35,7 @@
                 <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
                 </select>
                 <input type="text" placeholder="Location" name="location" />
-                <button type="submit"><img src="../../public/resources/images/search.png" /></button>
+                <button type="submit"><img src="../../../public/resources/images/tools/search.png" /></button>
             </form>
         </div>
     </section>
@@ -44,7 +44,7 @@
             <a href="#1"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -62,7 +62,7 @@
             <a href="#2"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -80,7 +80,7 @@
             <a href="#3"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -100,7 +100,7 @@
             <a href="#4"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -118,7 +118,7 @@
             <a href="#5"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -136,7 +136,7 @@
             <a href="#6"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../resources/images/doctor-pfp.png" />
+                        <img src="../../resources/images/pfp/doctor-pfp.png" />
                         </div>
                         <h3>Dr. Firstname Lastname</h3>
                         <h5>Specialization</h5>
@@ -154,5 +154,5 @@
         </div>
     </section>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/patient-view-footer.php';
 ?>

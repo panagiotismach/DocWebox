@@ -1,9 +1,9 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../../views/includes/file-begin/file-begin.php';
 ?>
-    <link rel="stylesheet" href="../styles/book-now.css" />
+    <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
 <?php
-  include '../views/includes/headers/patient-view-header.php';
+  include '../../views/includes/headers/patient-view-header.php';
 ?>
     <div class="bf-container">
         <div class="bf-body">
@@ -64,5 +64,5 @@
         </div>
     </div>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/patient-view-footer.php';
 ?>

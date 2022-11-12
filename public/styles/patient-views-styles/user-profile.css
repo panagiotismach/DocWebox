@@ -67,7 +67,7 @@ a:hover {
 
 .header__wrapper .profile-header {
   width: 100%;
-  background: url("../resources/images/user-pf-bg.png") no-repeat 50% 20% / cover;
+  background: url("../../resources/images/background/user-pf-bg.png") no-repeat 50% 20% / cover;
   min-height: calc(50px + 15vw);
 }
 

@@ -50,7 +50,7 @@
               <li><a href="">Patients</a></li>
               <li><a href="">Profile Settings</a></li>
             </ul>
-            <button>Handle my calendar</button>
+            <a href="doctor-dashboard.php"><button>Handle my calendar</button></a>
           </nav>
 
           <div class="card-container">

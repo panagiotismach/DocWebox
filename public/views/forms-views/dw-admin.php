@@ -91,7 +91,7 @@
 ?>
 
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../../views/includes/file-begin/file-begin.php';
 ?>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -104,15 +104,15 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../styles/login-register.css" />
+    <link rel="stylesheet" href="../../styles/form-views-styles/login-register.css" />
 <?php
-  include '../views/includes/headers/form-pages-header.php';
+  include '../../views/includes/headers/form-pages-header.php';
 ?>
     <section class="my-5 mx-5">
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-6 section-img" id="admin-c">
-            <img src="../resources/images/admin-photo.png" class="mx-auto d-block" />
+            <img src="../../resources/images/pfp/admin-photo.png" class="mx-auto d-block" />
           </div>
           <div class="col-lg-6 section-form">
             <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -143,5 +143,5 @@
       </div>
     </section>
 <?php
-  include '../views/includes/footers/form-pages-footer.php';
+  include '../../views/includes/footers/form-pages-footer.php';
 ?>

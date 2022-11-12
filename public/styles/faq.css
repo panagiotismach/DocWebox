@@ -63,7 +63,7 @@ a:hover {
 section {
   width: 100%;
   padding: 2rem 0;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background/faq-bg.jpg);
   background-position: center;
   background-size: cover;
   display: flex;

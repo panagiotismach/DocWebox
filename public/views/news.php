@@ -27,17 +27,17 @@
                 <h2>Picks of the week</h2>
                 <div class="newsOutlet">
                     <h3>1. Medscape</h3>
-                    <a href="https://www.medscape.com/?ecd=ppc_google_acq-brand_mscp_englang-general-int&gclid=CjwKCAjwtp2bBhAGEiwAOZZTuJ-ACjcBo-l12M5dOTnjNpMrglZ1QVvvfsv6Bcbr4DNFI32Kvalr2xoCTr0QAvD_BwE" target=blank><img src="../resources/images/medscape.png" /></a>
+                    <a href="https://www.medscape.com/?ecd=ppc_google_acq-brand_mscp_englang-general-int&gclid=CjwKCAjwtp2bBhAGEiwAOZZTuJ-ACjcBo-l12M5dOTnjNpMrglZ1QVvvfsv6Bcbr4DNFI32Kvalr2xoCTr0QAvD_BwE" target=blank><img src="../resources/images/news/medscape.png" /></a>
                     <p>Why It's Harder for MDs to Lose Weight</p>
                 </div>
                 <div class="newsOutlet">
                     <h3>2. Stanford Medicine News</h3>
-                    <a href="https://med.stanford.edu/news.html" target=blank><img src="../resources/images/stanfordmedicine.png"/></a>
+                    <a href="https://med.stanford.edu/news.html" target=blank><img src="../resources/images/news/stanfordmedicine.png"/></a>
                     <p>Timing of pre-surgery dialysis matters, Stanford Medicine study finds</p>
                 </div>
                 <div class="newsOutlet">
                     <h3>3. News Medical Life Science</h3>
-                    <a href="https://www.news-medical.net" target=blank><img src="../resources/images/newsmedicallifescience.png" /></a>
+                    <a href="https://www.news-medical.net" target=blank><img src="../resources/images/news/newsmedicallifescience.png" /></a>
                     <p>New Center Expands Cell and Gene Therapy Capabilities</p>
                 </div>
             </div>
