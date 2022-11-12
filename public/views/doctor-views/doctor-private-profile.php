@@ -1,16 +1,16 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../../views/includes/file-begin/file-begin.php';
 ?>
-    <link rel="stylesheet" href="../styles/doctor-private-profile.css" />
+    <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
 <?php
-  include '../views/includes/headers/doctor-view-header.php';
+  include '../../views/includes/headers/doctor-view-header.php';
 ?>
     <div class="header__wrapper">
       <div class="profile-header"></div>
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="../resources/images/doctor-pfp.png" alt="Doctor Profile Pic" />
+            <img src="../../resources/images/pfp/doctor-pfp.png" alt="Doctor Profile Pic" />
             <span></span>
           </div>
           <h2>Dr. Firstname Lastname</h2>
@@ -81,5 +81,5 @@
       </div>
     </div>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/patient-view-footer.php';
 ?>
