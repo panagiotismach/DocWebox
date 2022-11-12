@@ -1,6 +1,6 @@
 <?php
 
-  require_once "../../src/db/connect.php";
+  require_once "../../../src/db/connect.php";
 
   // Initialize the session
   session_start();
@@ -65,7 +65,7 @@
                 $_SESSION["id"] = $id;                           
                               
                 // Redirect user to welcome page
-                header("location: admin-dashboard.php");
+                header("location: ../admin-views/admin-dashboard.php");
               } else {
                 // Password is not valid
                 $loginErr = "Invalid username or password.";
