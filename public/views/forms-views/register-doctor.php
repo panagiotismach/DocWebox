@@ -1,6 +1,6 @@
 <?php
 
-    require "../../src/db/connect.php";
+    require "../../../src/db/connect.php";
 
     // Define variables and initialize with empty values
     $firstname = $lastname = $username = $email = $phone = $vat = $specialization = $password = $confirmPassword = "";
@@ -113,7 +113,7 @@
                           // Attempt to execute the prepared statement
                           if($stmt->execute()){
                               // Redirect to login page
-                              header("location: login-doctor.php");
+                              header("location: ../forms-views/login-doctor.php");
                           } else {
                               echo "Oops! Something went wrong. Please try again later.";
                           }
@@ -144,7 +144,7 @@
 ?>
 
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 ?>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -157,15 +157,15 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../styles/login-register.css" />
+    <link rel="stylesheet" href="../../styles/form-views-styles/login-register.css" />
 <?php
-  include '../views/includes/headers/form-pages-header.php';
+  include '../includes/headers/form-pages-header.php';
 ?>
        <section class="my-5 mx-5">
         <div class="container">
           <div class="row no-gutters">
             <div class="col-lg-6 section-img" id="doctor-c">
-              <img src="../resources/logos/main-logo-transparent.png" class="mx-auto d-block">
+              <img src="../../resources/logos/main-logo-transparent.png" class="mx-auto d-block">
               <!-- <h4 class="header">Welcome to DocWebox</h4>
               <a href="../../../DocWebox/index.php" id="back-home-doctor" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
              </div>
@@ -283,5 +283,5 @@
              </div>
        </section>
 <?php
-  include '../views/includes/footers/form-pages-footer.php';
+  include '../includes/footers/form-pages-footer.php';
 ?>
