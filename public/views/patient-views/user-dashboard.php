@@ -1,5 +1,13 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+    include '../includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if(isset($_SESSION["firstname"])) {
+      $firstname = $_SESSION["firstname"];
+    } else {
+      $firstname = "Undefined";
+    }	
 ?>
 <!-- CSS only from bootsrap-->
 <link
@@ -9,7 +17,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../styles/user-dashboard.css" />
+    <link rel="stylesheet" href="../../styles/patient-views-styles/user-dashboard.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
@@ -31,10 +39,10 @@
       });
     </script>
 <?php
-  include '../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
     <div class="main-container">
-      <h1>Welcome back {Name}!</h1>
+      <h1>Welcome back <?php echo $firstname?>!</h1>
       <h3>Search for your doctor</h3>
       <form action="" class="search-area">
         <select id="Doc-Specialities" name="Doc-Specialities">
@@ -62,7 +70,7 @@
           <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
         </select>
         <input type="text" placeholder="Location" name="location" />
-        <button type="submit"><img src="../../public/resources/images/search.png" /></button>
+        <button type="submit"><img src="../../../public/resources/images/tools/search.png" /></button>
       </form>
       <div class="wrapper">
         <div class="container-calendar">
@@ -131,5 +139,5 @@
     </div>
     </div>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

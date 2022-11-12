@@ -1,6 +1,6 @@
 <?php
 
-  require_once "../../src/db/connect.php";
+  require_once "../../../src/db/connect.php";
 
   // Initialize the session
   session_start();
@@ -34,7 +34,7 @@
     // Validate credentials
     if (empty($usernameErr) && empty($passwordErr)){
       // Prepare a select statement
-      $sql = "SELECT id, username, password FROM patient WHERE username = ?";
+      $sql = "SELECT id, username, firstname, password FROM patient WHERE username = ?";
           
       if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -51,7 +51,7 @@
           // Check if username exists, if yes then verify password
           if($stmt->num_rows == 1){                   
 
-            $stmt->bind_result($id, $username, $hashed_password);
+            $stmt->bind_result($id, $username, $firstname, $hashed_password);
 
             if($stmt->fetch()){
 
@@ -61,10 +61,11 @@
                               
                 // Store data in session variables
                 $_SESSION["patient-loggedin"] = true;
-                $_SESSION["id"] = $id;                           
+                $_SESSION["id"] = $id;  
+                $_SESSION["firstname"] = $firstname;                        
                               
                 // Redirect user to welcome page
-                header("location: user-dashboard.php");
+                header("location: ../patient-views/user-dashboard.php");
               } else {
                 // Password is not valid
                 $loginErr = "Invalid username or password.";
@@ -90,7 +91,7 @@
 ?>
 
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 ?>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -103,15 +104,15 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../styles/login-register.css" />
+    <link rel="stylesheet" href="../../styles/form-views-styles/login-register.css" />
 <?php
-  include '../views/includes/headers/form-pages-header.php';
+  include '../includes/headers/form-pages-header.php';
 ?>
     <section class="my-5 mx-5">
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-6 section-img" id="patient-c">
-            <img src="../resources/logos/main-logo-transparent.png" class="mx-auto d-block" />
+            <img src="../../resources/logos/main-logo-transparent.png" class="mx-auto d-block" />
             <!-- <h4 class="header">Welcome to DocWebox</h4> -->
             <!-- <a href="../../../DocWebox/index.php" id="back-home-patient" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
           </div>
@@ -158,5 +159,5 @@
       </div>
     </section>
 <?php
-  include '../views/includes/footers/form-pages-footer.php';
+  include '../includes/footers/form-pages-footer.php';
 ?>
