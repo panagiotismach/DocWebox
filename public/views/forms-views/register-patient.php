@@ -103,7 +103,7 @@
                           // Attempt to execute the prepared statement
                           if($stmt->execute()){
                               // Redirect to login page
-                              header("location: ../patient-views/login-patient.php");
+                              header("location: ../forms-views/login-patient.php");
                           } else{
                               echo "Oops! Something went wrong. Please try again later.";
                           }
