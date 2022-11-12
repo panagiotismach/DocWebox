@@ -1,0 +1,283 @@
+:root {
+  --color-primary: #2a4078;
+  --color-secondary: #d6dfed;
+  --color-third: #4dd2c4;
+  --color-fourth: #1fa496;
+  --color-fifth: #063e37;
+  --color-sixth: #bef2ec;
+  --color-seventh: #fab9b9;
+  --color-eighth: #800000;
+  --color-ninth: #c23f3f;
+  --color-primary-gradient: #2a407897;
+}
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+@media (max-width: 993px) {
+  .doctor-search-container {
+    width: 80% !important;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .wrapper {
+    flex-direction: column;
+    display: flex;
+  }
+  .previous-doctors__container {
+    width: 70% !important;
+    margin: 0 auto !important;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+}
+
+/* FOR SEARCH SECTION */
+@media (max-width: 860px) {
+  .search-area {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .search-area input {
+    width: 30%;
+  }
+
+  .search-area select {
+    width: 50%;
+  }
+}
+
+.main-container {
+  width: 100%;
+  padding: 2%;
+  background-position: center;
+  background-size: cover;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.main-container h1 {
+  font-size: 25px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.main-container h3 {
+  font-size: 15px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.search-area {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+  display: flex;
+  background-color: var(--color-fourth);
+  align-items: center;
+  border-radius: 60px;
+  padding: 5px 8px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-area input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 5px 5px;
+  font-size: 14px;
+  color: var(--color-primary);
+}
+
+::placeholder {
+  color: var(--color-primary);
+}
+
+.search-area select {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  scroll-behavior: smooth;
+  padding: 5px 5px;
+  font-size: 14px;
+
+  color: var(--color-primary);
+}
+
+.search-area button img {
+  width: 25px;
+}
+
+.search-area button {
+  border: 0;
+  border-radius: 50%;
+  width: 45px;
+  height: 40px;
+  background: var(--color-third);
+  cursor: pointer;
+  /* float: right; */
+}
+
+.previous-doctors__container h3 {
+  font-size: 25px;
+  padding: 0;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* FOR CALENDAR */
+.container-calendar {
+  width: 40%;
+}
+
+.wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  column-gap: 100px;
+}
+
+.list-group-item {
+  max-width: 400px;
+  padding: 20px 30px;
+}
+
+.mb-1 {
+  max-width: 350px;
+  word-wrap: break-word !important;
+}
+
+.list-group {
+  max-width: 400px;
+  margin: 0 auto !important;
+}
+
+.pages-container {
+  background-color: white;
+}
+
+#calendar h2 {
+  color: white;
+  font-size: 25px;
+}
+.external-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.doctor-search-container {
+  width: 60%;
+  padding: 50px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+}
+.doctor-search-box {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.search-doctor {
+  width: 100%;
+  border: 3px solid var(--color-fourth);
+  padding: 5px;
+  height: 36px;
+  outline: none;
+  color: grey;
+}
+.search-doctor:focus {
+  color: black;
+  box-shadow: 0 0 5px var(--color-fourth);
+}
+.doctor-search-btn {
+  width: 40px;
+  height: 36px;
+  border: 1px solid var(--color-fourth);
+  background: var(--color-fourth);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.doctor-search-container h2 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.doctor-search-container p {
+  margin-top: 5px;
+  color: var(--color-fourth);
+}
+.card-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.card-container .card {
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  padding-top: 12px;
+  display: block;
+  padding-bottom: 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.buttonpd {
+  display: flex;
+  justify-content: end;
+}
+
+#edit-btn {
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  margin-right: 30px;
+}
+
+.data {
+  padding-left: 20px;
+}
+
+#delete-btn {
+  background-color: red;
+  padding: 5px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
+.card-container h3 {
+  color: var(--color-primary);
+  font-size: 18px;
+}
+
+.card-container p {
+  color: var(--color-primary);
+  font-size: 12px;
+  margin: 0px;
+}
