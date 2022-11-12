@@ -1,5 +1,5 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 ?>
 <!-- CSS only from bootsrap-->
 <link
@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../styles/user-dashboard.css" />
+    <link rel="stylesheet" href="../../styles/patient-views-styles/user-dashboard.css" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
@@ -31,7 +31,7 @@
       });
     </script>
 <?php
-  include '../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
     <div class="main-container">
       <h1>Welcome back {Name}!</h1>
@@ -131,5 +131,5 @@
     </div>
     </div>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>
