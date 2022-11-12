@@ -89,26 +89,24 @@
 
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+<?php
+  	include '../views/includes/file-begin/file-begin.php';
+?>
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous" defer
+    ></script>
+<link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../styles/login-register.css" />
-    <title>DocWebox - Find your Doctor!</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="./login.php"><img src="../resources/logos/logo-back-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
-      </nav>
-    </header>
+<?php
+  include '../views/includes/headers/form-pages-header.php';
+?>
     <section class="my-5 mx-5">
       <div class="container">
         <div class="row no-gutters">
@@ -159,17 +157,6 @@
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <img src="../resources/logos/main-logo-transparent.png" alt="Logo" class="footer__logo" />
-      <p class="footer__copyright">
-        &copy; Project owned by
-        <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us</a>.
-      </p>
-    </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+<?php
+  include '../views/includes/footers/form-pages-footer.php';
+?>
