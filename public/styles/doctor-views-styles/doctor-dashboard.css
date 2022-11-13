@@ -77,7 +77,7 @@
   /* float: right; */
 }
 
-.previous-doctors__container h3 {
+.patients h3 {
   font-size: 25px;
   padding: 0;
   margin-bottom: 20px;
@@ -94,6 +94,11 @@
   display: flex;
   justify-content: center;
   column-gap: 100px;
+}
+.list-group {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 450px;
 }
 
 .list-group-item {
@@ -211,14 +216,14 @@
     margin: 0 auto;
     padding-bottom: 20px;
   }
-  .previous-doctors__container {
+  .patients {
     width: 70% !important;
     margin: 0 auto !important;
   }
-  .previous-doctors__container h3 {
+  .patients h3 {
     margin-top: 10px;
   }
-  .previous-doctors__container h3 {
+  .patients h3 {
     margin-top: 10px;
   }
 }

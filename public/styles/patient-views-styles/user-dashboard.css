@@ -94,6 +94,11 @@
   justify-content: center;
   column-gap: 100px;
 }
+.list-group {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 450px;
+}
 
 .list-group-item {
   max-width: 400px;

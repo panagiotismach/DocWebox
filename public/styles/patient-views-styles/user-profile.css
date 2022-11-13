@@ -140,11 +140,17 @@
 .card-container {
   padding-top: 20px;
   padding-bottom: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 500px;
+  margin-bottom: 30px;
 }
 .card-container .card {
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 2.5em rgba(111, 110, 110, 0.131);
 }
 .card-container h3 {
   color: var(--color-primary);

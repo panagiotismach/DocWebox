@@ -42,9 +42,23 @@
         <div class="container-calendar">
           <div id="calendar"></div>
         </div>
-        <div class="previous-doctors__container">
+        <div class="patients">
           <h3>Your patients</h3>
           <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ Patient Name }}</h5>
+              </div>
+              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
+              <small class="text-muted">appointment {{ number }} days ago</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ Patient Name }}</h5>
+              </div>
+              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
+              <small class="text-muted">appointment {{ number }} days ago</small>
+            </a>
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ Patient Name }}</h5>
