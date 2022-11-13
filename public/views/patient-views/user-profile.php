@@ -1,17 +1,15 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
-    
+    require "../../../src/scripts/models/patient.php";
   	include '../../views/includes/file-begin/file-begin.php';
 
     session_start();
 
-    if(isset($_SESSION["firstname"])) {
-      $firstname = $_SESSION["firstname"];
-      $lastname = $_SESSION["lastname"];
+    if(isset($_SESSION["patientObj"])) {
+      $patientObj = unserialize($_SESSION['patientObj']);
     } else {
-      $firstname = "Undefined";
-      $lastname = "Undefined";
+      $patientObj = new Patient("", "", "", "", "", "", "", "", "", "");
     }
 ?>
     <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
@@ -26,20 +24,26 @@
             <img src="../../resources/images/pfp/user-pfp.png" alt="User Profile Pic" />
             <span></span>
           </div>
-          <h2><?php echo $firstname. " ". $lastname ?></h2>
-          <p>Thessaloniki</p>
-          <p>+30 69********</p>
-
+          <h2><?php echo $patientObj->firstname. " ". $patientObj->lastname ?></h2>
+          <p>
+            <?php 
+            if ($patientObj->location) {
+              echo $patientObj->location;
+            } else {
+              echo "No location defined";
+            }
+          ?>
+          </p>
+          <p>Phone: <?php echo $patientObj->phone ?></p>
           <div class="content">
-
             <ul class="profile-ul">
               <div class="icon">
-                <a href="tel:"><i class="fa-sharp fa-solid fa-phone"></i></a>
+                <a href="tel:<?php echo $patientObj->phone ?>"><i class="fa-sharp fa-solid fa-phone"></i></a>
               </div>
               <div class="icon">
-                <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:<?php echo $patientObj->email ?>"><i class="fa-solid fa-envelope"></i></a>
               </div>
-              <div class="icon"><a href="https://www.google.com/maps">
+              <div class="icon"><a target="_blank" href="https://www.google.com/maps/place/<?php echo $patientObj->location ?>">
                 <i class="fa-solid fa-location-dot"></i></a>
               </div>
             </ul>
@@ -53,7 +57,6 @@
             </ul>
             <a href="user-dashboard.php"><button>Book an appointment</button></a>
           </nav>
-
           <div class="card-container">
             <div class="card">
               <h3>Appointment at {{Doctor Name}}</h3>
@@ -75,7 +78,6 @@
               <h4>23/12/2020</h4>
               <p>Appointment Description</p>
             </div>
-            
           </div>
         </div>
       </div>
