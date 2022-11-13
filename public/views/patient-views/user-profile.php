@@ -3,10 +3,20 @@
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if(isset($_SESSION["firstname"])) {
+      $firstname = $_SESSION["firstname"];
+      $lastname = $_SESSION["lastname"];
+    } else {
+      $firstname = "Undefined";
+      $lastname = "Undefined";
+    }
 ?>
     <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+    include '../../views/includes/headers/patient-view-header.php';
 ?>
     <div class="header__wrapper">
       <div class="profile-header"></div>
@@ -16,7 +26,7 @@
             <img src="../../resources/images/pfp/user-pfp.png" alt="User Profile Pic" />
             <span></span>
           </div>
-          <h2>Firstname Lastname</h2>
+          <h2><?php echo $firstname. " ". $lastname ?></h2>
           <p>Thessaloniki</p>
           <p>+30 69********</p>
 

@@ -35,7 +35,7 @@
     // Validate credentials
     if (empty($usernameErr) && empty($passwordErr)){
       // Prepare a select statement
-      $sql = "SELECT id, username, firstname, password FROM patient WHERE username = ?";
+      $sql = "SELECT id, username, firstname, lastname,password FROM patient WHERE username = ?";
           
       if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -52,7 +52,7 @@
           // Check if username exists, if yes then verify password
           if($stmt->num_rows == 1){                   
 
-            $stmt->bind_result($id, $username, $firstname, $hashed_password);
+            $stmt->bind_result($id, $username, $firstname, $lastname, $hashed_password);
 
             if($stmt->fetch()){
 
@@ -64,6 +64,7 @@
                 $_SESSION["patient-loggedin"] = true;
                 $_SESSION["id"] = $id;  
                 $_SESSION["firstname"] = $firstname;                        
+                $_SESSION["lastname"] = $lastname;                        
                               
                 // Redirect user to welcome page
                 header("location: ../patient-views/user-dashboard.php");

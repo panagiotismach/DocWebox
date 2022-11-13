@@ -66,6 +66,10 @@ CREATE TABLE `doctor` (
   `phone` varchar(50) NOT NULL,
   `specialization` varchar(255) NOT NULL,
   `vat` varchar(40) NOT NULL,
+  `num_patients` int(11) UNSIGNED NOT NULL,
+  `num_publications` int(11) UNSIGNED NOT NULL,
+  `work_experience_years` int(11) UNSIGNED NOT NULL,
+  `bio` varchar(1000) NOT NULL,
   `location` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `created` DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -85,6 +89,7 @@ CREATE TABLE `patient` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(50) NOT NULL,
+  `location` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `created` DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
