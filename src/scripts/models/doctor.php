@@ -24,18 +24,26 @@ class Doctor {
     public $location;
     public $image;
 
-    public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $location, $image){
+    // public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $location, $image){
+    //     $this->id = $id;
+    //     $this->firstname = $firstname;
+    //     $this->lastname = $lastname;
+    //     $this->username = $username;
+    //     $this->email = $email;
+    //     $this->password = $password;
+    //     $this->phone = $phone;
+    //     $this->specialization = $specialization;
+    //     $this->vat = $vat;
+    //     $this->location = $location;
+    //     $this->image = $image;
+    // }
+
+    public function __construct($id, $firstname, $lastname, $phone, $specialization, $location){
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
         $this->phone = $phone;
         $this->specialization = $specialization;
-        $this->vat = $vat;
-        $this->location = $location;
-        $this->image = $image;
     }
 
 };

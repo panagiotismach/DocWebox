@@ -8,6 +8,10 @@
     } else {
       $firstname = "Undefined";
     }	
+
+    $id = $_SESSION["id"]
+
+    
 ?>
 <!-- CSS only from bootsrap-->
 <link
@@ -38,6 +42,10 @@
         });
       });
     </script>
+    <script >
+      const idpatient =  <?php echo $id ?>
+    </script>
+    <script defer src="../../src/js/data.js"></script>
 <?php
   include '../includes/headers/patient-view-header.php';
 ?>
@@ -79,41 +87,7 @@
         <div class="previous-doctors__container">
           <h3>Doctors from previous appointments</h3>
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. {{ Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Specialty }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. {{ Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Specialty }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. {{ Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Specialty }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. {{ Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Specialty }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. {{ Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Specialty }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
+            
           </div>
         </div>
       </div>
@@ -121,20 +95,18 @@
     <div class="external-container">
     <div class="doctor-search-container">
       <h2>Is your doctor on DocWebox?</h2>
-      <div class="doctor-search-box">
-        <input type="text" class="search-doctor" placeholder="Type your Doctor's name..."/>
-        <button type="submit" class="doctor-search-btn"><i class="fa fa-search"></i></button>
-      </div>
+      
+        <form class="doctor-search-box">
+        
+        
+        <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's name..."/>
+        <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
+        
+        </form>
+      
       <p>Results that match your search:</p>
       <div class="card-container">
-            <div class="card">
-              <h3>{{Doctor Name}}</h3>
-              <p>{{Doctor Phone}} {{Doctor Address}}</p>
-            </div>
-            <div class="card">
-              <h3>{{Doctor Name}}</h3>
-              <p>{{Doctor Phone}} {{Doctor Address}}</p>
-            </div>
+            
       </div>
     </div>
     </div>
