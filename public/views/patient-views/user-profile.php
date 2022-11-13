@@ -12,6 +12,7 @@
       $patientObj = new Patient("", "", "", "", "", "", "", "", "", "");
     }
 ?>
+    <script src="../../src/js/user-profile-menu-navigator.js" defer></script>
     <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
 <?php
     include '../../views/includes/headers/patient-view-header.php';
@@ -52,12 +53,13 @@
         <div class="right__col">
           <nav>
             <ul class="profile-ul">
-              <li><a href="">Previous Appointments</a></li>
-              <li><a href="">Profile Settings</a></li>
+              <li><a id="pa" class="selected" onclick='menu("pa")' >PREVIOUS APPOINTMENTS</a></li>
+              <li><a id="ps" onclick='menu("ps")' >PROFILE SETTINGS</a></li>
+              <li><a id="si" onclick='menu("si")' >SENSITIVE INFORMATION</a></li>
             </ul>
             <a href="user-dashboard.php"><button>Book an appointment</button></a>
           </nav>
-          <div class="card-container">
+          <div class="card-container" id="card-container">
             <div class="card">
               <h3>Appointment at {{Doctor Name}}</h3>
               <h4>19/12/2020</h4>
@@ -79,7 +81,65 @@
               <p>Appointment Description</p>
             </div>
           </div>
+          <div class="profile-settings hide" id="profile-settings" >
+          <form class="personal-information ">
+                    <h2>Update your profile</h2>
+                    <div class="inputBox">
+                        <input type="text" name="Firstname" value="{{Your first name}}">
+                        <span>First name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Lastname" value="{{Your last name}}">
+                        <span>Last name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="file" name="Profile Picture">
+                        <span>Profile picture</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Phone" value="{{Your phone}}">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Location">
+                        <span>Location</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="Submit" value="Save">
+                    </div>
+                </form>
+          </div>
+          <div class="sensitive-information hide" id="sensitive-information" >
+          <form class="personal-information">
+                    <h2>Settings</h2>
+                    <div class="inputBox">
+                        <input type="text" name="Username">
+                        <span>Username</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Email">
+                        <span>Last name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Current Password">
+                        <span>Your current password</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="New password">
+                        <span>New password</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="Confirm new password">
+                        <span>Confirm new password</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="Submit" value="Save">
+                    </div>
+                </form>
+          </div>
         </div>
+        
+
       </div>
       </div>
     </div>
