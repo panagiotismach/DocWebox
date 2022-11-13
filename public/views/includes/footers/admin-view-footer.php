@@ -1,13 +1,10 @@
 <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/user-dashboard.php">Dashboard</a>
+          <a class="footer__link" href="admin-dashboard.php">Dashboard</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/user-profile.php">Profile</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/help.php">Help</a>
+          <a class="footer__link" href="/DocWebox/public/views/faq.php" target=blank>FAQs</a>
         </li>
         <li class="footer__item">
           <a class="footer__link" href="/DocWebox/public/views/logout.php">Logout</a>
