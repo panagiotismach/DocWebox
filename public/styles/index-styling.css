@@ -65,7 +65,7 @@ a:hover {
   width: 100%;
   min-height: 800px;
   padding: 5%;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background/index-bg.jpg);
   background-position: center;
   background-size: cover;
   /* display: flex; */
@@ -76,7 +76,7 @@ a:hover {
   width: 100%;
   min-height: 400px;
   padding: 5%;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/pamak.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background/pamak.jpg);
   background-position: center;
   background-size: cover;
 }

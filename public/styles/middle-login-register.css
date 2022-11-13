@@ -33,11 +33,11 @@ header {
 }
 
 .patient {
-  background: url("../resources/images/patient-bg.jpg");
+  background: url("../resources/images/background/patient-bg.jpg");
 }
 
 .doctor {
-  background: url("../resources/images/doctor-bg.jpg");
+  background: url("../resources/images/background/doctor-bg.jpg");
 }
 
 .wrapper .caption {

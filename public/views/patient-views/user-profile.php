@@ -1,16 +1,16 @@
 <?php
-  	include '../views/includes/file-begin/file-begin.php';
+  	include '../../views/includes/file-begin/file-begin.php';
 ?>
-    <link rel="stylesheet" href="/DocWebox/public/styles/user-profile.css" />
+    <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
 <?php
-  include '../views/includes/headers/patient-view-header.php';
+  include '../../views/includes/headers/patient-view-header.php';
 ?>
     <div class="header__wrapper">
       <div class="profile-header"></div>
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="../resources/images/user-pfp.png" alt="User Profile Pic" />
+            <img src="../../resources/images/pfp/user-pfp.png" alt="User Profile Pic" />
             <span></span>
           </div>
           <h2>Firstname Lastname</h2>
@@ -38,7 +38,7 @@
               <li><a href="">Previous Appointments</a></li>
               <li><a href="">Profile Settings</a></li>
             </ul>
-            <button>Book an appointment</button>
+            <a href="user-dashboard.php"><button>Book an appointment</button></a>
           </nav>
 
           <div class="card-container">
@@ -69,5 +69,5 @@
       </div>
     </div>
 <?php
-  include '../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/patient-view-footer.php';
 ?>

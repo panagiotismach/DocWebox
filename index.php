@@ -9,7 +9,7 @@
 ?>
     <div class="container">
         <h1>Welcome to DocWebox, the place where you find your doctor!</h1>
-        <h3>Book an appointment with 3 clicks</h3>
+        <h3>Book an appointment with 4 clicks</h3>
         <form action="" class="search-area">
             <select id="Doc-Specialities" name="Doc-Specialities">
                 <option value="None">Choose Doctor Specialization</option>
@@ -36,7 +36,7 @@
                 <option value="Otorhinolaryngologist">Otorhinolaryngologist</option>
             </select>
             <input type="text" placeholder="Location" name="location">
-            <button type="submit"><img src="./public/resources/images/search.png"></button>
+            <button type="submit"><img src="./public/resources/images/tools/search.png"></button>
         </form>
     </div>
     <section>
@@ -84,3 +84,6 @@
         <h3>Meet our team:</h3>
         <h3><a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/" target=blank>Charakopoulos Minas-Theodoros</a>, <a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/" target=blank>Lougaris Dionisios</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/" target=blank>Machairas Panagiotis</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/" target=blank>Stefou Georgios-Ioannis</a></h3>
     </div>  
+<?php
+  include 'public/views/includes/footers/landing-footer.php';
+?>

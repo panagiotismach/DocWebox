@@ -185,7 +185,7 @@ select {
   min-height: 100vh;
   overflow-y: auto;
   padding: 20px 16px;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/book-now.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../../resources/images/background/book-now-bg.jpg);
   background-position: center;
   background-size: cover;
 }

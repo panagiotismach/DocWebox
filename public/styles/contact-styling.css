@@ -69,7 +69,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/contact.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../resources/images/background/contact-bg.jpg);
   width: 100%;
   background-size: cover;
   background-position: center;
