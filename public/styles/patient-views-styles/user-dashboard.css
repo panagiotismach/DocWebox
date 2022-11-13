@@ -1,215 +1,4 @@
-:root {
-  --color-primary: #2a4078;
-  --color-secondary: #d6dfed;
-  --color-third: #4dd2c4;
-  --color-fourth: #1fa496;
-  --color-fifth: #063e37;
-  --color-sixth: #bef2ec;
-  --color-seventh: #fab9b9;
-  --color-eighth: #800000;
-  --color-ninth: #c23f3f;
-  --color-primary-gradient: #2a407897;
-}
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat";
-}
-
-/* FOR FOOTER AND HEADER */
-nav {
-  background: var(--color-sixth);
-  height: 70px;
-  width: 100%;
-}
-
-nav ul {
-  float: right;
-  margin-right: 200px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 70px;
-  margin: 0 5px;
-}
-
-nav ul li a {
-  color: var(--color-fifth);
-  font-size: 15px;
-  font-weight: 600;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-decoration: none;
-}
-
-.nav__logo {
-  height: 70px;
-  margin-left: 200px;
-}
-
-a.active,
-a:hover {
-  background: var(--color-fourth);
-  transition: 0.5s;
-}
-
-#logo__link {
-  background-color: transparent;
-  transition: none;
-}
-
-.checkbtn {
-  font-size: 30px;
-  color: var(--color-primary);
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
-  justify-self: center;
-}
-
-#check {
-  display: none;
-}
-
-.footer {
-  padding: 1rem 0.2rem;
-  background-color: var(--color-sixth);
-}
-
-.footer__nav {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer__item {
-  margin-right: 3rem;
-}
-
-.footer__link {
-  font-size: 0.8rem;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.footer__logo {
-  height: 6rem;
-  display: block;
-  margin: 0 auto;
-  /* margin-bottom: 5rem; */
-}
-
-.footer__copyright {
-  font-size: 0.6rem;
-  color: var(--color-primary);
-  text-align: center;
-}
-
-.footer__copyright .footer__link {
-  font-size: 0.7rem;
-}
-
-.no-scrolling {
-  overflow: hidden;
-}
-
-@media (max-width: 993px) {
-  .doctor-search-container {
-    width: 80% !important;
-    max-width: 100%;
-  }
-}
-@media (max-width: 1100px) {
-  .wrapper {
-    flex-direction: column;
-    display: flex;
-  }
-  .container-calendar {
-    width: 90% !important;
-    margin: 0 auto;
-    padding-bottom: 20px;
-  }
-  .previous-doctors__container {
-    width: 70% !important;
-    margin: 0 auto !important;
-  }
-  .previous-doctors__container h3 {
-    margin-top: 10px;
-  }
-  .previous-doctors__container h3 {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 858px) {
-  .checkbtn {
-    display: block;
-  }
-
-  .nav__logo {
-    margin-left: 20px;
-  }
-
-  ul {
-    z-index: 10;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: var(--color-fourth);
-    top: 70px;
-    left: -100%;
-    text-align: center;
-    transition: all 0.5s;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 50px;
-    line-height: 30px;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-  }
-
-  a:hover,
-  a.active {
-    background: none;
-    color: var(--color-secondary);
-  }
-
-  #check:checked ~ ul {
-    left: 0;
-  }
-}
-
-/* FOR SEARCH SECTION */
-@media (max-width: 860px) {
-  .search-area {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .search-area input {
-    width: 30%;
-  }
-
-  .search-area select {
-    width: 50%;
-  }
-}
+/* Main Section CSS */
 
 .main-container {
   width: 100%;
@@ -401,4 +190,51 @@ a:hover {
   color: var(--color-primary);
   font-size: 12px;
   margin: 0px;
+}
+
+/* Responsiveness */
+
+@media (max-width: 993px) {
+  .doctor-search-container {
+    width: 80% !important;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .wrapper {
+    flex-direction: column;
+    display: flex;
+  }
+  .container-calendar {
+    width: 90% !important;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .previous-doctors__container {
+    width: 70% !important;
+    margin: 0 auto !important;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+}
+
+/* FOR SEARCH SECTION */
+@media (max-width: 860px) {
+  .search-area {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .search-area input {
+    width: 30%;
+  }
+
+  .search-area select {
+    width: 50%;
+  }
 }

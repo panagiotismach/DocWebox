@@ -1,4 +1,6 @@
   	<meta charset="utf-8" />
+    <link rel="stylesheet" href="../../styles/headers/patient-views-header-styling.css" />
+    <link rel="stylesheet" href="../../styles/footers/patient-views-footer-styling.css" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>DocWebox - Find your Doctor!</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -14,18 +16,18 @@
         <label for="check" class="checkbtn">
           <i class="fas fa-bars"></i>
         </label>
-        <a id="logo__link" href="../../index.php">
+        <a class="header-logo" href="/DocWebox/public/views/patient-views/user-dashboard.php">
           <img src="../../resources/logos/logo-main-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         </a>
-        <ul>
-          <li>
-            <a href="/DocWebox/public/views/user-dashboard.php">Dashboard</a>
+        <ul class="header-ul">
+          <li class="header-li">
+            <a class="header-a" href="user-dashboard.php">Dashboard</a>
           </li>
-          <li>
-            <a href="/DocWebox/public/views/user-profile.php">Profile</a>
+          <li class="header-li">
+            <a class="header-a" href="user-profile.php">Profile</a>
           </li>
-          <li>
-            <a href="logout.php">Logout ↪</a>
+          <li class="header-li">
+            <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>
