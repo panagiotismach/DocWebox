@@ -1,6 +1,7 @@
 <?php
-
-  require_once "../../../src/db/connect.php";
+  
+  require_once "../../../src/scripts/configuration/init.php";
+  require "../../../src/db/connect.php";
 
   // Initialize the session
   session_start();

@@ -1,5 +1,6 @@
 <?php
 
+    require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
 
     // Define variables and initialize with empty values
