@@ -1,6 +1,8 @@
 <?php
 
-  require_once "../../../src/db/connect.php";
+  require_once "../../../src/scripts/configuration/init.php";
+  require "../../../src/db/connect.php";
+  require "../../../src/scripts/models/patient.php";
 
   // Initialize the session
   session_start();
@@ -34,7 +36,7 @@
     // Validate credentials
     if (empty($usernameErr) && empty($passwordErr)){
       // Prepare a select statement
-      $sql = "SELECT id, username, firstname, password FROM patient WHERE username = ?";
+      $sql = "SELECT * FROM patient WHERE username = ?";
           
       if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -51,7 +53,7 @@
           // Check if username exists, if yes then verify password
           if($stmt->num_rows == 1){                   
 
-            $stmt->bind_result($id, $username, $firstname, $hashed_password);
+            $stmt->bind_result($id, $firstname, $lastname, $username, $email, $hashed_password, $phone, $location, $image, $created);
 
             if($stmt->fetch()){
 
@@ -60,9 +62,9 @@
                 session_start();
                               
                 // Store data in session variables
+                $patientObj = new Patient($id, $firstname, $lastname, $username, $email, $hashed_password, $phone, $location, $image, $created);
                 $_SESSION["patient-loggedin"] = true;
-                $_SESSION["id"] = $id;  
-                $_SESSION["firstname"] = $firstname;                        
+                $_SESSION["patientObj"] = serialize($patientObj);                        
                               
                 // Redirect user to welcome page
                 header("location: ../patient-views/user-dashboard.php");
@@ -112,7 +114,7 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-6 section-img" id="patient-c">
-            <img src="../../resources/logos/main-logo-transparent.png" class="mx-auto d-block" />
+            <img src="/DocWebox/public/resources/logos/logo-main-transparent.png" class="mx-auto d-block" />
             <!-- <h4 class="header">Welcome to DocWebox</h4> -->
             <!-- <a href="../../../DocWebox/index.php" id="back-home-patient" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
           </div>

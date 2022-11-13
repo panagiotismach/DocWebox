@@ -1,4 +1,7 @@
 <?php
+    require_once "../../../src/scripts/configuration/init.php";
+    require "../../../src/db/connect.php";
+    
   	include '../../views/includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
@@ -81,5 +84,5 @@
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/doctor-view-footer.php';
 ?>

@@ -1,0 +1,116 @@
+:root {
+  --color-primary: #2a4078;
+  --color-secondary: #d6dfed;
+  --color-third: #4dd2c4;
+  --color-fourth: #1fa496;
+  --color-fifth: #063e37;
+  --color-sixth: #bef2ec;
+  --color-seventh: #b4b4b4;
+  --color-eighth: #494742;
+  --color-ninth: #dff1db;
+  --color-primary-gradient: #2a407897;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+  min-height: 100vh;
+  width: 100%;
+}
+
+.header-nav {
+  background: var(--color-seventh);
+  height: 70px;
+  width: 100%;
+}
+.header-nav .header-ul {
+  float: right;
+  margin-right: 200px;
+}
+.header-nav .header-ul .header-li {
+  display: inline-block;
+  line-height: 70px;
+  margin: 0 5px;
+}
+.header-nav .header-ul .header-li .header-a {
+  color: var(--color-eighth);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.nav__logo {
+  height: 70px;
+  margin-left: 200px;
+}
+.header-a.active,
+.header-a:hover {
+  background: var(--color-ninth);
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: var(--color-ninth);
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+.no-scrolling {
+  overflow: hidden;
+}
+
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+  .nav__logo {
+    margin-left: 20px;
+  }
+  .header-nav {
+    height: 80px;
+  }
+  .header-nav .header-ul {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-eighth);
+    top: 70px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  .header-nav .header-ul .header-li {
+    display: block;
+    margin: 50px;
+    line-height: 30px;
+  }
+  .header-nav .header-ul .header-li .header-a {
+    font-size: 20px;
+  }
+  .header-nav .header-ul .header-li .header-a {
+    color: var(--color-ninth);
+  }
+
+  .header-a:hover,
+  .header-a .active {
+    background: none;
+    color: var(--color-secondary);
+  }
+  #check:checked ~ .header-ul {
+    left: 0;
+  }
+}

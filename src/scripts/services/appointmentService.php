@@ -4,11 +4,9 @@
         
     class AppointmentService {
 
-        
         private $table;
         private $mysqli;
         
-
         public function __construct($table, $mysqliConnection){
             $this->table = $table;
             $this->mysqli = $mysqliConnection;
@@ -32,6 +30,7 @@
 
         public function findPatientAppointments($id){
             $data = array();
+
             try {
                 $sql = "SELECT * FROM `$this->table` WHERE `patient_id` = $id";   
                 $result = $this->mysqli->query($sql);
@@ -45,11 +44,5 @@
             
             return $data;
         }
-
-
     }
-
-        
-
-
 ?>

@@ -1,5 +1,6 @@
 <?php
 
+    require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
 
     // Define variables and initialize with empty values
@@ -155,7 +156,7 @@
         <div class="container">
           <div class="row no-gutters">
             <div class="col-lg-6 section-img" id="patient-c">
-              <img src="../../resources/logos/main-logo-transparent.png" class="mx-auto d-block">
+              <img src="../../resources/logos/logo-main-transparent.png" class="mx-auto d-block">
               <!-- <h4 class="header">Welcome to DocWebox</h4>
               <a href="../../../DocWebox/index.php" id="back-home-patient" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
           </div>

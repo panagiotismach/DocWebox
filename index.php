@@ -1,6 +1,5 @@
 <?php
     require_once "./src/scripts/configuration/init.php";
-    require "./src/db/connect.php";
     include 'public/views/includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />

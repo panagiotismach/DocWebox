@@ -1,4 +1,7 @@
 <?php
+    require_once "../../../src/scripts/configuration/init.php";
+    require "../../../src/db/connect.php";
+    
     include '../includes/file-begin/file-begin.php';
 
     session_start();
