@@ -15,7 +15,7 @@
           <i class="fas fa-bars"></i>
         </label>
         <a id="logo__link" href="../../index.php">
-          <img src="../../resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
+          <img src="../../resources/logos/logo-main-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         </a>
         <ul>
           <li>

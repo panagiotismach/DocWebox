@@ -17,7 +17,7 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="/DocWebox/public/resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
+        <img src="/DocWebox/public/resources/logos/logo-main-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         <ul>
           <li>
             <a href="/DocWebox/index.php">Home</a>

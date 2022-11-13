@@ -14,7 +14,7 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="../../resources/logos/main-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
+        <img src="../../resources/logos/logo-doc-view-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         <ul>
           <li>
             <a href="/DocWebox/public.views/user-dashboard.php">Dashboard</a>
