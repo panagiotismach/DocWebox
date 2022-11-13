@@ -9,6 +9,15 @@ header {
   height: 90px;
   padding-left: 50px;
 }
+#admin-login {
+  height: 70px;
+  float: right;
+  padding-right: 30px;
+  padding-top: 5px;
+}
+.hide {
+  display: none;
+}
 
 .wrapper .left,
 .wrapper .right {

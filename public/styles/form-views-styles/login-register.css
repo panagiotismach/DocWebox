@@ -14,7 +14,15 @@ body {
 header {
   background: #d6dfed;
 }
-
+#admin-login {
+  height: 70px;
+  float: right;
+  padding-right: 30px;
+  padding-top: 5px;
+}
+.hide {
+  display: none;
+}
 .nav__logo {
   height: 90px;
   width: auto;
