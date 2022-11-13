@@ -1,9 +1,11 @@
 <?php
+    require_once "../../src/scripts/configuration/init.php";
+    require "../../src/db/connect.php";
   	include '../views/includes/file-begin/file-begin.php';
 ?>
-  <link rel="stylesheet" href="../styles/faq.css" />
+    <link rel="stylesheet" href="../styles/faq.css" />
 <?php
-  include '../views/includes/headers/landing-header.php';
+    include '../views/includes/headers/landing-header.php';
 ?>
     <section>
       <div class="external-container">
@@ -71,5 +73,5 @@
       </div>
     </section>
 <?php
-  include '../views/includes/footers/landing-footer.php';
+    include '../views/includes/footers/landing-footer.php';
 ?>
