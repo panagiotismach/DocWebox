@@ -71,5 +71,5 @@
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../../views/includes/footers/doctor-view-footer.php';
 ?>
