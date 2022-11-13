@@ -1,4 +1,6 @@
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../styles/headers/doctor-views-header-styling.css" />
+    <link rel="stylesheet" href="../../styles/footers/doctor-views-footer-styling.css" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>DocWebox - Find your Doctor!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
@@ -14,16 +16,16 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img src="../../resources/logos/logo-doc-view-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
-        <ul>
-          <li>
-            <a href="/DocWebox/public.views/user-dashboard.php">Dashboard</a>
+        <a class="header-logo"href="/DocWebox/public/views/doctor-views/doctor-dashboard.php"><img src="../../resources/logos/logo-doc-view-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" /></a>
+        <ul class="header-ul">
+          <li class="header-li">
+            <a class="header-a" href="doctor-dashboard.php">Dashboard</a>
           </li>
-          <li>
-            <a href="/DocWebox/public/views/user-profile.php">Profile</a>
+          <li class="header-li">
+            <a class="header-a" href="doctor-private-profile.php">Profile</a>
           </li>
-          <li>
-            <a href="/DocWebox/public/views/logout.php">Logout ↪</a>
+          <li class="header-li">
+            <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>

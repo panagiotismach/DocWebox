@@ -1,6 +1,6 @@
 .footer {
   padding: 1rem 0.2rem;
-  background-color: var(--color-seventh);
+  background-color: var(--color-sixth);
 }
 
 .footer__nav {
@@ -16,7 +16,7 @@
 }
 
 .footer__link {
-  color: var(--color-eighth);
+  color: var(--color-seventh);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 7px 10px;
@@ -24,8 +24,8 @@
   text-decoration: none;
 }
 .footer__link:hover {
-  background: var(--color-ninth);
-  color: var(--color-eighth);
+  background: var(--color-eighth);
+  color: var(--color-seventh);
   transition: 0.5s;
 }
 
@@ -38,7 +38,7 @@
 
 .footer__copyright {
   font-size: 0.6rem;
-  color: var(--color-eighth);
+  color: var(--color-seventh);
   text-align: center;
 }
 
