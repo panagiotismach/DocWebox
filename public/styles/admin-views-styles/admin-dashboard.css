@@ -1,67 +1,4 @@
-:root {
-  --color-primary: #2a4078;
-  --color-secondary: #d6dfed;
-  --color-third: #4dd2c4;
-  --color-fourth: #1fa496;
-  --color-fifth: #063e37;
-  --color-sixth: #bef2ec;
-  --color-seventh: #fab9b9;
-  --color-eighth: #800000;
-  --color-ninth: #c23f3f;
-  --color-primary-gradient: #2a407897;
-}
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat";
-}
-
-@media (max-width: 993px) {
-  .doctor-search-container {
-    width: 80% !important;
-    max-width: 100%;
-  }
-}
-@media (max-width: 1100px) {
-  .wrapper {
-    flex-direction: column;
-    display: flex;
-  }
-  .previous-doctors__container {
-    width: 70% !important;
-    margin: 0 auto !important;
-  }
-  .previous-doctors__container h3 {
-    margin-top: 10px;
-  }
-  .previous-doctors__container h3 {
-    margin-top: 10px;
-  }
-}
-
-/* FOR SEARCH SECTION */
-@media (max-width: 860px) {
-  .search-area {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .search-area input {
-    width: 30%;
-  }
-
-  .search-area select {
-    width: 50%;
-  }
-}
-
+/* Main section CSS */
 .main-container {
   width: 100%;
   padding: 2%;
@@ -280,4 +217,44 @@ body {
   color: var(--color-primary);
   font-size: 12px;
   margin: 0px;
+}
+
+@media (max-width: 993px) {
+  .doctor-search-container {
+    width: 80% !important;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .wrapper {
+    flex-direction: column;
+    display: flex;
+  }
+  .previous-doctors__container {
+    width: 70% !important;
+    margin: 0 auto !important;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+  .previous-doctors__container h3 {
+    margin-top: 10px;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 860px) {
+  .search-area {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .search-area input {
+    width: 30%;
+  }
+
+  .search-area select {
+    width: 50%;
+  }
 }
