@@ -34,34 +34,28 @@ class Doctor {
     public $image;
     public $accCreatedAt;
 
-    // public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $num_patients, $num_publications, $work_experience_years, $bio, $location, $image, $accCreatedAt){
-    //     $this->id = $id;
-    //     $this->firstname = $firstname;
-    //     $this->lastname = $lastname;
-    //     $this->username = $username;
-    //     $this->email = $email;
-    //     $this->password = $password;
-    //     $this->phone = $phone;
-    //     $this->specialization = $specialization;
-    //     $this->vat = $vat;
-    //     $this->num_patients = $num_patients;
-    //     $this->num_publications = $num_publications;
-    //     $this->work_experience_years = $work_experience_years;
-    //     $this->bio = $bio;
-    //     $this->location = $location;
-    //     $this->image = $image;
-    //     $this->accCreatedAt = $accCreatedAt;
-    // }
-
-
-
-    public function __construct($id, $firstname, $lastname, $phone, $specialization, $location){
+    public function __construct($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $num_patients, $num_publications, $work_experience_years, $bio, $location, $image, $accCreatedAt){
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
         $this->phone = $phone;
         $this->specialization = $specialization;
+        $this->vat = $vat;
+        $this->num_patients = $num_patients;
+        $this->num_publications = $num_publications;
+        $this->work_experience_years = $work_experience_years;
+        $this->bio = $bio;
+        $this->location = $location;
+        $this->image = $image;
+        $this->accCreatedAt = $accCreatedAt;
     }
+
+
+
+  
 
     
 };
