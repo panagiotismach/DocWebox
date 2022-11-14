@@ -3,6 +3,7 @@
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
+    
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/doctors.css" />
 <?php

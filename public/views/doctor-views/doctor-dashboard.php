@@ -3,6 +3,16 @@
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
+    require "../../../src/scripts/models/doctor.php";
+
+    session_start();
+
+    if(isset($_SESSION["doctorObj"])) {
+      $doctorObj = unserialize($_SESSION["doctorObj"]);
+      
+    } else {
+      $doctorObj = "undifined";
+    }	
 ?>
     
     <!-- CSS only from bootsrap-->
@@ -37,7 +47,7 @@
   include '../../views/includes/headers/doctor-view-header.php';
 ?>
     <div class="main-container">
-      <h1>Welcome back Dr. {Lastname}!</h1>
+      <h1>Welcome back Dr. <?php echo $doctorObj->firstname ?></h1>
       <div class="wrapper">
         <div class="container-calendar">
           <div id="calendar"></div>

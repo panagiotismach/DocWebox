@@ -2,6 +2,7 @@
   
   require_once "../../../src/scripts/configuration/init.php";
   require "../../../src/db/connect.php";
+  require "../../../src/scripts/models/doctor.php";
 
   // Initialize the session
   session_start();
@@ -35,7 +36,7 @@
     // Validate credentials
     if (empty($usernameErr) && empty($passwordErr)){
       // Prepare a select statement
-      $sql = "SELECT id, username, password FROM doctor WHERE username = ?";
+      $sql = "SELECT * FROM doctor WHERE username = ?";
           
       if($stmt = $mysqli->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -52,7 +53,7 @@
           // Check if username exists, if yes then verify password
           if($stmt->num_rows == 1){                   
 
-            $stmt->bind_result($id, $username, $hashed_password);
+            $stmt->bind_result($id, $firstname, $lastname, $username, $email, $hashed_password, $phone, $specialization, $vat, $num_patients, $num_publications, $work_experience_years, $bio, $location, $image, $accCreatedAt);
 
             if($stmt->fetch()){
 
@@ -61,11 +62,12 @@
                 session_start();
                               
                 // Store data in session variables
+                $doctorObj = new Doctor($id, $firstname, $lastname, $username, $email, $password, $phone, $specialization, $vat, $num_patients, $num_publications, $work_experience_years, $bio, $location, $image, $accCreatedAt);
                 $_SESSION["doctor-loggedin"] = true;
-                $_SESSION["id"] = $id;                           
+                $_SESSION["doctorObj"] = serialize($doctorObj);                           
                               
                 // Redirect user to welcome page
-                header("location: ../forms-views/doctor-dashboard.php");
+                header("location: ../doctor-views/doctor-dashboard.php");
               } else {
                 // Password is not valid
                 $loginErr = "Invalid username or password.";
