@@ -277,7 +277,7 @@
                   </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                      <button type="button" class="btns my-2 p-1" id="doctor-second-btn">Login as a Doctor</button>
+                      <a href="/DocWebox/public/views/forms-views/login-doctor.php"><button type="button" class="btns my-2 p-1" id="doctor-second-btn">Login as a Doctor</button></a>
                   </div>
                       
                 </div>
