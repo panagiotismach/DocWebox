@@ -34,6 +34,8 @@ section {
   flex-wrap: wrap;
   padding: 1em 1em;
   text-align: center;
+  width: 70%;
+  margin: auto;
 }
 .column {
   width: 100%;
