@@ -61,7 +61,7 @@
               <li><a id="ps" onclick='menu("ps")' >PROFILE SETTINGS</a></li>
               <li><a id="si" onclick='menu("si")' >SENSITIVE INFORMATION</a></li>
             </ul>
-            <a href="user-dashboard.php"><button>Book an appointment</button></a>
+            <a href="user-dashboard.php"><button>BOOK AN APPOINTMENT</button></a>
           </nav>
           <div class="card-container" id="card-container">
           </div>
@@ -77,16 +77,16 @@
                         <span>Last name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="file" name="Profile Picture">
-                        <span>Profile picture</span>
-                    </div>
-                    <div class="inputBox">
                         <input type="text" name="Phone" value="{{Your phone}}">
-                        <span>Email</span>
+                        <span>Phone</span>
                     </div>
                     <div class="inputBox">
                         <input type="text" name="Location">
                         <span>Location</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="file" name="Profile Picture">
+                        <span>Profile picture</span>
                     </div>
                     <div class="inputBox">
                         <input type="submit" name="Submit" value="Save">
@@ -102,7 +102,7 @@
                     </div>
                     <div class="inputBox">
                         <input type="text" name="Email">
-                        <span>Last name</span>
+                        <span>Email</span>
                     </div>
                     <div class="inputBox">
                         <input type="text" name="Current Password">

@@ -4,7 +4,7 @@
   <title>DocWebox - Find your Doctor!</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="../resources/favicon/the-icon.ico" />
+  <link rel="icon" href="../../resources/favicon/the-icon.ico" />
 </head>
 <body>
 <header>

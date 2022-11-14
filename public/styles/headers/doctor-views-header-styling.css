@@ -9,6 +9,7 @@
   --color-eighth: #ffc163;
   --color-ninth: #dff1db;
   --color-primary-gradient: #2a407897;
+  --color-secondary-gradient: #ebf3d44a;
 }
 
 * {
@@ -86,7 +87,7 @@ body {
     height: 80px;
   }
   .header-nav .header-ul {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 100%;
     height: 100vh;
