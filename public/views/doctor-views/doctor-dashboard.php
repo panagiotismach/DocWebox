@@ -43,6 +43,10 @@
         });
       });
     </script>
+    <script>
+      const doctorid = <?php echo $doctorObj->id?>
+    </script>
+    <script src= "../../src/js/patient-doctor.js" defer ></script>
 <?php
   include '../../views/includes/headers/doctor-view-header.php';
 ?>
@@ -55,41 +59,8 @@
         <div class="patients">
           <h3>Your patients</h3>
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ Patient Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ Patient Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ Patient Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ Patient Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ Patient Name }}</h5>
-              </div>
-              <p class="mb-1">{{ Phone number }}, {{ City }}, {{ Area }}</p>
-              <small class="text-muted">appointment {{ number }} days ago</small>
-            </a>
+            
+
           </div>
         </div>
       </div>

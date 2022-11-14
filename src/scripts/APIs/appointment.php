@@ -24,6 +24,19 @@
         header("Content-Type: application/json");
         
         echo json_encode($data);
+    }else if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $data = null;
+
+        $entityBody = file_get_contents('php://input');
+        $appointentBody = json_decode($entityBody);
+        
+      $appointment = new Appointment($appointentBody->id = null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description); 
+
+       $appointmentService->addAppointment($ap);
+
+       
+
+        
     }
 
     $mysqli->close();

@@ -1,10 +1,23 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
-    
-  	include '../../views/includes/file-begin/file-begin.php';
+    include '../../views/includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if(isset($_SERVER['id'])){
+        $id = $_SERVER['id']
+    }
+
+    if(isset($_SERVER['doctor_id'])){
+        $doctor_id = $_SERVER['doctor_id']
+    }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
+    <script>
+        const inputpId = document.querySelector("#doctor_id");
+        inputpId.value = <?php echo $id ?>
+    </script>
 <?php
   include '../../views/includes/headers/patient-view-header.php';
 ?>
@@ -52,8 +65,14 @@
                 <div class="bf-row">
                     <div class="bf-col-12">
                         <p class="label">Reason of your appointment</p>
-                        <textarea name="Reason" id="Reason" cols="10" rows="4"></textarea>
+                        <textarea name="description" id="Reason" cols="10" rows="4"></textarea>
                     </div>
+                </div>
+                <div class="bf-row">
+                        <input hidden name="patient_id" id="patient_id"  ></input>
+                </div>
+                <div class="bf-row">
+                        <input hidden name="doctor_id" id="doctor_id"  ></input>
                 </div>
                 <div class="bf-row">
                     <div class="bf-col-3">
