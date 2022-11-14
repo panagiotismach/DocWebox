@@ -80,8 +80,7 @@
             <i class="fa-solid fa-circle-info"></i>
         </div>
         <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming" of Uom</h2>
-        <h3>Meet our team:</h3>
-        <h3><a class="us-link" href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/" target=blank>Charakopoulos Minas-Theodoros</a>, <a class="us-link" href="https://www.linkedin.com/in/dionisis-lougaris/" target=blank>Lougaris Dionisios</a>, <a class="us-link" href="https://www.linkedin.com/in/panagiotis-machairas-9263841b9/" target=blank>Machairas Panagiotis</a>, <a class="us-link" href="https://www.linkedin.com/in/george-john-stefou-713a9a1b8/" target=blank>Stefou Georgios-Ioannis</a></h3>
+        <h3>Meet <a class="us-link"href="/DocWebox/public/views/our-team.php">our team</a></h3><br>
     </div>  
 <?php
   include 'public/views/includes/footers/landing-footer.php';

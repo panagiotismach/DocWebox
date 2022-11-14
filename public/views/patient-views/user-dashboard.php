@@ -51,7 +51,7 @@
 ?>
     <div class="main-container">
       <h1>Welcome back <?php echo $patientObj->firstname?>!</h1>
-      <h3>Search for your doctor</h3>
+      <h3>Your appointment is 4 clicks away!</h3>
       <form action="" class="search-area">
         <select id="Doc-Specialities" name="Doc-Specialities">
           <option value="None">Choose Doctor Specialization</option>

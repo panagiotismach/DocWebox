@@ -104,6 +104,7 @@ section h2 {
 }
 .card a:hover {
   color: white;
+  background-color: var(--color-fourth);
 }
 
 /* Responsiveness */

@@ -52,7 +52,7 @@ header {
 }
 
 .section-img {
-  background-color: #ff9999;
+  background-color: #f4efb7;
   padding-top: 70px;
   padding-bottom: 70px;
 }
@@ -103,24 +103,20 @@ img {
   color: #1fa496;
 }
 
-#back-home-doctor {
-  color: #800000;
-}
-
 #doctor-first-btn {
   border: none;
-  background-color: #800000;
+  background-color: #ffc163;
 }
 
 #doctor-first-btn:hover,
 #doctor-second-btn:hover {
-  background-color: rgba(128, 0, 0, 0.6);
+  background-color: #ffc16392;
 }
 
 #doctor-second-btn {
   background-color: white;
-  color: #800000;
-  border-color: #800000;
+  color: #ffc163;
+  border-color: #fcba58;
 }
 
 .text {

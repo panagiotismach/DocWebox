@@ -26,7 +26,11 @@ section {
   padding-top: 7px;
   padding-bottom: 4rem;
 }
-
+.link {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
 .container {
   width: 100%;
   max-width: 80rem;

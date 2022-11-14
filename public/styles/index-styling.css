@@ -48,8 +48,8 @@
   padding-bottom: 10px;
 }
 .us-link {
-  /* font-size: 1.6rem; */
-  color: var(--color-secondary);
+  font-size: 1.1rem;
+  color: white;
   text-decoration: none;
 }
 
