@@ -13,6 +13,10 @@
     }
 ?>
     <script src="../../src/js/user-profile-menu-navigator.js" defer></script>
+    <script >
+      const idPatient =  <?php echo $patientObj->id ?>
+    </script>
+    <script type="module" src="../../src/js/controllers/control-appointment.js"></script>
     <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
 <?php
     include '../../views/includes/headers/patient-view-header.php';
@@ -60,26 +64,6 @@
             <a href="user-dashboard.php"><button>Book an appointment</button></a>
           </nav>
           <div class="card-container" id="card-container">
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>19/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>20/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div>
           </div>
           <div class="profile-settings hide" id="profile-settings" >
           <form class="personal-information ">
