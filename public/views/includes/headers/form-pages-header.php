@@ -9,7 +9,7 @@
 <body>
 <header>
   <nav>
-    <a onclick="history.back()" style="cursor:pointer;"><img src="/DocWebox/public/resources/logos/logo-back-btn-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
+    <a href="../../../index.php" style="cursor:pointer;"><img src="/DocWebox/public/resources/logos/logo-back-btn-transparent.png" alt="DocWebox logo back" class="nav__logo" id="logo" /></a>
     <a href="/DocWebox/public/views/forms-views/dw-admin.php" title="Move to admin panel"><img src="/DocWebox/public/resources/logos/admin-login-button-transparent.png" alt="DocWebox logo back" id="admin-login" id="logo" /></a>
   </nav>
 </header>
