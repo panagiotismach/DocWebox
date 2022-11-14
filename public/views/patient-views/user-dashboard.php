@@ -9,14 +9,9 @@
 
     if(isset($_SESSION["patientObj"])) {
       $patientObj = unserialize($_SESSION["patientObj"]);
-      
     } else {
-      $patientObj = "undifined";
+      $patientObj = new Patient("", "", "", "", "", "", "", "", "", "");
     }	
-
-    // $id = $_SESSION["id"]
-
-    
 ?>
 <!-- CSS only from bootsrap-->
 <link
@@ -48,7 +43,7 @@
       });
     </script>
     <script >
-      const idpatient =  <?php echo $patientObj->id ?>
+      const idpatient = <?php echo $patientObj->id ?>
     </script>
     <script defer src="../../src/js/data.js"></script>
 <?php
@@ -100,21 +95,13 @@
     <div class="external-container">
     <div class="doctor-search-container">
       <h2>Is your doctor on DocWebox?</h2>
-      
         <form class="doctor-search-box">
-        
-        
-        <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's name..."/>
-        <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
-        
+          <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's name..."/>
+          <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
         </form>
-      
-      
-      <div class="card-container">
-            
-      </div>
+      <div class="card-container"></div>
     </div>
-    </div>
+  </div>
 <?php
   include '../includes/footers/patient-view-footer.php';
 ?>
