@@ -1,11 +1,12 @@
 "use strict";
 
 const container = document.querySelector(".list-group");
-let appointments = [];
-let doctors = [];
 const searchContainer = document.querySelector(".card-container");
 const searchButton = document.querySelector("#search-doctor");
 const inputDoctor = document.querySelector("#input-search");
+let previousInput = "";
+let appointments = [];
+let doctors = [];
 
 const fetchData = async (url) => {
   return await fetch(url).then((res) => res.json());
@@ -23,24 +24,6 @@ const templateAppointment = (doctor) => {
   return html;
 };
 
-const addDoctors = async () => {
-  appointments = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/appointment.php?patient_id=${idpatient}`);
-  console.log(idpatient);
-  const doctorsPromises = await appointments.map(async (appointment) => {
-    return await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=${appointment.doctor_id}`);
-  });
-  doctorsPromises.forEach((docrorPromise) =>
-    docrorPromise.then((doctor) => {
-      console.log(doctor);
-      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor));
-    })
-  );
-};
-
-window.addEventListener("load", addDoctors);
-
-console.log(searchButton);
-
 const templateDoctor = (doctor) => {
   const html = `<div class="card">
                <h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
@@ -50,14 +33,31 @@ const templateDoctor = (doctor) => {
   return html;
 };
 
-const searchDoctor = async (lastaname) => {
-  const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
-  console.log(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
-  console.log(lastaname);
-  searchDoctors.forEach((doctor) => searchContainer.insertAdjacentHTML("beforeEnd", templateDoctor(doctor)));
+const addDoctors = async () => {
+  appointments = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/appointment.php?patient_id=${idpatient}`);
+  const doctorsPromises = await appointments.map(async (appointment) => {
+    return await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=${appointment.doctor_id}`);
+  });
+  doctorsPromises.forEach((docrorPromise) =>
+    docrorPromise.then((doctor) => {
+      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor));
+    })
+  );
 };
 
-console.log("gvuhj");
+const searchDoctor = async (lastaname) => {
+  console.log(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
+  if (lastaname !== previousInput) {
+    const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
+    console.log("hbeadjs");
+    searchContainer.innerHTML = "";
+    searchContainer.insertAdjacentHTML("beforeEnd", "<p>Results that match your search:</p>");
+    searchDoctors.forEach((doctor) => searchContainer.insertAdjacentHTML("beforeEnd", templateDoctor(doctor)));
+  }
+  previousInput = lastaname;
+};
+
+window.addEventListener("load", addDoctors);
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();

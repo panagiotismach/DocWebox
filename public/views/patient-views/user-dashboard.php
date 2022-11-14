@@ -1,18 +1,20 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
+    require "../../../src/scripts/models/patient.php";
     
     include '../includes/file-begin/file-begin.php';
 
     session_start();
 
-    if(isset($_SESSION["firstname"])) {
-      $firstname = $_SESSION["firstname"];
+    if(isset($_SESSION["patientObj"])) {
+      $patientObj = unserialize($_SESSION["patientObj"]);
+      
     } else {
-      $firstname = "Undefined";
+      $patientObj = "undifined";
     }	
 
-    $id = $_SESSION["id"]
+    // $id = $_SESSION["id"]
 
     
 ?>
@@ -46,14 +48,14 @@
       });
     </script>
     <script >
-      const idpatient =  <?php echo $id ?>
+      const idpatient =  <?php echo $patientObj->id ?>
     </script>
     <script defer src="../../src/js/data.js"></script>
 <?php
   include '../includes/headers/patient-view-header.php';
 ?>
     <div class="main-container">
-      <h1>Welcome back <?php echo $firstname?>!</h1>
+      <h1>Welcome back <?php echo $patientObj->firstname?>!</h1>
       <h3>Search for your doctor</h3>
       <form action="" class="search-area">
         <select id="Doc-Specialities" name="Doc-Specialities">
@@ -107,7 +109,7 @@
         
         </form>
       
-      <p>Results that match your search:</p>
+      
       <div class="card-container">
             
       </div>
