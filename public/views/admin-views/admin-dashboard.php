@@ -21,17 +21,19 @@
 <?php
   include '../../views/includes/headers/admin-view-header.php';
 ?>
+  <section class="main-section">
     <div class="main-container">
-      <h1>Welcome back!</h1>
-      <h3>Search for doctor or patient or appointment</h3>
-      <form action="" class="search-area" >
+      <h1 style="color:white;">Welcome back!</h1>
+      <h3 style="color:white;">Search for doctor or patient or appointment</h3>
+      <form action="" class="search-area"  >
         <select id="D-P" name="Doctor-Patient">
-          <option value="None">Choose Patient or Doctor</option>
+          <option value="None">Choose option</option>
           <option value="General doctor">Doctor</option>
           <option value="General patient">Patient</option>
+          <option value="General doctor">Appointment</option>
         </select>
         <input type="text" placeholder="Name or Appointment date" name="search" />
-        <button type="submit"><img src="../../public/resources/images/search.png" /></button>
+        <button type="submit"><img src="/DocWebox/public/resources/images/tools/search.png" /></button>
       </form>
     </div>
     <div class="doctor-search-container">
@@ -60,6 +62,7 @@
       </div>
     </div>
    </div>
+</section>
 <?php
   include '../../views/includes/footers/admin-view-footer.php';
 ?>

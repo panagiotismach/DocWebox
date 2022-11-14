@@ -4,9 +4,6 @@
   padding: 2%;
   background-position: center;
   background-size: cover;
-  /* display: flex; */
-  /* align-items: center;
-  justify-content: center; */
 }
 
 .main-container h1 {
@@ -27,7 +24,7 @@
   margin: 0 auto;
   max-width: 500px;
   display: flex;
-  background-color: var(--color-fourth);
+  background-color: #dff1db;
   align-items: center;
   border-radius: 60px;
   padding: 5px 8px;
@@ -67,7 +64,7 @@
   border-radius: 50%;
   width: 45px;
   height: 40px;
-  background: var(--color-third);
+  background: #b4b4b4;
   cursor: pointer;
   /* float: right; */
 }
@@ -118,14 +115,21 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
+.main-section {
+  min-height: 80vh;
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(/DocWebox/public/resources/images/background/dc-dashboard-bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
 .doctor-search-container {
   width: 60%;
   padding: 50px;
   margin: 0 auto;
   border-radius: 5px;
   box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+  background-color: white;
 }
+
 .doctor-search-box {
   width: 100%;
   position: relative;
@@ -157,7 +161,7 @@
 .doctor-search-container h2 {
   text-align: center;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-eighth);
 }
 
 .doctor-search-container p {
@@ -190,18 +194,19 @@
   background-color: orange;
   color: white;
   border-radius: 5px;
-  padding: 5px;
+  padding: 7px;
   border: none;
   margin-right: 30px;
 }
 
 .data {
-  padding-left: 20px;
+  padding-left: 15px;
+  padding-top: 12px;
 }
 
 #delete-btn {
   background-color: red;
-  padding: 5px;
+  padding: 7px;
   border: none;
   color: white;
   border-radius: 5px;
