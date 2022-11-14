@@ -44,5 +44,15 @@
             
             return $data;
         }
+
+        public function addAppointment($appointment){
+            try {
+                $sql = "INSERT INTO `$this->table` (`id`, `doctor_id`, `patient_id`, `date`, `time`, `description`) VALUES ('$appointment->id', '$appointment->doctor_id', '$appointment->patient_id', '$appointment->date', '$appointment->time', '$appointment->description')";
+                $result = $this->mysqli->query($sql);
+                return $appointment;
+            }catch(Exception $e){
+                echo 'Message: ' .$e->getMessage();
+            } 
+        }
     }
 ?>

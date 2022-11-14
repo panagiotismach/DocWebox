@@ -14,6 +14,15 @@ export default class AppointmentView {
     </div><br>`;
   }
 
+  template(appointmentObj) {
+    return `
+    <div class="card">
+      <h3>Appointment at ${appointmentObj.doctor_id}</h3>
+      <h4>${appointmentObj.date}  ${appointmentObj.time}</h4>
+      <p>${appointmentObj.description}</p>
+    </div><br>`;
+  }
+
   render(appointmentsData) {
     const that = this;
     const container = document.querySelector(this.parentElement);
