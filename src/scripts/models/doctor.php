@@ -51,13 +51,7 @@ class Doctor {
         $this->location = $location;
         $this->image = $image;
         $this->accCreatedAt = $accCreatedAt;
-    }
-
-
-
-  
-
-    
+    }   
 };
 
 ?>

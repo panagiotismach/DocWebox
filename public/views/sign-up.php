@@ -12,7 +12,7 @@
                   <div class="caption">
                     <div class="block">
                         <h1>Patients</h1>
-                        <a class="button" id="patient-button" href="./forms-views/register-patient.php">Register as patient</a>
+                        <a class="button" id="patient-button" href="/DocWebox/public/views/forms-views/register-patient.php">Register as patient</a>
                     </div>
                   </div>
             </div>
@@ -21,7 +21,7 @@
                   <div class="caption">
                   <div class="block">
                         <h1>Doctors</h1>
-                        <a class="button" id="doctor-button" href="./forms-views/register-doctor.php">Register as a doctor</a>
+                        <a class="button" id="doctor-button" href="/DocWebox/public/views/forms-views/register-doctor.php">Register as a doctor</a>
                     </div>
                   </div>
             </div>

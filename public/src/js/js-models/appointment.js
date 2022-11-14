@@ -1,4 +1,5 @@
 import { PATIENT_APPOINTMENTS_URL } from "../config.js";
+import { DOCTOR_OBJ_URL } from "../config.js";
 
 export default class Appointment {
   //Appointment Model constructor
@@ -16,10 +17,24 @@ export default class Appointment {
       })
       .then(function (data) {
         data.forEach(function (appointmentObj) {
-          that.appointments.push(appointmentObj);
+          that.appointments.push(appointmentObj); //Add the appointment
         });
       });
 
-    return that.appointments;
+    return this.appointments;
+  }
+
+  async getDoctorName(id) {
+    let doctorObj = null;
+
+    await fetch(`${DOCTOR_OBJ_URL}id=${id}`)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        doctorObj = data;
+      });
+
+    return doctorObj?.firstname + " " + doctorObj?.lastname;
   }
 }
