@@ -99,7 +99,7 @@
            $updatesMessage = "Fields are missing!";
         }
       } else if (isset($_POST['submit-sensitive'])){
-        echo "Fgdfgdfgdf";
+        echo "-----------";
       }
     }
 ?>
@@ -146,7 +146,8 @@
           </div>
         </div>
         <div class="right__col">
-          <h3 class="updates-message handle-visibility"><?php echo $updatesMessage ?></h3>
+        <?php if($updatesMessage == "Successful update!"){echo "<div class='success-message handle-visibility'><i class='fa-solid fa-check' style='color:white; margin-top: 2px; margin-left:2px; '></i><h3>Successful update!</h3></div>";}
+        else if($updatesMessage == "Fields are missing!"){echo "<div class='reject-message handle-visibility'><i class='fa-solid fa-xmark' style='color:white; margin-top: 2px; margin-left:2px;'></i><h3>Fields are missing..</h3></div>";}?>
           <nav>
             <ul class="profile-ul">
               <li><a id="pa" class="selected" onclick='menu("pa")' >PREVIOUS APPOINTMENTS</a></li>
