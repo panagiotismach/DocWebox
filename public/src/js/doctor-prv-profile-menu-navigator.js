@@ -7,7 +7,7 @@ function menu(option) {
     //Section appearance
     document.getElementById("appointment-container").classList.add("visible");
     document.getElementById("appointment-container").classList.remove("hide");
-    document.getElementById("patients-container").classList.remove("hide");
+    document.getElementById("patients-container").classList.add("hide");
     document.getElementById("profile-settings").classList.add("hide");
     document.getElementById("sensitive-information").classList.add("hide");
   } else if (option == "p") {
