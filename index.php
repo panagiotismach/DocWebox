@@ -1,6 +1,7 @@
 <?php
     require_once "./src/scripts/configuration/init.php";
     include 'public/views/includes/file-begin/file-begin.php';
+     
 ?>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
 <?php
@@ -9,7 +10,7 @@
     <div class="container">
         <h1>Welcome to DocWebox, the place where you find your doctor!</h1>
         <h3>Book an appointment with 4 clicks</h3>
-        <form action="" class="search-area">
+        <form action="/DocWebox/public/views/patient-views/doctors.php" method="get" class="search-area">
             <select id="Doc-Specialities" name="Doc-Specialities">
                 <option value="None">Choose Doctor Specialization</option>
                 <option value="General doctor">General doctor</option>

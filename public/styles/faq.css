@@ -9,6 +9,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-behavior: smooth;
+  transition: 0.5s;
 }
 .external-container {
   text-align: center;
@@ -36,6 +38,10 @@ section {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+.accordion {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .accordion-item {
@@ -95,5 +101,10 @@ section {
 }
 
 .accordion-item:target .answer {
-  max-height: 10rem;
+  max-height: 12rem;
+}
+@media (max-width: 750px) {
+  .accordion {
+    width: 100%;
+  }
 }

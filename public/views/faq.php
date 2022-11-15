@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="accordion-item" id="question3">
-                    <a class="accordion-link" href="#question3">
+                    <a class="accordion-link" href="#question3"onclick="Event.preventDefault()">
                         How do I book my appointment? 
                         <i class="fa-solid fa-angle-down down-icon"></i>
                     </a>

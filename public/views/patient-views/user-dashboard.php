@@ -96,7 +96,7 @@
     <div class="doctor-search-container">
       <h2>Is your doctor on DocWebox?</h2>
         <form class="doctor-search-box">
-          <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's name..."/>
+          <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's Lastname..."/>
           <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
         </form>
       <div class="card-container"></div>

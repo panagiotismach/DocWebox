@@ -97,7 +97,7 @@
 }
 .list-group {
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 450px;
 }
 

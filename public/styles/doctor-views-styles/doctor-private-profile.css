@@ -115,6 +115,7 @@
 }
 .profile-ul li {
   cursor: pointer;
+  text-align: center;
 }
 
 .selected {
@@ -224,6 +225,7 @@
   margin-top: 20px;
   font-family: "Montserrat";
   font-weight: 600;
+  margin-left: 5px;
 }
 .header__wrapper .cols__container .right__col nav button:hover {
   opacity: 0.8;
@@ -235,7 +237,7 @@
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 500px;
   margin-bottom: 30px;
 }
