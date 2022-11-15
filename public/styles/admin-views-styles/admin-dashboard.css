@@ -120,6 +120,7 @@
   background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(/DocWebox/public/resources/images/background/dc-dashboard-bg.jpg);
   background-position: center;
   background-size: cover;
+  padding-bottom: 50px;
 }
 .doctor-search-container {
   width: 60%;
@@ -249,7 +250,9 @@
 
 /* Modal CSS */
 
-.edit-modal {
+.edit-modal-patient,
+.edit-modal-doctor,
+.edit-modal-appointment {
   position: fixed;
   left: 0;
   top: 0;
@@ -273,7 +276,9 @@
   border-radius: 0.5rem;
 }
 
-.edit-modal-close-button {
+.edit-modal-close-button-appointment,
+.edit-modal-close-button-doctor,
+.edit-modal-close-button-patient {
   float: right;
   width: 1.5rem;
   line-height: 1.5rem;
