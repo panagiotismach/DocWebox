@@ -129,6 +129,30 @@
   display: none;
 }
 
+.is-invalid-update {
+  border-bottom: 2px solid red !important;
+}
+
+.invalid-feedback-form {
+  color: red;
+  font-size: 15px;
+}
+
+.updates-message {
+  margin-top: 10px;
+}
+
+.handle-visibility {
+  animation: cssAnimation 0s 3s forwards;
+  visibility: visible;
+}
+
+@keyframes cssAnimation {
+  to {
+    visibility: hidden;
+  }
+}
+
 .header__wrapper .cols__container .right__col nav button {
   background: var(--color-fourth);
   color: #fff;
@@ -302,5 +326,8 @@
   .card-container {
     width: 80%;
     margin: 0 auto;
+  }
+  .updates-message {
+    text-align: center;
   }
 }
