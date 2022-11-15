@@ -7,7 +7,7 @@ export default class DoctorView {
 
   template(doctorObj) {
     const html = `
-           <a href="#1"><div class="column">
+           <a href="/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctorObj.id}"><div class="column">
                     <div class="card">
                         <div class="img-container">
                         <img src="../../resources/images/pfp/doctor-pfp.png" />
