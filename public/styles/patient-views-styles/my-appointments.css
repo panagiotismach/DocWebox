@@ -1,0 +1,143 @@
+section {
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../../resources/images/background/appointments-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 80vh;
+}
+
+.main-section {
+  width: 50%;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+.card-container {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 800px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+.card-container .card {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 2.5em rgba(111, 110, 110, 0.131);
+}
+.card-container h3 {
+  color: var(--color-primary);
+  font-size: 22px;
+  padding: 5px;
+}
+.card-container h4 {
+  color: var(--color-fourth);
+  font-size: 18px;
+  padding: 5px;
+}
+.card-container p {
+  color: var(--color-primary);
+  font-size: 17px;
+  padding: 5px;
+}
+.admin-edit-form h2 {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+  font-size: 17px;
+  padding: 7px 10px;
+  border: none;
+  margin-right: 5px;
+  float: right;
+  cursor: pointer;
+}
+.delete-btn {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  font-size: 17px;
+  padding: 7px 10px;
+  border: none;
+  margin-right: 5px;
+  float: right;
+  cursor: pointer;
+}
+.edit-modal-appointment {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(151, 161, 111, 0.5);
+  opacity: 1;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.edit-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+}
+
+.edit-modal-close-button-appointment {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.inputBox {
+  padding: 2px;
+}
+.inputBox input[type="text"] {
+  width: 80%;
+}
+.inputBox input[type="submit"] {
+  float: right;
+  margin-top: 10px;
+  padding: 3px;
+  color: whitesmoke;
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+.edit-modal-close-button:hover {
+  background-color: darkgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+@media (max-width: 1400px) {
+  .main-section {
+    width: 80%;
+  }
+}
+@media (max-width: 700px) {
+  .main-section {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  .main-section {
+    width: 100%;
+  }
+  .edit-modal-content {
+    width: 90%;
+  }
+}

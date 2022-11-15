@@ -27,6 +27,9 @@
             <a class="header-a" href="user-profile.php">Profile</a>
           </li>
           <li class="header-li">
+            <a class="header-a" href="my-appointments.php">Appointments</a>
+          </li>
+          <li class="header-li">
             <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
           </li>
         </ul>
