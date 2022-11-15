@@ -8,7 +8,7 @@ export default class AppointmentView {
   template(appointmentObj) {
     return `
     <div class="card">
-      <h3>Appointment at ${appointmentObj.doctorName}</h3>
+      <h3>Appointment at Dr. ${appointmentObj.doctorName}</h3>
       <h4>${appointmentObj.date}  ${appointmentObj.time}</h4>
       <p>${appointmentObj.description}</p>
     </div><br>`;

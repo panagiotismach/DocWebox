@@ -15,10 +15,11 @@ export default class Appointment {
       .then(function (response) {
         return response.json();
       })
-      .then(function (data) {
-        data.forEach(function (appointmentObj) {
+      .then(async function (data) {
+        for (const appointmentObj of data) {
+          appointmentObj.doctorName = await that.getDoctorName(appointmentObj.patient_id); //Get the appointment's doctor name
           that.appointments.push(appointmentObj); //Add the appointment
-        });
+        }
       });
 
     return this.appointments;
