@@ -161,17 +161,17 @@
             <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Update your profile</h2>
                 <div class="inputBox">
-                  <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>">
+                  <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>" required>
                   <span>First name</span>
                   <p class="invalid-feedback-form"><?php echo $firstnameSetError; ?></p>
                 </div>
                 <div class="inputBox">
-                  <input type="text" name="lastname" class="<?php echo (!empty($lastnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLastname ?>">
+                  <input type="text" name="lastname" class="<?php echo (!empty($lastnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLastname ?>" required>
                   <span>Last name</span>
                   <p class="invalid-feedback-form"><?php echo $lastnameSetError; ?></p>
                 </div>
                 <div class="inputBox">
-                  <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>">
+                  <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>" required>
                   <span>Phone</span>
                   <p class="invalid-feedback-form"><?php echo $phoneSetError; ?></p>
                 </div>
