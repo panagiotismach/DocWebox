@@ -5,6 +5,7 @@
     require "../../../src/db/connect.php";
 ?>
     <link rel="stylesheet" href="../../styles/admin-views-styles/admin-dashboard.css" />
+    <script src="/DocWebox/public/src/js/edit-modal-controller.js" defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -45,23 +46,74 @@
               <p>{{Doctor Phone}} {{Doctor Address}}</p>
               </div>
               <ul class="buttonpd">
-                <li><button id="edit-btn">Edit</button></li>
-                <li><button id="delete-btn">Delete</button></li>
-              </ul>
-            </div>
-            <div class="card">
-            <div class="data">
-              <h3>{{Doctor Name}}</h3>
-              <p>{{Doctor Phone}} {{Doctor Address}}</p>
-              </div>
-              <ul class="buttonpd">
-                <li><button id="edit-btn">Edit</button></li>
-                <li><button id="delete-btn">Delete</button></li>
+                <li><button class="edit-modal-trigger" id="edit-btn">Edit</button></li>
+                <li><button id="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button></li>
               </ul>
             </div>
       </div>
     </div>
    </div>
+<div class="edit-modal">
+    <div class="edit-modal-content">
+        <span class="edit-modal-close-button">×</span>
+        <form class="admin-edit-form">
+        <i class="fa-solid fa-file-pen"></i>
+        <h2>Currently editing {{Doctor Name}}</h2>
+                    <div class="inputBox">
+                        <span>First name</span><br>
+                        <input type="text" name="Firstname" value="{{Doctor's first name}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Last name</span><br>
+                        <input type="text" name="Lastname" value="{{Doctor's last name}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Phone</span><br>
+                        <input type="text" name="Phone" value="{{Doctor's phone}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Location</span><br>
+                        <input type="text" name="Location" value="{{Doctor's location}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Patients</span><br>
+                        <input type="text" name="Patients" value="{{Doctor's patients}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Publication</span><br>
+                        <input type="text" name="Publications" value="{{Doctor's publications}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Years of Experience</span><br>
+                        <input type="text" name="Years" value="{{Doctor's years of experience}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Short Bio</span><br>
+                        <input type="text" name="Bio" maxlength="255"value="{{Doctor's Bio}}">
+                    </div>
+                    <div class="inputBox">
+                        <span>Profile Picture</span><br>
+                        <input type="file" name="Profile Picture">
+                    </div>
+                    <h4>⚠ Danger Zone</h4>
+                    <div class="inputBox">
+                        <span>Username</span><br>
+                        <input type="text" name="Username">
+                    </div>
+                    <div class="inputBox">
+                        <span>Email</span><br>
+                        <input type="text" name="Email">
+                    </div>
+                    <div class="inputBox">
+                        <span>Password</span><br>
+                        <input type="text" name="Password">
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="Submit" value="Confirm changes">
+                    </div>
+                </form>
+    </div>
+</div>
 </section>
 <?php
   include '../../views/includes/footers/admin-view-footer.php';
