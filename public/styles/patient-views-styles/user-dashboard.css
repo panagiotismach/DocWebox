@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 600px;
   padding: 2%;
-  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(../../resources/images/background/book-now-bg.jpg);
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(/DocWebox/public/resources/images/background/dc-dashboard-bg.jpg);
   background-position: center;
   background-size: cover;
   /* display: flex; */
@@ -96,7 +96,7 @@
 }
 .list-group {
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 450px;
 }
 

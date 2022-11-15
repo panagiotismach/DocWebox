@@ -149,9 +149,13 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.profile-settings,
+.sensitive-information {
+  margin-left: 2%;
+}
 .personal-information {
   width: 90%;
-  padding: 40px;
+  padding: 20px;
   background: white;
 }
 
@@ -232,7 +236,7 @@
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 500px;
   margin-bottom: 30px;
 }

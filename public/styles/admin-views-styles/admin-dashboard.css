@@ -4,9 +4,6 @@
   padding: 2%;
   background-position: center;
   background-size: cover;
-  /* display: flex; */
-  /* align-items: center;
-  justify-content: center; */
 }
 
 .main-container h1 {
@@ -27,7 +24,7 @@
   margin: 0 auto;
   max-width: 500px;
   display: flex;
-  background-color: var(--color-fourth);
+  background-color: #dff1db;
   align-items: center;
   border-radius: 60px;
   padding: 5px 8px;
@@ -67,7 +64,7 @@
   border-radius: 50%;
   width: 45px;
   height: 40px;
-  background: var(--color-third);
+  background: #b4b4b4;
   cursor: pointer;
   /* float: right; */
 }
@@ -118,14 +115,22 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
+.main-section {
+  min-height: 80vh;
+  background-image: linear-gradient(var(--color-primary-gradient), var(--color-primary-gradient)), url(/DocWebox/public/resources/images/background/dc-dashboard-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 50px;
+}
 .doctor-search-container {
   width: 60%;
   padding: 50px;
   margin: 0 auto;
   border-radius: 5px;
   box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.25);
+  background-color: white;
 }
+
 .doctor-search-box {
   width: 100%;
   position: relative;
@@ -157,7 +162,7 @@
 .doctor-search-container h2 {
   text-align: center;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-eighth);
 }
 
 .doctor-search-container p {
@@ -190,18 +195,19 @@
   background-color: orange;
   color: white;
   border-radius: 5px;
-  padding: 5px;
+  padding: 7px;
   border: none;
   margin-right: 30px;
 }
 
 .data {
-  padding-left: 20px;
+  padding-left: 15px;
+  padding-top: 12px;
 }
 
 #delete-btn {
   background-color: red;
-  padding: 5px;
+  padding: 7px;
   border: none;
   color: white;
   border-radius: 5px;
@@ -240,6 +246,80 @@
   .previous-doctors__container h3 {
     margin-top: 10px;
   }
+}
+
+/* Modal CSS */
+
+.edit-modal-patient,
+.edit-modal-doctor,
+.edit-modal-appointment {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(151, 161, 111, 0.5);
+  opacity: 1;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.edit-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+}
+
+.edit-modal-close-button-appointment,
+.edit-modal-close-button-doctor,
+.edit-modal-close-button-patient {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.edit-modal-close-button:hover {
+  background-color: darkgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.admin-edit-form h2 {
+  font-size: 21px;
+  font-weight: bold;
+}
+.admin-edit-form h4 {
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(103, 7, 7);
+}
+.inputBox {
+  padding: 2px;
+}
+.inputBox input[type="text"] {
+  width: 80%;
+}
+.inputBox input[type="submit"] {
+  float: right;
+  margin-top: 10px;
+  padding: 3px;
+  color: whitesmoke;
+  background-color: rgb(103, 7, 7);
 }
 
 /* Responsiveness */

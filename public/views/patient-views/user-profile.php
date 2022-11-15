@@ -61,7 +61,7 @@
               <li><a id="ps" onclick='menu("ps")' >PROFILE SETTINGS</a></li>
               <li><a id="si" onclick='menu("si")' >SENSITIVE INFORMATION</a></li>
             </ul>
-            <a href="user-dashboard.php"><button>Book an appointment</button></a>
+            <a href="user-dashboard.php"><button>BOOK AN APPOINTMENT</button></a>
           </nav>
           <div class="card-container" id="card-container">
           </div>
@@ -69,27 +69,27 @@
           <form class="personal-information ">
                     <h2>Update your profile</h2>
                     <div class="inputBox">
-                        <input type="text" name="Firstname" value="{{Your first name}}">
+                        <input type="text" name="firstname" value="<?php echo $patientObj->firstname ?>">
                         <span>First name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="Lastname" value="{{Your last name}}">
+                        <input type="text" name="lastname" value="<?php echo $patientObj->lastname ?>">
                         <span>Last name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="file" name="Profile Picture">
-                        <span>Profile picture</span>
+                        <input type="text" name="phone" value="<?php echo $patientObj->phone ?>">
+                        <span>Phone</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="Phone" value="{{Your phone}}">
-                        <span>Email</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="Location">
+                        <input type="text" name="location">
                         <span>Location</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="Submit" value="Save">
+                        <input type="file" name="profile-picture">
+                        <span>Profile picture</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="submit-non-sensitive" value="Save">
                     </div>
                 </form>
           </div>
@@ -97,27 +97,27 @@
           <form class="personal-information">
                     <h2>Settings</h2>
                     <div class="inputBox">
-                        <input type="text" name="Username">
+                        <input type="text" name="username" value="<?php echo $patientObj->username ?>">
                         <span>Username</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="Email">
-                        <span>Last name</span>
+                        <input type="text" name="email" value="<?php echo $patientObj->email ?>">
+                        <span>Email</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="Current Password">
+                        <input type="text" name="current-password" placeholder="**********">
                         <span>Your current password</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="New password">
+                        <input type="text" name="new-password" placeholder="**********">
                         <span>New password</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="Confirm new password">
+                        <input type="text" name="confirm-new-password" placeholder="**********">
                         <span>Confirm new password</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="Submit" value="Save">
+                        <input type="submit" name="submit-sensitive" value="Save">
                     </div>
                 </form>
           </div>

@@ -113,14 +113,107 @@
   gap: 20px;
   flex-direction: column;
 }
-.header__wrapper .cols__container .right__col nav ul li a {
-  text-transform: uppercase;
-  color: #818181;
+.profile-ul li {
+  cursor: pointer;
 }
-.header__wrapper .cols__container .right__col nav ul li:nth-child(1) a {
-  color: #1d1d1d;
+
+.selected {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+.visible {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.profile-settings {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.profile-settings,
+.sensitive-information {
+  margin-left: 2%;
+}
+.personal-information {
+  width: 90%;
+  padding: 20px;
+  background: white;
+}
+
+.personal-information h2 {
+  font-size: 28px;
+  color: var(--color-eighth);
   font-weight: 600;
 }
+
+.personal-information .inputBox {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.personal-information .inputBox input[type="text"],
+.personal-information .inputBox textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid var(--color-eighth);
+  outline: none;
+  resize: none;
+}
+.personal-information .inputBox input[type="file"] {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+
+  outline: none;
+  resize: none;
+}
+
+.personal-information .inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+
+.personal-information .inputBox input:focus ~ span,
+.personal-information .inputBox input:valid ~ span,
+.personal-information .inputBox textarea:focus ~ span,
+.personal-information .inputBox textarea:valid ~ span {
+  color: var(--color-primary);
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.personal-information .inputBox input[type="submit"] {
+  background: var(--color-eighth);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: "Montserrat";
+  /* font-weight: 600; */
+}
+.personal-information .inputBox input[type="submit"]:active {
+  opacity: 0.8;
+}
+/* **************** */
+
 .header__wrapper .cols__container .right__col nav button {
   background: var(--color-eighth);
   color: #fff;
@@ -142,7 +235,7 @@
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 500px;
   margin-bottom: 30px;
 }
@@ -161,7 +254,7 @@
   color: var(--color-primary);
 }
 .profile-ul a i {
-  color: var(--color-primary);
+  color: var(--color-seventh);
   text-decoration: none;
 }
 

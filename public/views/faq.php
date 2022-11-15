@@ -10,7 +10,7 @@
     <section>
       <div class="external-container">
         <h2>Frequently asked questions</h2>
-        <p>Don't see what you are looking for? Contact us</p>
+        <p>Don't see what you are looking for? <a class="link" href="contact.php">Contact us</a></p>
         <div class="container">
             <div class="accordion">
                 <div class="accordion-item" id="question1">
@@ -64,7 +64,7 @@
                     </a>
                     <div class="answer">
                         <p>
-                            Check out our team!
+                            Check out <a href="our-team.php" class="link">our team!</a>
                         </p>
                     </div>
                 </div>

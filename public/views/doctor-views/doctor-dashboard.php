@@ -11,7 +11,7 @@
       $doctorObj = unserialize($_SESSION["doctorObj"]);
       
     } else {
-      $doctorObj = "undifined";
+      $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
     }	
 ?>
     
