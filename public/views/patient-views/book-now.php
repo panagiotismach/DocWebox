@@ -5,13 +5,13 @@
 
     session_start();
 
-    if(isset($_SERVER['id'])){
-        $id = $_SERVER['id']
+    if(isset($_SERVER['patient_Obj'])){
+        $id = $_SERVER['patient_Obj'];
     }
 
-    if(isset($_SERVER['doctor_id'])){
-        $doctor_id = $_SERVER['doctor_id']
-    }
+    // if(isset($_SERVER['doctor_id'])){
+    //     $doctor_id = $_SERVER['doctor_id'];
+    // }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
     <script>

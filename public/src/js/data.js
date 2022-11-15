@@ -14,7 +14,7 @@ const fetchData = async (url) => {
 
 const templateAppointment = (doctor) => {
   const html = `
-              <a href="#" class="list-group-item list-group-item-action">
+              <a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Dr. ${doctor.firstname} ${doctor.lastname}</h5>
               </div>

@@ -3,9 +3,28 @@
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
+
+    if(isset($_GET["Doc-Specialities"])){
+         $docSpeciality = $_GET["Doc-Specialities"];
+    }else{
+        $docSpeciality = null;
+    }
+
+    if(isset($_GET["location"])){
+        $location = $_GET["location"];
+   }else{
+       $location = null;
+   }
+   
+    
     
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/doctors.css" />
+    <script>
+        const docSpeciality = <?php echo  "'".$docSpeciality."'" ?>;
+        const locationl = <?php echo "'".$location."'"?>;
+    </script>
+    <script type="module" src="../../src/js/controllers/control-doctor.js"></script>
 <?php
   include '../../views/includes/headers/patient-view-header.php';
 ?>
@@ -44,117 +63,8 @@
         </div>
     </section>
     <section>
-        <div class="row">
-            <a href="#1"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
-            <a href="#2"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
-            <a href="#3"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
-        </div>
-        <div class="row">
-            <a href="#4"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
-            <a href="#5"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
-            <a href="#6"><div class="column">
-                    <div class="card">
-                        <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
-                        </div>
-                        <h3>Dr. Firstname Lastname</h3>
-                        <h5>Specialization</h5>
-                        <p>Valtetsiou 3, Thessaloniki</p>
-                        <div class="icons">
-                            <a class="icon-link" href="tel:" target=blank>
-                            <i class="fa-solid fa-phone"></i>
-                            </a>
-                            <a class="icon-link" href="mailto:" target=blank>
-                            <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div></a>
+        <div class="row" id="doctors">
+            
         </div>
     </section>
 <?php
