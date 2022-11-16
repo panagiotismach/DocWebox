@@ -1,7 +1,6 @@
 <?php
     require_once "../../db/connect.php";
     include_once "../../scripts/services/patientService.php";
-
     include "../../scripts/utils/validation-data.php";
 
     $mysqli->select_db("docwebox");
@@ -25,9 +24,19 @@
             $data = $patientService->findPatientByLastname($lastname);
         }
 
-        
         header("Content-Type: application/json");
         
+        echo json_encode($data);
+    } else if ($_SERVER['REQUEST_METHOD'] == "PUT"){
+
+        //Data will pass into body in json format
+        $patientBody = file_get_contents('php://input');
+        
+        $patientProvided = json_decode($patientBody);
+        
+        $data = $patientService->updatePatientNonSensitiveInfo($patientProvided);
+        
+        header("Content-Type: application/json");
         echo json_encode($data);
     }
 

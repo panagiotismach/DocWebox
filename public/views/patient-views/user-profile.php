@@ -11,6 +11,97 @@
     } else {
       $patientObj = new Patient("", "", "", "", "", "", "", "", "", "");
     }
+
+    $currFirstname = $patientObj->firstname;
+    $currLastname = $patientObj->lastname;
+    $currPhone = $patientObj->phone;
+    $currLocation = $patientObj->location;
+
+    $firstnameSetError = $lastnameSetError = $phoneSetError = $updatesMessage = "";
+    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $imageSet = "";
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      if (isset($_POST['submit-non-sensitive'])) {
+
+        // Check if new firstname is filled
+        if(empty(trim($_POST["firstname"]))){
+            $firstnameSetError = "Please enter firstname.";
+            $currFirstname = "";
+        } else {
+            $firstnameSet = $_POST["firstname"];
+        }
+
+        // Check if new lastname is filled
+        if(empty(trim($_POST["lastname"]))){
+          $lastnameSetError = "Please enter lastname.";
+          $currLastname = "";
+        } else {
+          $lastnameSet = $_POST["lastname"];
+        }
+        // Check if new phone is filled
+        if(empty(trim($_POST["phone"]))){
+          $phoneSetError = "Please enter phone.";
+          $currPhone = "";
+        } else {
+          $phoneSet = $_POST["phone"];
+        }
+
+        // No checks need. Field is not essential
+        $currLocation = $locationSet = $_POST["location"]; 
+
+        // Check if new profile picture is filled
+        if(!empty(trim($_POST["profile-picture"]))){
+          $imageSet = $_POST["profile-picture"];
+        }
+
+        if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && !empty($patientObj->id)) {
+           $curl = curl_init();
+           curl_setopt_array($curl, array(
+             CURLOPT_URL => 'http://localhost/docwebox/src/scripts/APIs/patient.php',
+             CURLOPT_RETURNTRANSFER => true,
+             CURLOPT_ENCODING => '',
+             CURLOPT_MAXREDIRS => 10,
+             CURLOPT_TIMEOUT => 0,
+             CURLOPT_FOLLOWLOCATION => true,
+             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+             CURLOPT_CUSTOMREQUEST => 'PUT',
+             CURLOPT_POSTFIELDS =>"{
+              \"id\" : \"".$patientObj->id."\",
+              \"firstname\" : \"".$firstnameSet."\",
+              \"lastname\" : \"".$lastnameSet."\",
+              \"phone\" : \"".$phoneSet."\",
+              \"location\" : \"".$locationSet."\",
+              \"image\" : \"".$imageSet."\"
+              }",
+             CURLOPT_HTTPHEADER => array(
+               'Content-Type: application/json'
+             ),
+           ));
+           
+           $response = curl_exec($curl);
+           
+           curl_close($curl);
+
+           $responseobj = json_decode($response);
+
+           $_SESSION["patientObj"] = serialize($responseobj);
+           $patientObj = unserialize($_SESSION['patientObj']);
+
+           // Update values in the fields
+           $currFirstname = $patientObj->firstname;
+           $currLastname = $patientObj->lastname;
+           $currPhone = $patientObj->phone;
+           $currLocation = $patientObj->location;
+
+           $updatesMessage = "Successful update!";
+        } else {
+           $updatesMessage = "Fields are missing!";
+        }
+      } else if (isset($_POST['submit-sensitive'])){
+        echo "-----------";
+      }
+    }
 ?>
     <script src="../../src/js/user-profile-menu-navigator.js" defer></script>
     <script >
@@ -55,6 +146,8 @@
           </div>
         </div>
         <div class="right__col">
+        <?php if($updatesMessage == "Successful update!"){echo "<div class='success-message handle-visibility'><i class='fa-solid fa-check' style='color:white; margin-top: 2px; margin-left:2px; '></i><h3>Successful update!</h3></div>";}
+        else if($updatesMessage == "Fields are missing!"){echo "<div class='reject-message handle-visibility'><i class='fa-solid fa-xmark' style='color:white; margin-top: 2px; margin-left:2px;'></i><h3>Fields are missing..</h3></div>";}?>
           <nav>
             <ul class="profile-ul">
               <li><a id="pa" class="selected" onclick='menu("pa")' >PREVIOUS APPOINTMENTS</a></li>
@@ -66,64 +159,65 @@
           <div class="card-container" id="card-container">
           </div>
           <div class="profile-settings hide" id="profile-settings" >
-          <form class="personal-information ">
-                    <h2>Update your profile</h2>
-                    <div class="inputBox">
-                        <input type="text" name="firstname" value="<?php echo $patientObj->firstname ?>">
-                        <span>First name</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="lastname" value="<?php echo $patientObj->lastname ?>">
-                        <span>Last name</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="phone" value="<?php echo $patientObj->phone ?>">
-                        <span>Phone</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="location">
-                        <span>Location</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="file" name="profile-picture">
-                        <span>Profile picture</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="submit" name="submit-non-sensitive" value="Save">
-                    </div>
-                </form>
+            <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+              <h2>Update your profile</h2>
+                <div class="inputBox">
+                  <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>" required>
+                  <span>First name</span>
+                  <p class="invalid-feedback-form"><?php echo $firstnameSetError; ?></p>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name="lastname" class="<?php echo (!empty($lastnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLastname ?>" required>
+                  <span>Last name</span>
+                  <p class="invalid-feedback-form"><?php echo $lastnameSetError; ?></p>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>" required>
+                  <span>Phone</span>
+                  <p class="invalid-feedback-form"><?php echo $phoneSetError; ?></p>
+                </div>
+                <div class="inputBox">
+                  <input type="text" name="location" value="<?php echo $currLocation ?>">
+                  <span>Location</span>
+                </div>
+                <div class="inputBox">
+                  <input type="file" name="profile-picture">
+                  <span>Profile picture</span>
+                </div>
+                <div class="inputBox">
+                  <input type="submit" name="submit-non-sensitive" value="Save" id="submit-non-sensitive">
+                </div>
+            </form>
           </div>
           <div class="sensitive-information hide" id="sensitive-information" >
-          <form class="personal-information">
-                    <h2>Settings</h2>
-                    <div class="inputBox">
-                        <input type="text" name="username" value="<?php echo $patientObj->username ?>">
-                        <span>Username</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="email" value="<?php echo $patientObj->email ?>">
-                        <span>Email</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="current-password" placeholder="**********">
-                        <span>Your current password</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="new-password" placeholder="**********">
-                        <span>New password</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="confirm-new-password" placeholder="**********">
-                        <span>Confirm new password</span>
-                    </div>
-                    <div class="inputBox">
-                        <input type="submit" name="submit-sensitive" value="Save">
-                    </div>
-                </form>
+            <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+              <h2>Settings</h2>
+              <div class="inputBox">
+                <input type="text" name="username" value="<?php echo $patientObj->username ?>">
+                  <span>Username</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="email" value="<?php echo $patientObj->email ?>">
+                <span>Email</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="current-password" placeholder="**********">
+                <span>Your current password</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="new-password" placeholder="**********">
+                <span>New password</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="confirm-new-password" placeholder="**********">
+                <span>Confirm new password</span>
+              </div>
+              <div class="inputBox">
+                <input type="submit" name="submit-sensitive" value="Save" id="submit-sensitive">
+              </div>
+            </form>
           </div>
         </div>
-        
-
       </div>
       </div>
     </div>

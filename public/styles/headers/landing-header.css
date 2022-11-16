@@ -28,7 +28,7 @@ body {
 }
 .header-nav .header-ul {
   float: right;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 .header-nav .header-ul .header-li {
   display: inline-block;
@@ -44,7 +44,7 @@ body {
 }
 .nav__logo {
   height: 100px;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 .header-a.active,
 .header-a:hover {
