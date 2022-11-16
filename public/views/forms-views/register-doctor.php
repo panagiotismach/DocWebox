@@ -27,7 +27,7 @@
 
         if (empty(trim($username))){
           $usernameErr = "Please enter a username.";
-        } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+        } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
           $usernameErr = "Username can only contain letters, numbers, and underscores.";
         } 
         

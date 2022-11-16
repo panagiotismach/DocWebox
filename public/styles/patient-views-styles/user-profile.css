@@ -223,6 +223,7 @@
 }
 
 .personal-information .inputBox input[type="text"],
+.personal-information .inputBox input[type="password"],
 .personal-information .inputBox textarea {
   width: 100%;
   padding: 5px 0;
