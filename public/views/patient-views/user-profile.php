@@ -143,39 +143,38 @@
                   $currUsername = "";
                   $updatesMessage = "Fields are missing!";
                 } else {
-                  
-                  $usernameSet = $_POST["username"];
-
-                  if (strcmp($patientObj->email, $_POST["email"]) !== 0) {
-                    // Prepare a select statement
-                    $sql = "SELECT id FROM patient WHERE email = ?";
-
-                    if ($stmt_email = $mysqli->prepare($sql)) {
-                      // Bind variables to the prepared statement as parameters
-                      $stmt_email->bind_param("s", $email);
-
-                      // Attempt to execute the prepared statement
-                      if($stmt_email->execute()){
-                        // store result
-                        $stmt_email->store_result();
-                                        
-                        if($stmt_email->num_rows == 1) {
-                          $emailSetError = "Email already in use";
-                          $currEmail = "";
-                          $updatesMessage = "Fields are missing!";
-                        } else {
-                          $emailSet = $_POST["email"];
-                        }
-                      }
-                    }
-                  } else {
-                    $emailSet = $currEmail;
-                  }
-                } 
+                  $usernameSet = $currUsername = $_POST["username"];
+                }
               }
             }
           } else {
             $usernameSet = $currUsername;
+          }
+
+          if (strcmp($patientObj->email, $_POST["email"]) !== 0) {
+            // Prepare a select statement
+            $sql = "SELECT id FROM patient WHERE email = ?";
+
+            if ($stmt_email = $mysqli->prepare($sql)) {
+              // Bind variables to the prepared statement as parameters
+              $stmt_email->bind_param("s", $_POST["email"]);
+
+              // Attempt to execute the prepared statement
+              if($stmt_email->execute()){
+                // store result
+                $stmt_email->store_result();
+                                
+                if($stmt_email->num_rows == 1) {
+                  $emailSetError = "Email already in use";
+                  $currEmail = "";
+                  $updatesMessage = "Fields are missing!";
+                } else {
+                  $emailSet = $currEmail = $_POST["email"];
+                }
+              }
+            }
+          } else {
+            $emailSet = $currEmail;
           }
 
           if (empty($usernameSetError) && empty($emailSetError)) {
