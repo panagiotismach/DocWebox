@@ -33,6 +33,14 @@ const templateDoctor = (doctor) => {
   return html;
 };
 
+const templateEmpty = () => {
+  const html = `
+               <div class="card"><h3>No doctors with this search</h3>
+               </div>
+               `;
+  return html;
+};
+
 const addDoctors = async () => {
   appointments = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/appointment.php?patient_id=${idpatient}`);
   const doctorsPromises = await appointments.map(async (appointment) => {
@@ -49,10 +57,14 @@ const searchDoctor = async (lastaname) => {
   console.log(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
   if (lastaname !== previousInput) {
     const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
-    console.log("hbeadjs");
     searchContainer.innerHTML = "";
-    searchContainer.insertAdjacentHTML("beforeEnd", "<p>Results that match your search:</p>");
-    searchDoctors.forEach((doctor) => searchContainer.insertAdjacentHTML("beforeEnd", templateDoctor(doctor)));
+
+    if (searchDoctors.length) {
+      searchContainer.insertAdjacentHTML("beforeEnd", "<p>Results that match your search:</p>");
+      searchDoctors.forEach((doctor) => searchContainer.insertAdjacentHTML("beforeEnd", templateDoctor(doctor)));
+    } else {
+      searchContainer.insertAdjacentHTML("beforeEnd", templateEmpty());
+    }
   }
   previousInput = lastaname;
 };
