@@ -18,7 +18,7 @@
                 $sql = "SELECT * FROM `$this->table` WHERE `doctor_id` = $id";   
                 $result = $this->mysqli->query($sql);
                 while($row = $result->fetch_assoc()) {
-                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"]);
+                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row['created']);
                     array_push($data, $appointment);
                 }
             }catch(Exception $error){
@@ -35,7 +35,7 @@
                 $sql = "SELECT * FROM `$this->table` WHERE `patient_id` = $id";   
                 $result = $this->mysqli->query($sql);
                 while($row = $result->fetch_assoc()) {
-                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"]);
+                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row["created"]);
                     array_push($data, $appointment);
                 }
             }catch(Exception $error){

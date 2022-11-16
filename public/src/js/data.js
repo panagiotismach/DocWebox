@@ -25,11 +25,11 @@ const templateAppointment = (doctor) => {
 };
 
 const templateDoctor = (doctor) => {
-  const html = `<div class="card">
-               <h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
-               <p> ${doctor.phone} {{Doctor Address}}</>
+  const html = `
+               <div class="card"><a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}"><h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
+               <p> ${doctor.phone} ${doctor.location}</></a>
                </div>
-                `;
+               `;
   return html;
 };
 

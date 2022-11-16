@@ -32,7 +32,7 @@
         <div class="content">
             <h2>Results based on your search</h2>
             <p>Try another search</p>
-            <form action="" class="search-area">
+            <form action="doctors.php" class="search-area">
                 <select id="Doc-Specialities" name="Doc-Specialities">
                 <option value="None">Choose Doctor Specialization</option>
                 <option value="General doctor">General doctor</option>

@@ -4,15 +4,12 @@
     
   	include '../../views/includes/file-begin/file-begin.php';
 
+    session_start();
+
     if(isset($_GET["id"])) {
       $doctor = file_get_contents("http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=".$_GET["id"]);
-
-
-       $doctorObj = json_decode($doctor);
-    
-  
-
-      
+      $doctorObj = json_decode($doctor);
+      $_SESSION["doctorObjS"] = $doctorObj;
     } 
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/doctor-public-profile.css" />

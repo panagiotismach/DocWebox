@@ -1,51 +1,49 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
+    require "../../../src/scripts/models/patient.php";
     include '../../views/includes/file-begin/file-begin.php';
+
 
     session_start();
 
-    if(isset($_SERVER['patient_Obj'])){
-        $id = $_SERVER['patient_Obj'];
+    if(isset($_SESSION['patientObj'])){
+        $patientObj = unserialize($_SESSION['patientObj']);
     }
 
-    // if(isset($_SERVER['doctor_id'])){
-    //     $doctor_id = $_SERVER['doctor_id'];
-    // }
+    if(isset($_SESSION['doctorObjS'])){
+        $doctorObjS = $_SESSION['doctorObjS'];
+    }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
-    <script>
-        const inputpId = document.querySelector("#doctor_id");
-        inputpId.value = <?php echo $id ?>
-    </script>
 <?php
   include '../../views/includes/headers/patient-view-header.php';
 ?>
     <div class="bf-container">
         <div class="bf-body">
             <div class="bf-head">
-                <h1>Booking with Dr. {{Lastname}}</h1>
+                <h1>Booking with Dr. <?php echo $doctorObjS->lastname ?></h1>
                 <p id="header-label">Easy booking with DocWebox!</p>
             </div>
-            <form class="bf-body-box" action="form.php">
+            <form class="bf-body-box" action="../../../src/scripts/APIs/appointment.php" method="post">
                 <div class="bf-row">
                     <div class="bf-col-6">
                         <p class="label">Full Name</p>
-                        <input type="text" name="fname" id="fname" placeholder="Full name">
+                        <input type="text" name="fname" id="fname" value="<?php echo $patientObj->firstname.' '. $patientObj->lastname ?>" placeholder="Full name">
                     </div>
                     <div class="bf-col-6">
                         <p class="label">Email Address</p>
-                        <input type="email" name="email" id="email" placeholder="Email Address">
+                        <input type="email" name="email" id="email" value="<?php echo $patientObj->email ?>" placeholder="Email Address">
                     </div>
                 </div>
                 <div class="bf-row">
                     <div class="bf-col-6">
                         <p class="label">Select Date</p>
-                        <input type="date" name="date" id="date">
+                        <input type="date" name="date" id="date" required>
                     </div>
                     <div class="bf-col-6">
                         <p class="label">Select Time Frame</p>
-                        <select name="s-select">
+                        <select name="s-select" required>
                             <option>Select Hour</option>
                             <option value="9">9.00</option>
                             <option value="10">10.00</option>
@@ -69,10 +67,10 @@
                     </div>
                 </div>
                 <div class="bf-row">
-                        <input hidden name="patient_id" id="patient_id"  ></input>
+                        <input hidden name="patient_id" value="<?php echo $patientObj->id ?>" id="patient_id"  ></input>
                 </div>
                 <div class="bf-row">
-                        <input hidden name="doctor_id" id="doctor_id"  ></input>
+                        <input hidden name="doctor_id" value="<?php echo $doctorObjS->id?>" id="doctor_id"  ></input>
                 </div>
                 <div class="bf-row">
                     <div class="bf-col-3">

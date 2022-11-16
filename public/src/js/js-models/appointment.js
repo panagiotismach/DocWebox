@@ -19,6 +19,11 @@ export default class Appointment {
         for (const appointmentObj of data) {
           appointmentObj.doctorName = await that.getDoctorName(appointmentObj.patient_id); //Get the appointment's doctor name
           that.appointments.push(appointmentObj); //Add the appointment
+          that.appointments.sort((a, b) => {
+            const dateA = new Date(a.created);
+            const dateB = new Date(b.created);
+            return dateA - dateB;
+          });
         }
       });
 
