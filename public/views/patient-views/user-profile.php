@@ -105,20 +105,27 @@
            $updatesMessage = "Fields are missing!";
         }
       } else if (isset($_POST['submit-sensitive'])){
+        
+        if (empty(trim($_POST["username"]))){
+          $usernameSetError = "Please enter a username.";
+          $currUsername = "";
+        } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+          $usernameSetError = "Username can only contain letters, numbers, and underscores.";
+          $currUsername = "";
+        }
 
-        if (strcmp($currUsername, $_POST["username"]) !== 0) {
+        if (empty(trim($_POST["email"]))) {
+          $emailSetError = "Please enter a email.";
+          $currEmail = "";
+        } else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+          $emailSetError = "Invalid email address format!";
+          $currEmail = "";
+        } 
 
-          if (empty(trim($_POST["username"]))){
-            $usernameSetError = "Please enter a username.";
-            $currUsername = "";
-          } else if (!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-            $usernameSetError = "Username can only contain letters, numbers, and underscores.";
-            $currUsername = "";
-          }
+        //New username has valid form
+        if (empty($usernameSetError) && empty($emailSetError)  && !empty($patientObj->id)) {
 
-          //New username has valid form
-          if (empty($usernameSetError) && !empty($patientObj->id)) {
-
+          if (strcmp($patientObj->username, $_POST["username"]) !== 0) {
             // Prepare a select statement
             $sql = "SELECT id FROM patient WHERE username = ?";
             
@@ -139,50 +146,82 @@
                   
                   $usernameSet = $_POST["username"];
 
-                  $curl = curl_init();
-                  curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'http://localhost/docwebox/src/scripts/APIs/patient.php',
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => '',
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => 'PUT',
-                    CURLOPT_POSTFIELDS =>"{
-                     \"id\" : \"".$patientObj->id."\",
-                     \"username\" : \"".$usernameSet."\"
-                     }",
-                    CURLOPT_HTTPHEADER => array(
-                      'Content-Type: application/json'
-                    ),
-                  ));
-                  
-                  $response = curl_exec($curl);
-                  
-                  curl_close($curl);
+                  if (strcmp($patientObj->email, $_POST["email"]) !== 0) {
+                    // Prepare a select statement
+                    $sql = "SELECT id FROM patient WHERE email = ?";
 
-                  $responseobj = json_decode($response);
-       
-                  $_SESSION["patientObj"] = serialize($responseobj);
-                  $patientObj = unserialize($_SESSION['patientObj']);
-                  // Update values in the fields
-                  $currFirstname = $patientObj->firstname;
-                  $currLastname = $patientObj->lastname;
-                  $currPhone = $patientObj->phone;
-                  $currLocation = $patientObj->location;
-                  $currUsername = $patientObj->username;
-                  $currEmail = $patientObj->email;
-       
-                  $updatesMessage = "Successful update!";
+                    if ($stmt_email = $mysqli->prepare($sql)) {
+                      // Bind variables to the prepared statement as parameters
+                      $stmt_email->bind_param("s", $email);
+
+                      // Attempt to execute the prepared statement
+                      if($stmt_email->execute()){
+                        // store result
+                        $stmt_email->store_result();
+                                        
+                        if($stmt_email->num_rows == 1) {
+                          $emailSetError = "Email already in use";
+                          $currEmail = "";
+                          $updatesMessage = "Fields are missing!";
+                        } else {
+                          $emailSet = $_POST["email"];
+                        }
+                      }
+                    }
+                  } else {
+                    $emailSet = $currEmail;
+                  }
                 } 
               }
             }
           } else {
+            $usernameSet = $currUsername;
+          }
+
+          if (empty($usernameSetError) && empty($emailSetError)) {
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'http://localhost/docwebox/src/scripts/APIs/patient.php',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'PUT',
+              CURLOPT_POSTFIELDS =>"{
+              \"id\" : \"".$patientObj->id."\",
+              \"username\" : \"".$usernameSet."\",
+              \"email\" : \"".$emailSet."\"
+              }",
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+              ),
+            ));
+            
+            $response = curl_exec($curl);
+            
+            curl_close($curl);
+
+            $responseobj = json_decode($response);
+
+            $_SESSION["patientObj"] = serialize($responseobj);
+            $patientObj = unserialize($_SESSION['patientObj']);
+            // Update values in the fields
+            $currFirstname = $patientObj->firstname;
+            $currLastname = $patientObj->lastname;
+            $currPhone = $patientObj->phone;
+            $currLocation = $patientObj->location;
+            $currUsername = $patientObj->username;
+            $currEmail = $patientObj->email;
+
+            $updatesMessage = "Successful update!";
+          } else {
             $updatesMessage = "Fields are missing!";
           }
         } else {
-          $updatesMessage = "Successful update!";
+          $updatesMessage = "Fields are missing!";
         }
       }
     }

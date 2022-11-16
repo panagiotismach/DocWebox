@@ -22,7 +22,7 @@
                 </div>
                 <h3>Charakopoulos Minas-Theodoros</h3>
                 <h5>Backend Development</h5>
-                <p>PHP, SQL</p>
+                <p>PHP, SQL, APIs, MVC</p>
                 <div class="icons">
                     <a href="https://www.linkedin.com/in/minas-theodoros-charakopoulos/" target=blank>
                     <i class="fa-brands fa-linkedin"></i>
