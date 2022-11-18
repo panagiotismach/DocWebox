@@ -30,7 +30,11 @@ export default class DoctorView {
   }
 
   templateEmpty() {
-    return `<h3>No Doctors.</h3>`;
+    return `<div class="column">
+       <div class="card">
+        <h3>No Doctors found</h3>
+        </div>
+    </div>`;
   }
 
   render(doctors) {

@@ -16,6 +16,7 @@
     }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
+    <script type="module" src="../../src/js/controllers/controller-convert%20.js"></script>
 <?php
   include '../../views/includes/headers/patient-view-header.php';
 ?>
@@ -25,7 +26,7 @@
                 <h1>Booking with Dr. <?php echo $doctorObjS->lastname ?></h1>
                 <p id="header-label">Easy booking with DocWebox!</p>
             </div>
-            <form class="bf-body-box" action="../../../src/scripts/APIs/appointment.php" method="post">
+            <form class="bf-body-box" id="booking">
                 <div class="bf-row">
                     <div class="bf-col-6">
                         <p class="label">Full Name</p>
