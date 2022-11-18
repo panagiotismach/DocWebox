@@ -387,12 +387,12 @@
             <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Settings</h2>
               <div class="inputBox">
-                <input type="text" name="username" class="<?php echo (!empty($usernameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currUsername ?>">
+                <input type="text" name="username" class="<?php echo (!empty($usernameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currUsername ?>" required>
                   <span>Username</span>
                   <p class="invalid-feedback-form"><?php echo $usernameSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>">
+                <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>" required>
                 <span>Email</span>
                 <p class="invalid-feedback-form"><?php echo $emailSetError; ?></p>
               </div>
