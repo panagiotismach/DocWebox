@@ -29,15 +29,16 @@
 
         $entityBody = file_get_contents('php://input');
 
-        $appointentBody = json_encode($entityBody);
 
-       echo $appointentBody;
+        $appointentBody = json_decode($entityBody);
+
+       
 
       $appointment = new Appointment( null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description,null); 
 
        $appointmentService->addAppointment($appointment);
 
-       
+       echo json_encode($appointment);
 
         
     }

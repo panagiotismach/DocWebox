@@ -41,10 +41,10 @@
 
             <ul class="profile-ul">
               <div class="icon">
-                <a href="tel:"><i class="fa-sharp fa-solid fa-phone"></i></a>
+                <a href="tel:<?php echo $doctorObj->phone?>"><i class="fa-sharp fa-solid fa-phone"></i></a>
               </div>
               <div class="icon">
-                <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:<?php echo $doctorObj->email ?>"><i class="fa-solid fa-envelope"></i></a>
               </div>
               <div class="icon"><a href="https://www.google.com/maps">
                 <i class="fa-solid fa-location-dot"></i></a>
