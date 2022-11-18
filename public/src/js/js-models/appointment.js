@@ -17,7 +17,7 @@ export default class Appointment {
       })
       .then(async function (data) {
         for (const appointmentObj of data) {
-          appointmentObj.doctorName = await that.getDoctorName(appointmentObj.patient_id); //Get the appointment's doctor name
+          appointmentObj.doctorName = await that.getDoctorName(appointmentObj.doctor_id); //Get the appointment's doctor name
           that.appointments.push(appointmentObj); //Add the appointment
           that.appointments.sort((a, b) => {
             const dateA = new Date(a.created);
