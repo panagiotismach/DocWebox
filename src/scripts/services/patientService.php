@@ -59,7 +59,7 @@
             return $patient;
         }
 
-        public function updatePatientNonSensitiveInfo($patientObj){
+        public function updatePatientInfo($patientObj){
             try {
                 $patientFound = $this->findPatientById($patientObj->id);
 
@@ -67,11 +67,17 @@
                     return "Patient doesn't exist!";
                 }
     
+                //Non sensitive info
                 $firstname = $patientFound->firstname;
                 $lastname = $patientFound->lastname;
                 $phone = $patientFound->phone;
                 $location = $patientFound->location;
                 $image = $patientFound->image;
+
+                //Sensitive info
+                $username = $patientFound->username;
+                $email = $patientFound->email;
+                $password = $patientFound->password;
                 
                 if(property_exists($patientObj, 'firstname') && strcmp($patientObj->firstname, "") !== 0 && strcmp($firstname, $patientObj->firstname) !== 0){
                     $firstname = $patientObj->firstname;
@@ -89,11 +95,25 @@
                     $location = $patientObj->location;
                 }
                 
-                if(property_exists($patientObj, 'image') !== 0 && strcmp($image, $patientObj->image) !== 0){
+                if(property_exists($patientObj, 'image') && strcmp($image, $patientObj->image) !== 0){
                     $image = $patientObj->image;
                 }
 
+                if(property_exists($patientObj, 'username') && strcmp($patientObj->username, "") !== 0 && strcmp($username, $patientObj->username) !== 0){
+                    $username = $patientObj->username;
+                }
+
+                if(property_exists($patientObj, 'email') && strcmp($patientObj->email, "") !== 0 && strcmp($email, $patientObj->email) !== 0){
+                    $email = $patientObj->email;
+                }
+                
+                if(property_exists($patientObj, 'password') && strcmp($patientObj->password, "") !== 0 && strcmp($password, $patientObj->password) !== 0){
+                    //Hash the new password
+                    $password = password_hash($patientObj->password, PASSWORD_DEFAULT);
+                }
+
                 $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', 
+                                `username` = '$username', `email` = '$email', `password` = '$password',
                                 `location` = '$location', `image` = '$image' WHERE `id` = $patientObj->id";
                 $result = $this->mysqli->query($sql);
                 

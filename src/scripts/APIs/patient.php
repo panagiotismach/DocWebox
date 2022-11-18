@@ -34,7 +34,7 @@
         
         $patientProvided = json_decode($patientBody);
         
-        $data = $patientService->updatePatientNonSensitiveInfo($patientProvided);
+        $data = $patientService->updatePatientInfo($patientProvided);
         
         header("Content-Type: application/json");
         echo json_encode($data);
