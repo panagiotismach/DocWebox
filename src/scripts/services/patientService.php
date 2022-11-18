@@ -108,8 +108,8 @@
                 }
                 
                 if(property_exists($patientObj, 'password') && strcmp($patientObj->password, "") !== 0 && strcmp($password, $patientObj->password) !== 0){
-                    //Hash the new password
-                    $password = password_hash($patientObj->password, PASSWORD_DEFAULT);
+                    //Hash previous is hashed before http put
+                    $password = $patientObj->password;
                 }
 
                 $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', 

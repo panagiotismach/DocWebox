@@ -12,6 +12,7 @@
       $patientObj = new Patient("", "", "", "", "", "", "", "", "", "");
     }
 
+    // Define values that will appeared at the first visit of the page
     $currFirstname = $patientObj->firstname;
     $currLastname = $patientObj->lastname;
     $currPhone = $patientObj->phone;
@@ -19,10 +20,12 @@
     $currUsername = $patientObj->username;
     $currEmail = $patientObj->email;
 
+    // Define errors after form submition
     $firstnameSetError = $lastnameSetError = $phoneSetError = $usernameSetError = $emailSetError = $currPasswordSetError = 
     $newPasswordSetError = $confirmNewPasswordSetError = $updatesMessage = "";
-    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $imageSet = $usernameSet = $emailSet = $currPasswordSet = 
-    $newPasswordSet = $confirmNewPasswordSet = "";
+
+    // Define new values after form submition
+    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $imageSet = $usernameSet = $emailSet = $newPasswordSet = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -92,7 +95,7 @@
            $_SESSION["patientObj"] = serialize($responseobj);
            $patientObj = unserialize($_SESSION['patientObj']);
 
-           // Update values in the fields
+           // Update values in the fields after the refresh of the page on submit
            $currFirstname = $patientObj->firstname;
            $currLastname = $patientObj->lastname;
            $currPhone = $patientObj->phone;
@@ -122,9 +125,63 @@
           $currEmail = "";
         } 
 
-        //New username has valid form
-        if (empty($usernameSetError) && empty($emailSetError)  && !empty($patientObj->id)) {
+        // Check if password fields edited
+        if (!empty(trim($_POST["current-password"])) || !empty(trim($_POST["new-password"])) || !empty(trim($_POST["confirm-new-password"]))) {
 
+          if (empty(trim($_POST["current-password"]))) {
+            $currPasswordSetError = "You need to provide your current password first!";
+          } else {
+            $sql = "SELECT password FROM patient WHERE username = ?";
+          
+            if($stmt = $mysqli->prepare($sql)){
+              // Bind variables to the prepared statement as parameters
+              $stmt->bind_param("s", $patientObj->username);
+                    
+              // Attempt to execute the prepared statement
+              if($stmt->execute()){
+      
+                $stmt->store_result();
+                        
+                // Check if username exists, if yes then verify password
+                if($stmt->num_rows == 1){                   
+      
+                  $stmt->bind_result($stored_hashed_password);
+      
+                  if($stmt->fetch()){
+      
+                    if (password_verify($_POST["current-password"], $stored_hashed_password)) {
+
+                      if (empty(trim($_POST["new-password"]))) {
+                        $newPasswordSetError = "Please enter your new password.";
+                      } else if (strlen(trim($_POST["new-password"])) < 8) {
+                        $newPasswordSetError = "Password must have at least 8 characters.";
+                      } else {
+
+                        if (empty(trim($_POST["confirm-new-password"]))) {
+                          $confirmNewPasswordSetError = "Please confirm your password.";
+                        } else {
+                          if (strcmp($_POST["new-password"], $_POST["confirm-new-password"]) == 0) {
+                            $newPasswordSet = password_hash($_POST["new-password"], PASSWORD_DEFAULT);
+                          } else {
+                            $confirmNewPasswordSetError = "Password did not match.";
+                          }
+                        }
+                      }
+                    } else {
+                      $currPasswordSetError = "Wrong current password! Please try again.";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //New username has valid form
+        if (empty($usernameSetError) && empty($emailSetError) && empty($currPasswordSetError) && empty($newPasswordSetError) 
+            && empty($confirmNewPasswordSetError) && !empty($patientObj->id)) {
+
+          // Check if the username is changed 
           if (strcmp($patientObj->username, $_POST["username"]) !== 0) {
             // Prepare a select statement
             $sql = "SELECT id FROM patient WHERE username = ?";
@@ -148,9 +205,10 @@
               }
             }
           } else {
-            $usernameSet = $currUsername;
+            $usernameSet = $patientObj->username;
           }
 
+          // Check if the email is changed 
           if (strcmp($patientObj->email, $_POST["email"]) !== 0) {
             // Prepare a select statement
             $sql = "SELECT id FROM patient WHERE email = ?";
@@ -174,9 +232,10 @@
               }
             }
           } else {
-            $emailSet = $currEmail;
+            $emailSet = $patientObj->email;
           }
 
+          // Check for new errors that might we will have 
           if (empty($usernameSetError) && empty($emailSetError)) {
 
             $curl = curl_init();
@@ -192,7 +251,8 @@
               CURLOPT_POSTFIELDS =>"{
               \"id\" : \"".$patientObj->id."\",
               \"username\" : \"".$usernameSet."\",
-              \"email\" : \"".$emailSet."\"
+              \"email\" : \"".$emailSet."\",
+              \"password\" : \"".$newPasswordSet."\"
               }",
               CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json'
@@ -332,21 +392,24 @@
                   <p class="invalid-feedback-form"><?php echo $usernameSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="email"class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>">
+                <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>">
                 <span>Email</span>
                 <p class="invalid-feedback-form"><?php echo $emailSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="password" name="current-password" placeholder="**********">
+                <input type="password" name="current-password" class="<?php echo (!empty($currPasswordSetError)) ? 'is-invalid-update' : ''; ?>" placeholder="**********" >
                 <span>Your current password</span>
+                <p class="invalid-feedback-form"><?php echo $currPasswordSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="password" name="new-password" placeholder="**********">
+                <input type="password" name="new-password" class="<?php echo (!empty($newPasswordSetError)) ? 'is-invalid-update' : ''; ?>" placeholder="**********">
                 <span>New password</span>
+                <p class="invalid-feedback-form"><?php echo $newPasswordSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="password" name="confirm-new-password" placeholder="**********">
+                <input type="password" name="confirm-new-password" class="<?php echo (!empty($confirmNewPasswordSetError)) ? 'is-invalid-update' : ''; ?>" placeholder="**********">
                 <span>Confirm new password</span>
+                <p class="invalid-feedback-form"><?php echo $confirmNewPasswordSetError; ?></p>
               </div>
               <div class="inputBox">
                 <input type="submit" name="submit-sensitive" value="Save" id="submit-sensitive">
