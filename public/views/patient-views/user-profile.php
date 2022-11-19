@@ -321,7 +321,7 @@
               <div class="icon">
                 <a href="mailto:<?php echo $patientObj->email ?>"><i class="fa-solid fa-envelope"></i></a>
               </div>
-              <div class="icon"><a target="_blank" href="https://www.google.com/maps/place/<?php echo $patientObj->location ?>">
+              <div class="icon"><a href="https://www.google.com/maps/place/<?php echo $patientObj->location ?>" target="_blank">
                 <i class="fa-solid fa-location-dot"></i></a>
               </div>
             </ul>

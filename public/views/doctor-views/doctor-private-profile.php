@@ -1,13 +1,23 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
     require "../../../src/db/connect.php";
-    
+    require "../../../src/scripts/models/doctor.php";
+
   	include '../../views/includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
     <script src="../../src/js/doctor-prv-profile-menu-navigator.js" defer></script>
 <?php
   include '../../views/includes/headers/doctor-view-header.php';
+?>
+<?php
+    session_start();
+
+    if(isset($_SESSION["doctorObj"])) {
+      $doctorObj = unserialize($_SESSION['doctorObj']);
+    } else {
+      $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "");
+    }
 ?>
     <div class="header__wrapper">
       <div class="profile-header"></div>
@@ -17,31 +27,24 @@
             <img src="../../resources/images/pfp/doctor-pfp.png" alt="Doctor Profile Pic" />
             <span></span>
           </div>
-          <h2>Dr. Firstname Lastname</h2>
-          <p>Office Address 9,&nbsp;Thessaloniki</p>
-          <p>+30 2310 ******</p>
-
+          <h2>Dr. <?php echo $doctorObj->firstname. " " .$doctorObj->lastname ?></h2>
+          <p><?php echo $doctorObj->location ?></p>
+          <p>Phone: <?php echo $doctorObj->phone ?></p>
           <ul class="about profile-ul">
-            <li><span>100+</span>Patients</li>
-            <li><span>17</span>Publications</li>
-            <li><span>19</span>Years of Experience</li>
+            <li><span><?php echo $doctorObj->num_patients ?></span>Patients</li>
+            <li><span><?php echo $doctorObj->num_publications ?></span>Publications</li>
+            <li><span><?php echo $doctorObj->work_experience_years ?></span>Years of Experience</li>
           </ul>
-
           <div class="content">
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam
-              erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl
-              ligula egestas nulla.
-            </p>
-
+            <p><?php echo $doctorObj->bio ?></p>
             <ul class="profile-ul">
               <div class="icon">
-                <a href="tel:"><i class="fa-sharp fa-solid fa-phone"></i></a>
+                <a href="tel: <?php echo $doctorObj->phone ?>"><i class="fa-sharp fa-solid fa-phone"></i></a>
               </div>
               <div class="icon">
-                <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto: <?php echo $doctorObj->email ?>"><i class="fa-solid fa-envelope"></i></a>
               </div>
-              <div class="icon"><a href="https://www.google.com/maps">
+              <div class="icon"><a href="https://www.google.com/maps/place/<?php echo $doctorObj->location ?>" target="_blank">
                 <i class="fa-solid fa-location-dot"></i></a>
               </div>
             </ul>
@@ -57,7 +60,6 @@
             </ul>
             <a href="doctor-dashboard.php"><button>HANDLE CALENDAR</button></a>
           </nav>
-
           <div class="card-container" id="appointment-container">
             <div class="card">
               <h3>Appointment with {{Patient Name}}</h3>
@@ -79,9 +81,7 @@
               <h4>23/12/2020</h4>
               <p>Appointment Description</p>
             </div>
-            
           </div>
-
           <div class="card-container hide" id="patients-container">
             <div class="card">
               <h3>{{Patient Name}}</h3>
