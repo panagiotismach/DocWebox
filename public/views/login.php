@@ -1,5 +1,11 @@
 <?php
   	include './includes/file-begin/file-begin.php';
+
+      session_start();
+
+      if (isset($_SESSION["message"])) {
+            unset($_SESSION['message']);
+      }
 ?>
       <link rel="stylesheet" href="../styles/normalise.css">
       <link rel="stylesheet" href="../styles/middle-login-register.css">

@@ -119,7 +119,9 @@
                           
                           // Attempt to execute the prepared statement
                           if($stmt->execute()){
-                              // Redirect to login page
+                            session_start();
+                            $_SESSION["message"] = "Now, use your credential from register!";
+                            // Redirect to login page
                               header("location: ../forms-views/login-doctor.php");
                           } else {
                               echo "Oops! Something went wrong. Please try again later.";
@@ -224,7 +226,7 @@
                <div class="form-row d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
                  <label class="form-label" for="location">Location*</label>
-                 <input type="text" class="form-control my-2 p-2 <?php echo (!empty($locationErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>" placeholder="Location" name="location" required>
+                 <input type="text" class="form-control my-2 p-2 <?php echo (!empty($locationErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>" placeholder="Location" name="location" autocomplete="on" required>
                  <span class="invalid-feedback"><?php echo $locationErr; ?></span>
                 </div>
                </div>

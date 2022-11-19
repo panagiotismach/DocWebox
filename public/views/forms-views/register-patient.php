@@ -103,6 +103,8 @@
                           
                           // Attempt to execute the prepared statement
                           if($stmt->execute()){
+                              session_start();
+                              $_SESSION["message"] = "Now, use your credential from register!";
                               // Redirect to login page
                               header("location: ../forms-views/login-patient.php");
                           } else{

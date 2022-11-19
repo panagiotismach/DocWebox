@@ -12,6 +12,12 @@
     header("location: user-dashboard.php");
     exit;
   }
+
+  if(isset($_SESSION["message"])) {
+    $message = $_SESSION["message"];
+  } else {
+    $message = "Welcome back!";
+  }
   
   $username = $password = "";
   $usernameErr = $passwordErr = $loginErr = "";
@@ -120,7 +126,7 @@
           </div>
           <div class="col-lg-6 section-form">
             <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-              <h4 class="font-weigth-bold header">Welcome back!</h4>
+              <h4 class="font-weigth-bold header"><?php echo $message; ?></h4>
               <div class="d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
                   <label class="form-label" for="username">Username</label>
