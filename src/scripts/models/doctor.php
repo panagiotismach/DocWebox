@@ -24,6 +24,7 @@ class Doctor {
     public $username;
     public $email;
     public $password;
+    public $phone;
     public $specialization;
     public $vat;
     public $num_patients;
