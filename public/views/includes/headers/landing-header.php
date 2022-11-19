@@ -1,3 +1,4 @@
+<?php //Just to can understand file as .php ?>
 
     <link rel="stylesheet" href="/DocWebox/public/styles/headers/landing-header.css" />
     <link rel="stylesheet" href="/DocWebox/public/styles/footers/landing-footer.css" />
@@ -9,7 +10,6 @@
     <script src="/DocWebox/public/src/js/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/DocWebox/public/resources/favicon/the-icon.ico" />
-    
   </head>
   <body>
     <header>

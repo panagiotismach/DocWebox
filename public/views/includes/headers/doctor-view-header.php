@@ -1,3 +1,5 @@
+<?php //Just to can understand file as .php ?>
+    
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../styles/headers/doctor-views-header-styling.css" />
     <link rel="stylesheet" href="../../styles/footers/doctor-views-footer-styling.css" />

@@ -1,4 +1,6 @@
-<footer class="footer">
+<?php //Just to can understand file as .php ?>
+    
+    <footer class="footer">
       <ul class="footer__nav">
         <li class="footer__item">
           <a class="footer__link" href="user-dashboard.php">Dashboard</a>

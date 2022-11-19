@@ -1,4 +1,6 @@
-  	<meta charset="utf-8" />
+<?php //Just to can understand file as .php ?>
+    
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="../../styles/headers/patient-views-header-styling.css" />
     <link rel="stylesheet" href="../../styles/footers/patient-views-footer-styling.css" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />

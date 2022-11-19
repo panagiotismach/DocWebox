@@ -1,3 +1,4 @@
+<?php //Just to can understand file as .php ?>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../styles/headers/admin-views-header-styling.css" />
     <link rel="stylesheet" href="../../styles/footers/admin-views-footer-styling.css" />

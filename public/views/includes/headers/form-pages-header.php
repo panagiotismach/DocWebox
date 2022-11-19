@@ -1,3 +1,5 @@
+<?php //Just to can understand file as .php ?>
+  
   <meta charset="UTF-8">
   <script src="/Docwebox/public/src/js/header-manipulation.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
