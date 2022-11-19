@@ -4,8 +4,8 @@
     require "../../../src/db/connect.php";
 
     // Define variables and initialize with empty values
-    $firstname = $lastname = $username = $email = $phone = $vat = $specialization = $password = $confirmPassword = "";
-    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $vatErr = $specializationErr = $passwordErr = $confirmPasswordErr = "";
+    $firstname = $lastname = $username = $email = $phone = $vat = $location = $specialization = $password = $confirmPassword = "";
+    $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $phoneErr = $vatErr = $locationErr = $specializationErr = $passwordErr = $confirmPasswordErr = "";
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -15,6 +15,7 @@
         $email = $_POST["email"];
         $phone = $_POST["phone"];
         $vat = $_POST["vat"];
+        $location = $_POST["location"];
         $specialization = $_POST["specialization"];
 
         if (empty(trim($firstname))){
@@ -45,11 +46,16 @@
           $vatErr = "Please enter your VAT Number.";
         }
 
+        if (empty(trim($location))) {
+          $locationErr = "Please enter your location.";
+        }
+
         if (empty($specialization)) {
           $specializationErr = "Please enter your Specialization.";
         }
 
-        if (empty($firstnameErr) && empty($lastnameErr) && empty($usernameErr) && empty($emailErr) && empty($phoneErr) && empty($vatErr) && empty($specializationErr)) {
+        if (empty($firstnameErr) && empty($lastnameErr) && empty($usernameErr) && empty($emailErr) && 
+            empty($phoneErr) && empty($vatErr) && empty($locationErr) && empty($specializationErr)) {
           // Prepare a select statement
           $sql = "SELECT id FROM doctor WHERE username = ?";
           
@@ -104,10 +110,10 @@
                       if(empty($passwordErr) && empty($confirmPasswordErr)){
 
                         // Prepare an insert statement
-                        $sql = "INSERT INTO doctor (firstname, lastname, username, email, password, phone, specialization, vat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                        $sql = "INSERT INTO doctor (firstname, lastname, username, email, password, phone, specialization, vat, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                         if($stmt = $mysqli->prepare($sql)){
                           // Bind variables to the prepared statement as parameters
-                          $stmt->bind_param("ssssssss", $firstname, $lastname, $username, $email, $param_password, $phone, $specialization, $vat);
+                          $stmt->bind_param("sssssssss", $firstname, $lastname, $username, $email, $param_password, $phone, $specialization, $vat, $location);
                           
                           $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                           
@@ -214,7 +220,14 @@
                  <input type="text" class="form-control my-2 p-2 <?php echo (!empty($vatErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $vat; ?>" placeholder="Vat" name="vat" required>
                  <span class="invalid-feedback"><?php echo $vatErr; ?></span>
                 </div>
+               </div>
+               <div class="form-row d-flex justify-content-center align-items-center">
+                <div class="col-lg-7">
+                 <label class="form-label" for="location">Location*</label>
+                 <input type="text" class="form-control my-2 p-2 <?php echo (!empty($locationErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>" placeholder="Location" name="location" required>
+                 <span class="invalid-feedback"><?php echo $locationErr; ?></span>
                 </div>
+               </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
                     <label class="form-label" for="password">Password*</label>
