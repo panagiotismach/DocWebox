@@ -29,12 +29,13 @@
     $currPublications = $doctorObj->num_publications;
     $currExperience = $doctorObj->work_experience_years;
     $currBio = $doctorObj->bio;
+    $currSpecialization = $doctorObj->specialization;
     $currUsername = $doctorObj->username;
     $currEmail = $doctorObj->email;
 
     // Define errors after form submition
     $firstnameSetError = $lastnameSetError = $phoneSetError = $vatSetError = $locationSetError = $patientsSetError = $publicationsSetError = 
-    $experienceSetError = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
+    $experienceSetError = $specializationSet = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
     $confirmNewPasswordSetError = $updatesMessage = "";
 
     // Define new values after form submition
@@ -69,7 +70,7 @@
           $phoneSet = $_POST["phone"];
         }
 
-        // Check if new phone is filled
+        // Check if new vat is filled
         if(empty(trim($_POST["vat"]))){
           $vatSetError = "Please enter VAT number.";
           $currVat = "";
@@ -108,6 +109,9 @@
 
         // No checks need. Field is not essential
         $currBio = $bioSet = $_POST["bio"]; 
+
+        // No checks need. Fields will have as first value, this that was selected from register
+        $currSpecialization = $specializationSet = $_POST["specialization"];
       
 
         // Check if new profile picture is filled
@@ -139,6 +143,7 @@
               \"num_publications\" : \"".$publicationsSet."\",
               \"work_experience_years\" : \"".$experienceSet."\",
               \"bio\" : \"".$bioSet."\",
+              \"specialization\" : \"".$specializationSet."\",
               \"image\" : \"".$imageSet."\"
               }",
              CURLOPT_HTTPHEADER => array(
@@ -165,6 +170,7 @@
            $currPublications = $doctorObj->num_publications;
            $currExperience = $doctorObj->work_experience_years;
            $currBio = $doctorObj->bio;
+           $currSpecialization = $doctorObj->specialization;
            $currUsername = $doctorObj->username;
            $currEmail = $doctorObj->email;
 
@@ -342,6 +348,7 @@
             $currPublications = $doctorObj->num_publications;
             $currExperience = $doctorObj->work_experience_years;
             $currBio = $doctorObj->bio;
+            $currSpecialization = $doctorObj->specialization;
             $currUsername = $doctorObj->username;
             $currEmail = $doctorObj->email;
 
@@ -501,6 +508,32 @@
               <div class="inputBox">
                 <input type="text" name="bio" maxlength="255" value="<?php echo $currBio ?>">
                 <span>Short Bio</span>
+              </div>
+              <div class="">
+                <label class="form-label" for="specialization">Please, select your Specialization:</label>
+                <select id="Doc-Specialities" name="specialization">
+                  <option <?php if ($currSpecialization == "General doctor") { ?>selected="true" <?php }; ?> value="General doctor">General doctor</option>
+                  <option <?php if ($currSpecialization == "Pathologist") { ?>selected="true" <?php }; ?> value="Pathologist">Pathologist</option>
+                  <option <?php if ($currSpecialization == "Pediatrician") { ?>selected="true" <?php }; ?> value="Pediatrician">Pediatrician</option>
+                  <option <?php if ($currSpecialization == "Urologist andrologist") { ?>selected="true" <?php }; ?> value="Urologist andrologist">Urologist andrologist</option>
+                  <option <?php if ($currSpecialization == "Gynecologist") { ?>selected="true" <?php }; ?> value="Gynecologist">Gynecologist</option>
+                  <option <?php if ($currSpecialization == "Ophthalmologist") { ?>selected="true" <?php }; ?> value="Ophthalmologist">Ophthalmologist</option>
+                  <option <?php if ($currSpecialization == "General surgeon") { ?>selected="true" <?php }; ?> value="General surgeon">General surgeon</option>
+                  <option <?php if ($currSpecialization == "Dental Surgeon") { ?>selected="true" <?php }; ?> value="Dental Surgeon">Dental Surgeon</option>
+                  <option <?php if ($currSpecialization == "Dentist") { ?>selected="true" <?php }; ?> value="Dentist">Dentist</option>
+                  <option <?php if ($currSpecialization == "Cardiologist") { ?>selected="true" <?php }; ?> value="Cardiologist">Cardiologist</option>
+                  <option <?php if ($currSpecialization == "Endocrinologist") { ?>selected="true" <?php }; ?> value="Endocrinologist">Endocrinologist</option>
+                  <option <?php if ($currSpecialization == "Dermatologist-Venereologist") { ?>selected="true" <?php }; ?> value="Dermatologist-Venereologist">Dermatologist-Venereologist</option>
+                  <option <?php if ($currSpecialization == "Anesthetist") { ?>selected="true" <?php }; ?> value="Anesthetist">Anesthetist</option>
+                  <option <?php if ($currSpecialization == "Allergist") { ?>selected="true" <?php }; ?> value="Allergist">Allergist</option>
+                  <option <?php if ($currSpecialization == "Dietitian-Nutritionist") { ?>selected="true" <?php }; ?> value="Dietitian-Nutritionist">Dietitian-Nutritionist</option>
+                  <option <?php if ($currSpecialization == "Oncologist") { ?>selected="true" <?php }; ?> value="Oncologist">Oncologist</option>
+                  <option <?php if ($currSpecialization == "Orthopedist") { ?>selected="true" <?php }; ?> value="Orthopedist">Orthopedist</option>
+                  <option <?php if ($currSpecialization == "Pulmonologist") { ?>selected="true" <?php }; ?> value="Pulmonologist">Pulmonologist</option>
+                  <option <?php if ($currSpecialization == "Physiotherapist") { ?>selected="true" <?php }; ?> value="Physiotherapist">Physiotherapist</option>
+                  <option <?php if ($currSpecialization == "Psychiatrist") { ?>selected="true" <?php }; ?> value="Psychiatrist">Psychiatrist</option>
+                  <option <?php if ($currSpecialization == "Otorhinolaryngologist") { ?>selected="true" <?php }; ?> value="Otorhinolaryngologist">Otorhinolaryngologist</option>
+                </select>
               </div>
               <div class="inputBox">
                 <input type="file" name="profile-picture">

@@ -131,6 +131,7 @@
                 $num_publications = $doctorFound->num_publications;
                 $work_experience_years = $doctorFound->work_experience_years;
                 $bio = $doctorFound->bio;
+                $specialization = $doctorFound->specialization;
                 $image = $doctorFound->image;
 
                 //Sensitive info
@@ -162,16 +163,22 @@
                     $num_patients = $doctorObj->num_patients;
                 }
 
-                if(property_exists($doctorObj, 'num_publications') && strcmp($doctorObj->num_publications, "") !== 0 && strcmp($num_publications, $doctorObj->num_publications) !== 0){
+                if(property_exists($doctorObj, 'num_publications') && strcmp($doctorObj->num_publications, "") !== 0 && 
+                    strcmp($num_publications, $doctorObj->num_publications) !== 0){
                     $num_publications = $doctorObj->num_publications;
                 }
 
-                if(property_exists($doctorObj, 'work_experience_years') && strcmp($doctorObj->work_experience_years, "") !== 0 && strcmp($work_experience_years, $doctorObj->work_experience_years) !== 0){
+                if(property_exists($doctorObj, 'work_experience_years') && strcmp($doctorObj->work_experience_years, "") !== 0 && 
+                    strcmp($work_experience_years, $doctorObj->work_experience_years) !== 0){
                     $work_experience_years = $doctorObj->work_experience_years;
                 }
 
                 if(property_exists($doctorObj, 'bio') && strcmp($bio, $doctorObj->bio) !== 0){
                     $bio = $doctorObj->bio;
+                }
+
+                if(property_exists($doctorObj, 'specialization') && strcmp($doctorObj->specialization, "") !== 0 && strcmp($specialization, $doctorObj->specialization) !== 0){
+                    $specialization = $doctorObj->specialization;
                 }
                 
                 if(property_exists($doctorObj, 'image') && strcmp($image, $doctorObj->image) !== 0){
@@ -194,7 +201,7 @@
                 $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', `vat` = '$vat',
                                 `username` = '$username', `email` = '$email', `password` = '$password', `num_patients` = '$num_patients', 
                                 `num_publications` = '$num_publications', `work_experience_years` = '$work_experience_years', `bio` = '$bio',
-                                `location` = '$location', `image` = '$image' WHERE `id` = $doctorObj->id";
+                                `location` = '$location', `specialization` = '$specialization', `image` = '$image' WHERE `id` = $doctorObj->id";
                 $result = $this->mysqli->query($sql);
                 
                 return $this->findDoctorById($doctorFound->id);
