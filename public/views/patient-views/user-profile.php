@@ -46,6 +46,7 @@
         } else {
           $lastnameSet = $_POST["lastname"];
         }
+        
         // Check if new phone is filled
         if(empty(trim($_POST["phone"]))){
           $phoneSetError = "Please enter phone.";
@@ -388,8 +389,8 @@
               <h2>Settings</h2>
               <div class="inputBox">
                 <input type="text" name="username" class="<?php echo (!empty($usernameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currUsername ?>" required>
-                  <span>Username</span>
-                  <p class="invalid-feedback-form"><?php echo $usernameSetError; ?></p>
+                <span>Username</span>
+                <p class="invalid-feedback-form"><?php echo $usernameSetError; ?></p>
               </div>
               <div class="inputBox">
                 <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>" required>

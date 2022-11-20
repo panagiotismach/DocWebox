@@ -108,7 +108,7 @@
                 }
                 
                 if(property_exists($patientObj, 'password') && strcmp($patientObj->password, "") !== 0 && strcmp($password, $patientObj->password) !== 0){
-                    //Hash previous is hashed before http put
+                    //Password previous is hashed before http put
                     $password = $patientObj->password;
                 }
 

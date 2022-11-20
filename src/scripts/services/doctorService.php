@@ -112,6 +112,92 @@
 
             return $doctors;
         }
+
+        public function updateDoctorInfo($doctorObj){
+            try {
+                $doctorFound = $this->findDoctorById($doctorObj->id);
+
+                if($doctorFound == null){
+                    return "Doctor doesn't exist!";
+                }
+    
+                //Non sensitive info
+                $firstname = $doctorFound->firstname;
+                $lastname = $doctorFound->lastname;
+                $phone = $doctorFound->phone;
+                $location = $doctorFound->location;
+                $num_patients = $doctorFound->num_patients;
+                $num_publications = $doctorFound->num_publications;
+                $work_experience_years = $doctorFound->work_experience_years;
+                $bio = $doctorFound->bio;
+                $image = $doctorFound->image;
+
+                //Sensitive info
+                $username = $doctorFound->username;
+                $email = $doctorFound->email;
+                $password = $doctorFound->password;
+                
+                if(property_exists($doctorObj, 'firstname') && strcmp($doctorObj->firstname, "") !== 0 && strcmp($firstname, $doctorObj->firstname) !== 0){
+                    $firstname = $doctorObj->firstname;
+                }
+
+                if(property_exists($doctorObj, 'lastname') && strcmp($doctorObj->lastname, "") !== 0 && strcmp($lastname, $doctorObj->lastname) !== 0){
+                    $lastname = $doctorObj->lastname;
+                }
+                
+                if(property_exists($doctorObj, 'phone') && strcmp($doctorObj->phone, "") !== 0 && strcmp($phone, $doctorObj->phone) !== 0){
+                    $phone = $doctorObj->phone;
+                }
+                
+                if(property_exists($doctorObj, 'location') && strcmp($doctorObj->location, "") !== 0 && strcmp($location, $doctorObj->location) !== 0){
+                    $location = $doctorObj->location;
+                }
+
+                if(property_exists($doctorObj, 'num_patients') && strcmp($doctorObj->num_patients, "") !== 0 && strcmp($num_patients, $doctorObj->num_patients) !== 0){
+                    $num_patients = $doctorObj->num_patients;
+                }
+
+                if(property_exists($doctorObj, 'num_publications') && strcmp($doctorObj->num_publications, "") !== 0 && strcmp($num_publications, $doctorObj->num_publications) !== 0){
+                    $num_publications = $doctorObj->num_publications;
+                }
+
+                if(property_exists($doctorObj, 'work_experience_years') && strcmp($doctorObj->work_experience_years, "") !== 0 && strcmp($work_experience_years, $doctorObj->work_experience_years) !== 0){
+                    $work_experience_years = $doctorObj->work_experience_years;
+                }
+
+                if(property_exists($doctorObj, 'bio') && strcmp($bio, $doctorObj->bio) !== 0){
+                    $bio = $doctorObj->bio;
+                }
+                
+                if(property_exists($doctorObj, 'image') && strcmp($image, $doctorObj->image) !== 0){
+                    $image = $doctorObj->image;
+                }
+
+                if(property_exists($doctorObj, 'username') && strcmp($doctorObj->username, "") !== 0 && strcmp($username, $doctorObj->username) !== 0){
+                    $username = $doctorObj->username;
+                }
+
+                if(property_exists($doctorObj, 'email') && strcmp($doctorObj->email, "") !== 0 && strcmp($email, $doctorObj->email) !== 0){
+                    $email = $doctorObj->email;
+                }
+                
+                if(property_exists($doctorObj, 'password') && strcmp($doctorObj->password, "") !== 0 && strcmp($password, $doctorObj->password) !== 0){
+                    //Password previous is hashed before http put
+                    $password = $doctorObj->password;
+                }
+
+                $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', 
+                                `username` = '$username', `email` = '$email', `password` = '$password', `num_patients` = '$num_patients', 
+                                `num_publications` = '$num_publications', `work_experience_years` = '$work_experience_years', `bio` = '$bio',
+                                `location` = '$location', `image` = '$image' WHERE `id` = $doctorObj->id";
+                $result = $this->mysqli->query($sql);
+                
+                return $this->findDoctorById($doctorFound->id);
+    
+            }catch(Exception $e){
+                echo 'Message: ' .$e->getMessage();
+            }
+        }
     }
 
 ?>
