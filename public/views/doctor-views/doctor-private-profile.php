@@ -466,42 +466,42 @@
             <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Update your profile</h2>
               <div class="inputBox">
-                <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>">
+                <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>" required >
                 <span>First name</span>
                 <p class="invalid-feedback-form"><?php echo $firstnameSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="lastname" class="<?php echo (!empty($lastnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLastname ?>">
+                <input type="text" name="lastname" class="<?php echo (!empty($lastnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLastname ?>" required >
                 <span>Last name</span>
                 <p class="invalid-feedback-form"><?php echo $lastnameSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>">
+                <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>" required >
                 <span>Phone</span>
                 <p class="invalid-feedback-form"><?php echo $phoneSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="vat" class="<?php echo (!empty($vatSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currVat ?>">
+                <input type="text" name="vat" class="<?php echo (!empty($vatSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currVat ?>" required >
                 <span>VAT Number</span>
                 <p class="invalid-feedback-form"><?php echo $vatSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="location" class="<?php echo (!empty($locationSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLocation ?>">
+                <input type="text" name="location" class="<?php echo (!empty($locationSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLocation ?>" required >
                 <span>Location</span>
                 <p class="invalid-feedback-form"><?php echo $locationSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="number" min="0" name="patients" class="<?php echo (!empty($patientsSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPatients ?>">
+                <input type="number" min="0" name="patients" class="<?php echo (!empty($patientsSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPatients ?>" required >
                 <span>Patients</span>
                 <p class="invalid-feedback-form"><?php echo $patientsSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="number" min="0" name="publications" class="<?php echo (!empty($publicationsSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPublications ?>">
+                <input type="number" min="0" name="publications" class="<?php echo (!empty($publicationsSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPublications ?>" required>
                 <span>Publications</span>
                 <p class="invalid-feedback-form"><?php echo $publicationsSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="number" min="0" name="years" class="<?php echo (!empty($experienceSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currExperience ?>">
+                <input type="number" min="0" name="years" class="<?php echo (!empty($experienceSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currExperience ?>" required>
                 <span>Years of Experience</span>
                 <p class="invalid-feedback-form"><?php echo $experienceSetError; ?></p>
               </div>
@@ -548,12 +548,12 @@
             <form class="personal-information"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Settings</h2>
               <div class="inputBox">
-                <input type="text" name="username" class="<?php echo (!empty($usernameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currUsername ?>">
+                <input type="text" name="username" class="<?php echo (!empty($usernameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currUsername ?>" required >
                 <span>Username</span>
                 <p class="invalid-feedback-form"><?php echo $usernameSetError; ?></p>
               </div>
               <div class="inputBox">
-                <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>">
+                <input type="text" name="email" class="<?php echo (!empty($emailSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currEmail ?>" required >
                 <span>Email</span>
                 <p class="invalid-feedback-form"><?php echo $emailSetError; ?></p>
               </div>
