@@ -125,6 +125,7 @@
                 $firstname = $doctorFound->firstname;
                 $lastname = $doctorFound->lastname;
                 $phone = $doctorFound->phone;
+                $vat = $doctorFound->vat;
                 $location = $doctorFound->location;
                 $num_patients = $doctorFound->num_patients;
                 $num_publications = $doctorFound->num_publications;
@@ -151,6 +152,10 @@
                 
                 if(property_exists($doctorObj, 'location') && strcmp($doctorObj->location, "") !== 0 && strcmp($location, $doctorObj->location) !== 0){
                     $location = $doctorObj->location;
+                }
+
+                if(property_exists($doctorObj, 'vat') && strcmp($doctorObj->vat, "") !== 0 && strcmp($vat, $doctorObj->vat) !== 0){
+                    $vat = $doctorObj->vat;
                 }
 
                 if(property_exists($doctorObj, 'num_patients') && strcmp($doctorObj->num_patients, "") !== 0 && strcmp($num_patients, $doctorObj->num_patients) !== 0){
@@ -186,7 +191,7 @@
                     $password = $doctorObj->password;
                 }
 
-                $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', 
+                $sql = "UPDATE `$this->table` SET `firstname` = '$firstname', `lastname` = '$lastname', `phone` = '$phone', `vat` = '$vat',
                                 `username` = '$username', `email` = '$email', `password` = '$password', `num_patients` = '$num_patients', 
                                 `num_publications` = '$num_publications', `work_experience_years` = '$work_experience_years', `bio` = '$bio',
                                 `location` = '$location', `image` = '$image' WHERE `id` = $doctorObj->id";

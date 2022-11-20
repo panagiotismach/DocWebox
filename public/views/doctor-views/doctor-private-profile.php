@@ -23,6 +23,7 @@
     $currFirstname = $doctorObj->firstname;
     $currLastname = $doctorObj->lastname;
     $currPhone = $doctorObj->phone;
+    $currVat = $doctorObj->vat;
     $currLocation = $doctorObj->location;
     $currPatients = $doctorObj->num_patients;
     $currPublications = $doctorObj->num_publications;
@@ -32,12 +33,12 @@
     $currEmail = $doctorObj->email;
 
     // Define errors after form submition
-    $firstnameSetError = $lastnameSetError = $phoneSetError = $locationSetError = $patientsSetError = $publicationsSetError = 
+    $firstnameSetError = $lastnameSetError = $phoneSetError = $vatSetError = $locationSetError = $patientsSetError = $publicationsSetError = 
     $experienceSetError = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
     $confirmNewPasswordSetError = $updatesMessage = "";
 
     // Define new values after form submition
-    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $patientsSet = $publicationsSet = $experienceSet = $bioSet = 
+    $firstnameSet = $lastnameSet = $phoneSet = $vatSet = $locationSet = $patientsSet = $publicationsSet = $experienceSet = $bioSet = 
     $imageSet = $usernameSet = $emailSet = $newPasswordSet = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -66,6 +67,14 @@
           $currPhone = "";
         } else {
           $phoneSet = $_POST["phone"];
+        }
+
+        // Check if new phone is filled
+        if(empty(trim($_POST["vat"]))){
+          $vatSetError = "Please enter VAT number.";
+          $currVat = "";
+        } else {
+          $vatSet = $_POST["vat"];
         }
 
         // Check if new Location is filled
@@ -106,7 +115,7 @@
           $imageSet = $_POST["profile-picture"];
         }
 
-        if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && empty($locationSetError) && 
+        if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && empty($vatSetError) && empty($locationSetError) && 
             empty($patientsSetError) && empty($publicationsSetError) && empty($experienceSetError) && !empty($doctorObj->id)) {
 
            $curl = curl_init();
@@ -124,6 +133,7 @@
               \"firstname\" : \"".$firstnameSet."\",
               \"lastname\" : \"".$lastnameSet."\",
               \"phone\" : \"".$phoneSet."\",
+              \"vat\" : \"".$vatSet."\",
               \"location\" : \"".$locationSet."\",
               \"num_patients\" : \"".$patientsSet."\",
               \"num_publications\" : \"".$publicationsSet."\",
@@ -149,6 +159,7 @@
            $currFirstname = $doctorObj->firstname;
            $currLastname = $doctorObj->lastname;
            $currPhone = $doctorObj->phone;
+           $currVat = $doctorObj->vat;
            $currLocation = $doctorObj->location;
            $currPatients = $doctorObj->num_patients;
            $currPublications = $doctorObj->num_publications;
@@ -325,6 +336,7 @@
             $currFirstname = $doctorObj->firstname;
             $currLastname = $doctorObj->lastname;
             $currPhone = $doctorObj->phone;
+            $currVat = $doctorObj->vat;
             $currLocation = $doctorObj->location;
             $currPatients = $doctorObj->num_patients;
             $currPublications = $doctorObj->num_publications;
@@ -352,6 +364,7 @@
             <span></span>
           </div>
           <h2>Dr. <?php echo $doctorObj->firstname. " " .$doctorObj->lastname ?></h2>
+          <h5><?php echo $doctorObj->specialization ?></h5>
           <p><?php echo $doctorObj->location ?></p>
           <p>Phone: <?php echo $doctorObj->phone ?></p>
           <ul class="about profile-ul">
@@ -459,6 +472,11 @@
                 <input type="text" name="phone" class="<?php echo (!empty($phoneSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currPhone ?>">
                 <span>Phone</span>
                 <p class="invalid-feedback-form"><?php echo $phoneSetError; ?></p>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="vat" class="<?php echo (!empty($vatSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currVat ?>">
+                <span>VAT Number</span>
+                <p class="invalid-feedback-form"><?php echo $vatSetError; ?></p>
               </div>
               <div class="inputBox">
                 <input type="text" name="location" class="<?php echo (!empty($locationSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currLocation ?>">
