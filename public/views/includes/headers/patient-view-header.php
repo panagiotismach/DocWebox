@@ -32,7 +32,7 @@
             <a class="header-a" href="my-appointments.php">Appointments</a>
           </li>
           <li class="header-li">
-            <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
+            <a class="header-a" href="/DocWebox/src/scripts/logout/patient-logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>

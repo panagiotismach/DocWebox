@@ -153,12 +153,10 @@
                     <div class="d-flex align-items-center">
                      <hr>
                     </div>
-                    
                     <p>No account?</p>
                     <div class="d-flex align-items-center">
                       <hr>
                     </div>
-                    
                   </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">

@@ -23,7 +23,7 @@
             <a class="header-a" href="admin-dashboard.php">Dashboard</a>
           </li>
           <li class="header-li">
-            <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
+            <a class="header-a" href="/DocWebox/src/scripts/logout/admin-logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>

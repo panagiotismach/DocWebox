@@ -27,7 +27,7 @@
             <a class="header-a" href="doctor-private-profile.php">Profile</a>
           </li>
           <li class="header-li">
-            <a class="header-a" href="/DocWebox/public/views/logout.php">Logout ↪</a>
+            <a class="header-a" href="/DocWebox/src/scripts/logout/doctor-logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>
