@@ -1,7 +1,18 @@
 <?php
 
     require_once "../../../src/scripts/configuration/init.php";
+    
     require "../../../src/db/connect.php";
+
+    // Initialize the session
+    session_start();
+    
+    // Check if the doctor is already logged in, if yes then redirect his dashboard
+    // To register new account, you should have logged out
+    if(isset($_SESSION["doctor-loggedin"]) && $_SESSION["doctor-loggedin"] === true){
+      header("location: ../doctor-views/doctor-dashboard.php");
+      exit;
+    }
 
     // Define variables and initialize with empty values
     $firstname = $lastname = $username = $email = $phone = $vat = $location = $specialization = $password = $confirmPassword = "";
@@ -119,7 +130,7 @@
                           
                           // Attempt to execute the prepared statement
                           if($stmt->execute()){
-                            session_start();
+
                             $_SESSION["message"] = "Now, use your credential from register!";
                             // Redirect to login page
                               header("location: ../forms-views/login-doctor.php");

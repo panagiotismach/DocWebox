@@ -7,7 +7,7 @@
   
   // Check if the doctor is already logged in, if yes then redirect his dashboard
   if(isset($_SESSION["admin-loggedin"]) && $_SESSION["admin-loggedin"] === true){
-    header("location: admin-dashboard.php");
+    header("location: ../admin-views/admin-dashboard.php");
     exit;
   }
   

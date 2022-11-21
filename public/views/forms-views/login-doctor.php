@@ -1,6 +1,7 @@
 <?php
   
   require_once "../../../src/scripts/configuration/init.php";
+  
   require "../../../src/db/connect.php";
   require "../../../src/scripts/models/doctor.php";
 
@@ -9,7 +10,7 @@
   
   // Check if the doctor is already logged in, if yes then redirect his dashboard
   if(isset($_SESSION["doctor-loggedin"]) && $_SESSION["doctor-loggedin"] === true){
-    header("location: doctor-dashboard.php");
+    header("location: ../doctor-views/doctor-dashboard.php");
     exit;
   }
 

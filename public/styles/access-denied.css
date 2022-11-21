@@ -1,0 +1,7 @@
+.wrapper hr {
+  height: 1px;
+  background-color: rgb(97, 97, 97);
+  border: none;
+  margin: auto;
+  width: 50%;
+}

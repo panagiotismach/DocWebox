@@ -1,11 +1,18 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
+
     require "../../../src/db/connect.php";
+    require "../../../src/scripts/models/doctor.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
-    require "../../../src/scripts/models/doctor.php";
 
     session_start();
+
+    // Auth
+    if(!isset($_SESSION["doctor-loggedin"]) || $_SESSION["doctor-loggedin"] === false){
+      header("location: ../access-denied.php");
+      die();
+    }
 
     if(isset($_SESSION["doctorObj"])) {
       $doctorObj = unserialize($_SESSION["doctorObj"]);

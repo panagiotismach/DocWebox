@@ -1,8 +1,18 @@
 <?php
-
   	include '../../views/includes/file-begin/file-begin.php';
+
     require_once "../../../src/scripts/configuration/init.php";
+    
     require "../../../src/db/connect.php";
+
+    // Initialize the session
+    session_start();
+    
+    // Auth
+    if(!isset($_SESSION["admin-loggedin"]) || $_SESSION["admin-loggedin"] === false){
+        header("location: ../access-denied.php");
+        die();
+    }
 ?>
     <link rel="stylesheet" href="../../styles/admin-views-styles/admin-dashboard.css" />
     <script src="/DocWebox/public/src/js/edit-modal-controller.js" defer></script>

@@ -1,24 +1,31 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
+    
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
 
-    if(isset($_GET["Doc-Specialities"])){
+    session_start();
+
+    // Auth
+    if(!isset($_SESSION["patient-loggedin"]) || $_SESSION["patient-loggedin"] === false){
+        header("location: ../access-denied.php");
+        die();
+    }
+
+    if(isset($_GET["Doc-Specialities"])) {
          $docSpeciality = $_GET["Doc-Specialities"];
-    }else{
+    } else {
         $docSpeciality = null;
     }
 
-    if(isset($_GET["location"])){
+    if(isset($_GET["location"])) {
         $location = $_GET["location"];
-   }else{
+    } else {
        $location = null;
-   }
-   
-    
-    
+    }
 ?>
+
     <link rel="stylesheet" href="../../styles/patient-views-styles/doctors.css" />
     <script>
         const docSpeciality = <?php echo  "'".$docSpeciality."'" ?>;
@@ -26,7 +33,7 @@
     </script>
     <script type="module" src="../../src/js/controllers/control-doctor.js"></script>
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+    include '../../views/includes/headers/patient-view-header.php';
 ?>
     <section class="welcome">
         <div class="content">
@@ -68,5 +75,5 @@
         </div>
     </section>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+    include '../../views/includes/footers/patient-view-footer.php';
 ?>

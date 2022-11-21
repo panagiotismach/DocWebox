@@ -1,10 +1,17 @@
 <?php
     require_once "../../../src/scripts/configuration/init.php";
+    
     require "../../../src/db/connect.php";
     
   	include '../../views/includes/file-begin/file-begin.php';
 
     session_start();
+
+    // Auth
+    if(!isset($_SESSION["patient-loggedin"]) || $_SESSION["patient-loggedin"] === false){
+        header("location: ../access-denied.php");
+        die();
+    }
 
     if(isset($_GET["id"])) {
       $doctor = file_get_contents("http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=".$_GET["id"]);
