@@ -3,16 +3,9 @@
 
     require "../../../src/db/connect.php";
     require "../../../src/scripts/models/patient.php";
+    require "../../../src/scripts/auth/auth-patient.php";
     
     include '../../views/includes/file-begin/file-begin.php';
-
-    session_start();
-
-    // Auth
-    if(!isset($_SESSION["patient-loggedin"]) || $_SESSION["patient-loggedin"] === false){
-        header("location: ../access-denied.php");
-        die();
-    }
 
     if(isset($_SESSION['patientObj'])){
         $patientObj = unserialize($_SESSION['patientObj']);
