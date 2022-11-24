@@ -1,6 +1,7 @@
 "use strict";
 
 import Booking from "../js-models/booking.js";
+import BookingView from "../js-views/booking-view.js";
 
 const form = document.querySelector("#booking");
 
@@ -23,12 +24,14 @@ class controllerBooking {
     fetch("../../../src/scripts/APIs/appointment.php", {
       method: "POST",
       body: JSON.stringify(body),
-    }).then((e) => {
-      console.log("book");
-    });
+    })
+      .then((res) => {
+        this.bookingView.render(true);
+      })
+      .catch((err) => {});
   }
 }
 
 (function () {
-  new controllerBooking(new Booking(form), null);
+  new controllerBooking(new Booking(form), new BookingView());
 })();

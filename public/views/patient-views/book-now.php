@@ -16,7 +16,7 @@
     }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
-    <script type="module" src="../../src/js/controllers/controller-convert%20.js"></script>
+    <script type="module" src="../../src/js/controllers/controller-booking%20.js"></script>
 <?php
   include '../../views/includes/headers/patient-view-header.php';
 ?>
@@ -72,6 +72,9 @@
                 </div>
                 <div class="bf-row">
                         <input hidden name="doctor_id" value="<?php echo $doctorObjS->id?>" id="doctor_id"  ></input>
+                </div>
+                <div class="bf-row" id="answer">
+                        
                 </div>
                 <div class="bf-row">
                     <div class="bf-col-3">
