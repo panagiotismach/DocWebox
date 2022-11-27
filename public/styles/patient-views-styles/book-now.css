@@ -101,6 +101,18 @@ select {
   padding-top: 7px;
 }
 
+#correct {
+  background-color: #aff077;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#error {
+  background-color: #f23d3d;
+  border-radius: 5px;
+  padding: 20px;
+}
+
 /* Responsiveness */
 
 @media screen and (max-width: 600px) {

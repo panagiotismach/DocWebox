@@ -5,18 +5,27 @@ export default class BookingView {
     this.parentElement = "#answer";
   }
 
-  template(doctorObj) {
+  template() {
     const html = `
-            
-
-    
-           `;
+                 <div class="bf-row" id="correct-answer" >
+                    <div class="bf-col-12" id="correct"><p>You have completed your booking</p></div>
+                 </div>
+             `;
 
     return html;
   }
 
-  templateEmpty() {
-    return ``;
+  templateError() {
+    return `<div class="bf-row" >
+              <div class="bf-col-12" id="error"><p>Something went wrong. Try again</p></div>
+           </div>`;
+  }
+
+  removeTemplate() {
+    setTimeout(() => {
+      const boxEl = document.querySelector("#correct-answer");
+      boxEl.remove();
+    }, 3000);
   }
 
   render(answer) {
@@ -26,7 +35,7 @@ export default class BookingView {
     if (answer) {
       container.insertAdjacentHTML("beforeEnd", that.template());
     } else {
-      container.insertAdjacentHTML("beforeEnd", this.templateEmpty());
+      container.insertAdjacentHTML("beforeEnd", this.templateError());
     }
   }
 }

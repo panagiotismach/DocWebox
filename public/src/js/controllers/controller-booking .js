@@ -4,6 +4,10 @@ import Booking from "../js-models/booking.js";
 import BookingView from "../js-views/booking-view.js";
 
 const form = document.querySelector("#booking");
+let date = document.querySelector("#date");
+let time = document.querySelector("#time");
+let previousDate = "";
+let previousTime = "";
 
 class controllerBooking {
   bookingModel;
@@ -14,21 +18,35 @@ class controllerBooking {
     this.bookingView = v;
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      this.submitForm(form);
+      if (time.value !== "Select Hour") {
+        if (date.value !== previousDate && time.value !== previousTime) {
+          this.submitForm(form);
+        } else {
+          alert("The Date or Time must be different from previous bookings.");
+        }
+      } else {
+        alert("You must select an hour.");
+      }
     });
   }
 
   async submitForm(form) {
-    const body = await this.bookingModel.toJson(form);
+    let body = await this.bookingModel.toJson(form);
 
-    fetch("../../../src/scripts/APIs/appointment.php", {
+    previousDate = body.date;
+    previousTime = body.select;
+
+    previousTime = fetch("../../../src/scripts/APIs/appointment.php", {
       method: "POST",
       body: JSON.stringify(body),
     })
       .then((res) => {
         this.bookingView.render(true);
+        this.bookingView.removeTemplate();
       })
-      .catch((err) => {});
+      .catch((err) => {
+        this.bookingView.render(false);
+      });
   }
 }
 

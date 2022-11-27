@@ -44,8 +44,8 @@
                     </div>
                     <div class="bf-col-6">
                         <p class="label">Select Time Frame</p>
-                        <select name="s-select" required>
-                            <option>Select Hour</option>
+                        <select name="s-select" id="time" required>
+                            <option main>Select Hour</option>
                             <option value="9">9.00</option>
                             <option value="10">10.00</option>
                             <option value="11">11.00</option>
@@ -73,13 +73,13 @@
                 <div class="bf-row">
                         <input hidden name="doctor_id" value="<?php echo $doctorObjS->id?>" id="doctor_id"  ></input>
                 </div>
-                <div class="bf-row" id="answer">
-                        
-                </div>
                 <div class="bf-row">
                     <div class="bf-col-3">
                         <input type="submit" value="Book now" id="submit">
                     </div>
+                </div>
+                <div class="bf-row" id="answer">
+                        
                 </div>
             </form>
             <div class="bf-footer">
