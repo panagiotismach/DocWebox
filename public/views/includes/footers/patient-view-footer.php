@@ -9,7 +9,7 @@
           <a class="footer__link" href="user-profile.php">Profile</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/faq.php" target=blank>FAQs</a>
+          <a class="footer__link" href="/DocWebox/public/views/faq.php">FAQs</a>
         </li>
         <li class="footer__item">
           <a class="footer__link" href="/DocWebox/src/scripts/logout/patient-logout.php">Logout</a>
