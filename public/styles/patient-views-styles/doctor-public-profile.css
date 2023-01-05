@@ -128,9 +128,20 @@
   opacity: 0.8;
 }
 
-.map {
-  padding-top: 20px;
-  padding-bottom: 50px;
+.google-maps {
+  position: relative;
+  padding-bottom: 50%;
+  height: 0;
+  overflow: hidden;
+  /* padding-top: 20px; */
+  /* padding-bottom: 50px; */
+}
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 90% !important;
 }
 .profile-ul a i {
   color: var(--color-primary);
@@ -140,6 +151,10 @@
 /* Responsiveness */
 
 @media (min-width: 868px) {
+  /* .map {
+    width: 80%;
+  } */
+
   .header__wrapper .cols__container {
     max-width: 1200px;
     margin: 0 auto;

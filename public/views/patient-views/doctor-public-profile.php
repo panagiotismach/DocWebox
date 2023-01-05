@@ -56,9 +56,9 @@
           <nav>
             <a href="book-now.php"><button>Book your appointment with Dr. <?php echo $doctorObj->lastname ?></button></a>
           </nav>
-          <div class="map">
+          <div class="google-maps">
             <iframe src="https://www.google.com/maps/embed/v1/place?q=<?php echo $doctorObj->location ?>&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" 
-              width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+               style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
         </div>
