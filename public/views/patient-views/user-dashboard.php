@@ -45,7 +45,7 @@
     <script >
       const idpatient = <?php echo $patientObj->id ?>
     </script>
-    <script defer src="../../src/js/data.js"></script>
+    <script defer type="module" src="../../src/js/data.js"></script>
 <?php
   include '../includes/headers/patient-view-header.php';
 ?>

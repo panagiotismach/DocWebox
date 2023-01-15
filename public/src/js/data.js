@@ -1,5 +1,7 @@
 "use strict";
 
+import calculateDaysAppontment from "./calculateDaysAppointment";
+
 const container = document.querySelector(".list-group");
 const searchContainer = document.querySelector(".card-container");
 const searchButton = document.querySelector("#search-doctor");
@@ -12,14 +14,14 @@ const fetchData = async (url) => {
   return await fetch(url).then((res) => res.json());
 };
 
-const templateAppointment = (doctor) => {
+const templateAppointment = (doctor, day) => {
   const html = `
               <a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Dr. ${doctor.firstname} ${doctor.lastname}</h5>
               </div>
               <p class="mb-1">${doctor.specialization},${doctor.location}</p>
-              <small class="text-muted">appointment days ago</small>
+              <small class="text-muted">appointment days ${day}</small>
               </a>`;
   return html;
 };
@@ -43,12 +45,23 @@ const templateEmpty = () => {
 
 const addDoctors = async () => {
   appointments = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/appointment.php?patient_id=${idpatient}`);
+  console.log(appointments);
+  const days = calculateDaysAppontment(appointments);
+  console.log(days);
+  appointments.sort((a, b) => {
+    const dateA = new Date(a.created);
+    const dateB = new Date(b.created);
+
+    return dateB.getTime() - dateA.getTime();
+  });
+  console.log(appointments);
   const doctorsPromises = await appointments.map(async (appointment) => {
     return await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=${appointment.doctor_id}`);
   });
-  doctorsPromises.forEach((docrorPromise) =>
+
+  doctorsPromises.forEach((docrorPromise, i) =>
     docrorPromise.then((doctor) => {
-      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor));
+      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor, hj[i]));
     })
   );
 };
