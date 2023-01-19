@@ -1,6 +1,6 @@
 "use strict";
 
-export default calculateDays = (appointments) => {
+export default function (appointments) {
   const days = appointments.map((appointment) => {
     const dateAp = new Date(appointment.created);
     const year = new Date().getFullYear();
@@ -20,4 +20,4 @@ export default calculateDays = (appointments) => {
   });
 
   return days;
-};
+}

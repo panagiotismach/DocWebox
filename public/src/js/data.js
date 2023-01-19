@@ -1,6 +1,6 @@
 "use strict";
 
-import calculateDaysAppontment from "./calculateDaysAppointment";
+import calculateDaysAppontment from "./calculateDaysAppointment.js";
 
 const container = document.querySelector(".list-group");
 const searchContainer = document.querySelector(".card-container");
@@ -61,7 +61,7 @@ const addDoctors = async () => {
 
   doctorsPromises.forEach((docrorPromise, i) =>
     docrorPromise.then((doctor) => {
-      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor, hj[i]));
+      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor, days[i]));
     })
   );
 };

@@ -20,5 +20,5 @@ class AppointmentController {
 }
 
 (function () {
-  new AppointmentController(new Appointment(idPatient), new AppointmentView());
+  new AppointmentController(new Appointment(idPatient), new AppointmentView(template));
 })();

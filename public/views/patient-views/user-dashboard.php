@@ -43,7 +43,8 @@
       });
     </script>
     <script >
-      const idpatient = <?php echo $patientObj->id ?>
+      const idpatient = <?php echo $patientObj->id ?>;
+      const template = "template";
     </script>
     <script defer type="module" src="../../src/js/data.js"></script>
 <?php

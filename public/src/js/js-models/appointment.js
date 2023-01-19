@@ -17,7 +17,9 @@ export default class Appointment {
       })
       .then(async function (data) {
         for (const appointmentObj of data) {
-          appointmentObj.doctorName = await that.getDoctorName(appointmentObj.doctor_id); //Get the appointment's doctor name
+          const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
+          appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
+          appointmentObj.location = doctorObj.location;
           that.appointments.push(appointmentObj); //Add the appointment
           that.appointments.sort((a, b) => {
             const dateA = new Date(a.created);
@@ -30,7 +32,7 @@ export default class Appointment {
     return this.appointments;
   }
 
-  async getDoctorName(id) {
+  async getDoctor(id) {
     let doctorObj = null;
 
     await fetch(`${DOCTOR_OBJ_URL}id=${id}`)
@@ -41,6 +43,6 @@ export default class Appointment {
         doctorObj = data;
       });
 
-    return doctorObj?.firstname + " " + doctorObj?.lastname;
+    return doctorObj;
   }
 }
