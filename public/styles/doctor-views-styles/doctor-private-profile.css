@@ -307,6 +307,14 @@
   text-decoration: none;
 }
 
+#Doc-Specialities {
+  word-wrap: normal;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /* Responsiveness */
 
 @media (min-width: 868px) {
