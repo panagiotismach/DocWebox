@@ -10,6 +10,11 @@
     if(isset($_GET["id"])) {
       $doctor = file_get_contents("http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=".$_GET["id"]);
       $doctorObj = json_decode($doctor);
+
+      if (is_null($doctorObj)) {
+        $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+      }
+
       $_SESSION["doctorObjS"] = $doctorObj;
     } else {
       $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
