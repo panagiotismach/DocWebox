@@ -3,6 +3,7 @@
 
     require "../../../src/db/connect.php";
     require "../../../src/scripts/models/patient.php";
+    require "../../../src/scripts/models/doctor.php";
     require "../../../src/scripts/auth/auth-patient.php";
     
     include '../../views/includes/file-begin/file-begin.php';
@@ -13,6 +14,12 @@
 
     if(isset($_SESSION['doctorObjS'])){
         $doctorObjS = $_SESSION['doctorObjS'];
+
+        if (empty($doctorObjS->id)) {
+            $doctorSelected = false;
+        } else {
+            $doctorSelected = true;
+        }
     }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
@@ -74,9 +81,12 @@
                         <input hidden name="doctor_id" value="<?php echo $doctorObjS->id?>" id="doctor_id"  ></input>
                 </div>
                 <div class="bf-row">
-                    <div class="bf-col-3">
-                        <input type="submit" value="Book now" id="submit">
-                    </div>
+                    <?php if ($doctorSelected) {
+                    echo '  <div class="bf-col-3">
+                                <input type="submit" value="Book now" id="submit">
+                            </div>
+                        ';
+                    }?>
                 </div>
                 <div class="bf-row" id="answer">
                         
