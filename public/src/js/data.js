@@ -28,18 +28,20 @@ const templateAppointment = (doctor, day) => {
 
 const templateDoctor = (doctor) => {
   const html = `
-               <div class="card"><a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}"><h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
-               <p> ${doctor.phone} ${doctor.location}</></a>
+               <div class="card">
+                  <a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}" class="doctor-profile-link">
+                    <h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
+                    <p> tel: ${doctor.phone}<p/>
+                    <p> Address: ${doctor.location}<p/>
+                  </a>
                </div>
                `;
   return html;
 };
 
 const templateEmpty = () => {
-  const html = `
-               <div class="card"><h3>No doctors with this search</h3>
-               </div>
-               `;
+  const html = `<h3>No doctors with this lastname</h3>`;
+
   return html;
 };
 
@@ -67,18 +69,19 @@ const addDoctors = async () => {
 };
 
 const searchDoctor = async (lastaname) => {
-  console.log(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
   if (lastaname !== previousInput) {
     const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
+
     searchContainer.innerHTML = "";
 
     if (searchDoctors.length) {
-      searchContainer.insertAdjacentHTML("beforeEnd", "<p>Results that match your search:</p>");
+      searchContainer.insertAdjacentHTML("beforeEnd", "<h3>Results that match your search:</h3>");
       searchDoctors.forEach((doctor) => searchContainer.insertAdjacentHTML("beforeEnd", templateDoctor(doctor)));
     } else {
       searchContainer.insertAdjacentHTML("beforeEnd", templateEmpty());
     }
   }
+
   previousInput = lastaname;
 };
 

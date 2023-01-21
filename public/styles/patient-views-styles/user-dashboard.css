@@ -197,6 +197,11 @@
   margin: 0px;
 }
 
+.doctor-profile-link {
+  color: inherit; 
+  text-decoration: none; 
+}
+
 /* Responsiveness */
 
 @media (max-width: 993px) {
