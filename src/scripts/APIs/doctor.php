@@ -9,6 +9,10 @@
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
 
+        if (count($_GET) == 0) {
+            $data = $doctorService->findAllDoctors();
+        }
+
         if(isset($_GET["id"])){
             $id = validate_data($_GET['id']);
             $data = $doctorService->findDoctorById($id);
@@ -33,7 +37,7 @@
         }else if(isset($_GET["location"]) && isset($_GET["specialization"])){
             $location = validate_data($_GET['location']);
             $specialization = validate_data($_GET['specialization']);
-            $data = $doctorService->findAllDoctorsByLocationSpecialization($location,$specialization);
+            $data = $doctorService->findAllDoctorsByLocationSpecialization($location, $specialization);
         }
 
         header("Content-Type: application/json");

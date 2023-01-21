@@ -2,7 +2,6 @@
 
 const container = document.querySelector(".list-group");
 const searchContainer = document.querySelector(".card-container");
-const searchButton = document.querySelector("#search-doctor");
 
 let appointments = [];
 

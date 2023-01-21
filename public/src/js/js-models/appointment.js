@@ -11,7 +11,7 @@ export default class Appointment {
   async loadAppointments() {
     const that = this;
 
-    await fetch(`${PATIENT_APPOINTMENTS_URL}patient_id=${this.patient_id}`)
+    await fetch(`${PATIENT_APPOINTMENTS_URL}?patient_id=${this.patient_id}`)
       .then(function (response) {
         return response.json();
       })

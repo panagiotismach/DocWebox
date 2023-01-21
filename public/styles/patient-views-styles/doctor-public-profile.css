@@ -58,6 +58,7 @@
   margin: 35px 0;
 }
 .header__wrapper .cols__container .left__col .about li {
+  margin-right: 7px;
   display: flex;
   flex-direction: column;
   color: #818181;
