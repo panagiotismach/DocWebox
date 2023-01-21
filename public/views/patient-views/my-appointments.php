@@ -5,21 +5,21 @@
   require "../../../src/scripts/auth/auth-patient.php";
   require "../../../src/scripts/models/patient.php";
     
-  include '../../views/includes/file-begin/file-begin.php';
+  include '../includes/file-begin/file-begin.php';
 
   if(isset($_SESSION['patientObj'])){
     $patientObj = unserialize($_SESSION['patientObj']);
   }
 ?>
   <link rel="stylesheet" href="../../styles/patient-views-styles/my-appointments.css" />
-  <script src="/DocWebox/public/src/js/edit-modal-appointments-controller.js" defer></script>
+  <script src="../../src/js/utils/modals/edit-modal-appointments-controller.js" defer></script>
   <script>const idPatient = <?php echo $patientObj->id ?>;
   const template = "templateAppointment";
   </script>
-  <script type="module" src="/DocWebox/public/src/js/controllers/control-appointment.js" defer></script>
+  <script type="module" src="../../src/js/controllers/control-appointment.js" defer></script>
 
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
 <section>
   <div class="main-section">
@@ -34,9 +34,6 @@
         <p>Appointment Description</p>
       </div>
       <br />
-      
-      
-      
     </div>
   </div>
   <div class="edit-modal-appointment">
@@ -75,5 +72,5 @@
   </div>
 </section>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

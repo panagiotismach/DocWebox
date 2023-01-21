@@ -4,7 +4,7 @@
     require "../../../src/db/connect.php";
     require "../../../src/scripts/auth/auth-patient.php";
     
-  	include '../../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 
     if(isset($_GET["specialization"])) {
          $docSpeciality = $_GET["specialization"];
@@ -26,7 +26,7 @@
     </script>
     <script type="module" src="../../src/js/controllers/control-doctor.js"></script>
 <?php
-    include '../../views/includes/headers/patient-view-header.php';
+    include '../includes/headers/patient-view-header.php';
 ?>
     <section class="welcome">
         <div class="content">
@@ -67,5 +67,5 @@
         </div>
     </section>
 <?php
-    include '../../views/includes/footers/patient-view-footer.php';
+    include '../includes/footers/patient-view-footer.php';
 ?>

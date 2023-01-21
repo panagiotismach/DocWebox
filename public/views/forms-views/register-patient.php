@@ -117,7 +117,7 @@
 
                               $_SESSION["message"] = "Now, use your credential from register!";
                               // Redirect to login page
-                              header("location: ../forms-views/login-patient.php");
+                              header("location: login-patient.php");
                           } else{
                               echo "Oops! Something went wrong. Please try again later.";
                           }
@@ -241,7 +241,7 @@
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                      <a href="/DocWebox/public/views/forms-views/login-patient.php"><button type="button" class="btns my-2 p-1" id="patient-second-btn">Login as a Patient</button></a>
+                      <a href="login-patient.php"><button type="button" class="btns my-2 p-1" id="patient-second-btn">Login as a Patient</button></a>
                   </div>
               </div>
             </div>

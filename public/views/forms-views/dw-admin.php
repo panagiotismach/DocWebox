@@ -91,7 +91,7 @@
 ?>
 
 <?php
-  	include '../../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 ?>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -106,7 +106,7 @@
     />
     <link rel="stylesheet" href="../../styles/form-views-styles/login-register.css" />
 <?php
-  include '../../views/includes/headers/form-pages-header.php';
+  include '../includes/headers/form-pages-header.php';
 ?>
     <section class="my-5 mx-5">
       <div class="container">
@@ -143,5 +143,5 @@
       </div>
     </section>
 <?php
-  include '../../views/includes/footers/form-pages-footer.php';
+  include '../includes/footers/form-pages-footer.php';
 ?>

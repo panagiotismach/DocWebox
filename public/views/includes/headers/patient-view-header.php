@@ -7,7 +7,7 @@
     <title>DocWebox - Find your Doctor!</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <script src="../../src/js/no-scrolling.js" defer></script>
+    <script src="../../src/js/utils/scroll/no-scrolling.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../../resources/favicon/the-icon.ico" />
   </head>
@@ -18,7 +18,7 @@
         <label for="check" class="checkbtn">
           <i class="fas fa-bars"></i>
         </label>
-        <a class="header-logo" href="/DocWebox/index.php">
+        <a class="header-logo" href="../../../index.php">
           <img src="../../resources/logos/logo-main-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
         </a>
         <ul class="header-ul">
@@ -32,7 +32,7 @@
             <a class="header-a" href="my-appointments.php">Appointments</a>
           </li>
           <li class="header-li">
-            <a class="header-a" href="/DocWebox/src/scripts/logout/patient-logout.php">Logout ↪</a>
+            <a class="header-a" href="../../../src/scripts/logout/patient-logout.php">Logout ↪</a>
           </li>
         </ul>
       </nav>

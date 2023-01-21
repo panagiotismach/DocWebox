@@ -6,7 +6,7 @@
     require "../../../src/scripts/models/doctor.php";
     require "../../../src/scripts/auth/auth-patient.php";
     
-    include '../../views/includes/file-begin/file-begin.php';
+    include '../includes/file-begin/file-begin.php';
 
     if(isset($_SESSION['patientObj'])){
         $patientObj = unserialize($_SESSION['patientObj']);
@@ -23,9 +23,9 @@
     }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
-    <script type="module" src="../../src/js/controllers/controller-booking%20.js"></script>
+    <script type="module" src="../../src/js/controllers/controller-booking.js"></script>
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
     <div class="bf-container">
         <div class="bf-body">
@@ -98,5 +98,5 @@
         </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

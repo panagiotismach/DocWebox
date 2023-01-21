@@ -48,7 +48,7 @@
     </script>
     <script src= "../../src/js/patient-doctor.js" defer ></script>
 <?php
-  include '../../views/includes/headers/doctor-view-header.php';
+  include '../includes/headers/doctor-view-header.php';
 ?>
     <div class="main-container">
       <h1>Welcome back Dr. <?php echo $doctorObj->firstname ?></h1>
@@ -66,5 +66,5 @@
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/doctor-view-footer.php';
+  include '../includes/footers/doctor-view-footer.php';
 ?>

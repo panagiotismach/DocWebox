@@ -5,12 +5,12 @@
     require "../../../src/scripts/models/doctor.php";
     require "../../../src/scripts/auth/auth-doctor.php";
 
-  	include '../../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
-    <script src="../../src/js/doctor-prv-profile-menu-navigator.js" defer></script>
+    <script src="../../src/js/utils/navs/doctor-prv-profile-menu-navigator.js" defer></script>
 <?php
-    include '../../views/includes/headers/doctor-view-header.php';
+    include '../includes/headers/doctor-view-header.php';
 ?>
 <?php
 
@@ -583,5 +583,5 @@
     </div>
   </div>
 <?php
-  include '../../views/includes/footers/doctor-view-footer.php';
+  include '../includes/footers/doctor-view-footer.php';
 ?>

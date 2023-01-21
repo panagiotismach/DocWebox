@@ -5,7 +5,7 @@
     require "../../../src/scripts/models/patient.php";
     require "../../../src/scripts/auth/auth-patient.php";
 
-  	include '../../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 
     if(isset($_SESSION["patientObj"])) {
       $patientObj = unserialize($_SESSION['patientObj']);
@@ -287,12 +287,12 @@
       }
     }
 ?>
-    <script src="../../src/js/user-profile-menu-navigator.js" defer></script>
+    <script src="../../src/js/utils/navs/user-profile-menu-navigator.js" defer></script>
     <script >
       const idPatient =  <?php echo $patientObj->id ?>
     </script>
     <script type="module" src="../../src/js/controllers/control-appointment.js"></script>
-    <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />
+    <link rel="stylesheet" href="../../styles/patient-views-styles/user-profile.css" />
 <?php
     include '../../views/includes/headers/patient-view-header.php';
 ?>
@@ -423,5 +423,5 @@
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

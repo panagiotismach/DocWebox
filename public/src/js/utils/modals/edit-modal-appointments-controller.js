@@ -1,3 +1,5 @@
+"use strict";
+
 const modalAppointment = document.querySelector(".edit-modal-appointment");
 const triggerA = document.querySelector(".edit-modal-trigger-appointment");
 const closeButtonA = document.querySelector(".edit-modal-close-button-appointment");
