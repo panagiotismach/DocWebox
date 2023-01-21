@@ -35,7 +35,7 @@ export default class Appointment {
   async getDoctor(id) {
     let doctorObj = null;
 
-    await fetch(`${DOCTOR_OBJ_URL}id=${id}`)
+    await fetch(`${DOCTOR_OBJ_URL}?id=${id}`)
       .then(function (response) {
         return response.json();
       })

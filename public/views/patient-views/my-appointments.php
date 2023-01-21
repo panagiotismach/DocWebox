@@ -12,11 +12,12 @@
   }
 ?>
   <link rel="stylesheet" href="../../styles/patient-views-styles/my-appointments.css" />
-  <script src="../../src/js/utils/modals/edit-modal-appointments-controller.js" defer></script>
-  <script>const idPatient = <?php echo $patientObj->id ?>;
-  const template = "templateAppointment";
+  <script defer src="../../src/js/utils/modals/edit-modal-appointments-controller.js"></script>
+  <script defer type="module" src="../../src/js/controllers/control-appointment.js"></script>
+  <script>
+    const idPatient = <?php echo $patientObj->id ?>;
+    const template = "templateAppointment";
   </script>
-  <script type="module" src="../../src/js/controllers/control-appointment.js" defer></script>
 
 <?php
   include '../includes/headers/patient-view-header.php';
@@ -24,16 +25,6 @@
 <section>
   <div class="main-section">
     <div class="card-container" id="card-container">
-      <div class="card">
-        <h3>Appointment with {{Doctor Name}}</h3>
-        <button class="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button>
-        <button class="edit-modal-trigger-appointment edit-btn">Edit</button>
-        <h4>19/12/2020</h4>
-        <h4>9.00</h4>
-        <h4>Thessaloniki, Valtetsiou 3</h4>
-        <p>Appointment Description</p>
-      </div>
-      <br />
     </div>
   </div>
   <div class="edit-modal-appointment">
