@@ -6,10 +6,20 @@ export default class PreviousAppointmentView {
   }
 
   template(appointmentObj) {
+    let daysMessage = "";
+
+    if (appointmentObj.daysBefore === 0) {
+      daysMessage = "Earlier today";
+    } else if (appointmentObj.daysBefore === 1) {
+      daysMessage = appointmentObj.daysBefore + " day before.";
+    } else {
+      daysMessage = appointmentObj.daysBefore + " days before.";
+    }
+
     return `
     <div class="card">
       <h3>Appointment at Dr. ${appointmentObj.doctorName}</h3>
-      <h4>${appointmentObj.daysBefore} ${appointmentObj.daysBefore === 1 ? "day" : "days"} before.</h4>
+      <h4>${daysMessage}</h4>
       <p>${appointmentObj.description}</p>
     </div><br>`;
   }
