@@ -18,15 +18,16 @@
     $currLastname = $patientObj->lastname;
     $currPhone = $patientObj->phone;
     $currLocation = $patientObj->location;
+    $currImage = $patientObj->image;
     $currUsername = $patientObj->username;
     $currEmail = $patientObj->email;
 
     // Define errors after form submition
     $firstnameSetError = $lastnameSetError = $phoneSetError = $usernameSetError = $emailSetError = $currPasswordSetError = 
-    $newPasswordSetError = $confirmNewPasswordSetError = $updatesMessage = "";
+    $newPasswordSetError = $confirmNewPasswordSetError = $imageSetError = $updatesMessage = "";
 
     // Define new values after form submition
-    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $imageSet = $usernameSet = $emailSet = $newPasswordSet = "";
+    $firstnameSet = $lastnameSet = $phoneSet = $locationSet = $usernameSet = $emailSet = $newPasswordSet = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -60,11 +61,20 @@
         $currLocation = $locationSet = $_POST["location"]; 
 
         // Check if new profile picture is filled
-        if(!empty(trim($_POST["profile-picture"]))){
-          $imageSet = $_POST["profile-picture"];
+        if(!empty($_FILES["profile-picture"]['name']) && $_FILES['profile-picture']['size'] != 0){
+          $currImage = $_FILES["profile-picture"]["name"];
+          $tempname = $_FILES["profile-picture"]["tmp_name"];
+          $folder = "../../../src/resources/profile-images/" . $currImage;
+
+          // Now let's move the uploaded image into the folder: image
+          if (move_uploaded_file($tempname, $folder)) {
+            $imageSetError = "";
+          } else {
+            $imageSetError = "Failed to upload profile image!";
+          }
         }
 
-        if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && !empty($patientObj->id)) {
+        if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && empty($imageSetError) && !empty($patientObj->id) ) {
            $curl = curl_init();
            curl_setopt_array($curl, array(
              CURLOPT_URL => 'http://localhost/docwebox/src/scripts/APIs/patient.php',
@@ -81,7 +91,7 @@
               \"lastname\" : \"".$lastnameSet."\",
               \"phone\" : \"".$phoneSet."\",
               \"location\" : \"".$locationSet."\",
-              \"image\" : \"".$imageSet."\"
+              \"image\" : \"".$currImage."\"
               }",
              CURLOPT_HTTPHEADER => array(
                'Content-Type: application/json'
@@ -102,6 +112,7 @@
            $currLastname = $patientObj->lastname;
            $currPhone = $patientObj->phone;
            $currLocation = $patientObj->location;
+           $currImage = $patientObj->image;
            $currUsername = $patientObj->username;
            $currEmail = $patientObj->email;
 
@@ -274,6 +285,7 @@
             $currLastname = $patientObj->lastname;
             $currPhone = $patientObj->phone;
             $currLocation = $patientObj->location;
+            $currImage = $patientObj->image;
             $currUsername = $patientObj->username;
             $currEmail = $patientObj->email;
 
@@ -301,7 +313,14 @@
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="../../resources/images/pfp/user-pfp.png" alt="User Profile Pic" />
+            <?php
+              if (empty($patientObj->image)) {
+                $file = "../../resources/images/pfp/user-pfp.png";
+              } else {
+                $file = "../../../src/resources/profile-images/$patientObj->image";
+              }
+            ?>
+            <img src=<?php echo $file ?> alt="User Profile Pic" />
             <span></span>
           </div>
           <h2><?php echo $patientObj->firstname. " ". $patientObj->lastname ?></h2>
@@ -355,7 +374,7 @@
           <div class="card-container" id="card-container">
           </div>
           <div class="profile-settings hide" id="profile-settings" >
-            <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form enctype="multipart/form-data" class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Update your profile</h2>
                 <div class="inputBox">
                   <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>" required>
@@ -377,7 +396,7 @@
                   <span>Location</span>
                 </div>
                 <div class="inputBox">
-                  <input type="file" name="profile-picture">
+                  <input type="file" name="profile-picture" value="">
                   <span>Profile picture</span>
                 </div>
                 <div class="inputBox">
