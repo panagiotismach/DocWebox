@@ -28,6 +28,11 @@
   padding-bottom: 30px;
 }
 
+.h3-my-patients {
+  color: black !important;
+  font-size: 22px !important;
+}
+
 .search-area {
   width: 100%;
   margin: 0 auto;

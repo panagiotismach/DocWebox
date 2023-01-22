@@ -7,7 +7,6 @@ class MyDoctorsController {
   constructor(myDoctorsModel, myDoctorsView) {
     this.myDoctorsModel = myDoctorsModel;
     this.myDoctorsView = myDoctorsView;
-    // Display initial appointments
     this.onPageLoad();
   }
 

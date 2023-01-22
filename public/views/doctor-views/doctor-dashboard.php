@@ -46,7 +46,7 @@
     <script>
       const doctorid = <?php echo $doctorObj->id?>
     </script>
-    <script src= "../../src/js/patient-doctor.js" defer ></script>
+    <script type="module" src="../../src/js/controllers/control-my-patients.js"></script>
 <?php
   include '../includes/headers/doctor-view-header.php';
 ?>
@@ -60,7 +60,6 @@
           <h3>Your patients</h3>
           <div class="list-group">
             
-
           </div>
         </div>
       </div>
