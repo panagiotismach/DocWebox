@@ -35,6 +35,7 @@
       const parentElPatients = "#patients-container";
     </script>
     <script type="module" src="../../src/js/controllers/control-my-patients.js"></script>
+    <script type="module" src="../../src/js/controllers/control-doctor-appointments.js"></script>
 <?php
     include '../includes/headers/doctor-view-header.php';
 ?>
@@ -425,26 +426,6 @@
             <a href="doctor-dashboard.php"><button>HANDLE CALENDAR</button></a>
           </nav>
           <div class="card-container" id="appointment-container">
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>19/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>20/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div>
           </div>
           <div class="card-container hide" id="patients-container">
           </div>
