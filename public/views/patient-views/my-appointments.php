@@ -16,7 +16,6 @@
   <script defer type="module" src="../../src/js/controllers/control-appointment.js"></script>
   <script>
     const idPatient = <?php echo $patientObj->id ?>;
-    const template = "templateAppointment";
   </script>
 
 <?php
