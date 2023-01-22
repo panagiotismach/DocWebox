@@ -24,6 +24,7 @@
     $currExperience = $doctorObj->work_experience_years;
     $currBio = $doctorObj->bio;
     $currSpecialization = $doctorObj->specialization;
+    $currImage = $doctorObj->image;
     $currUsername = $doctorObj->username;
     $currEmail = $doctorObj->email;
 ?>
@@ -42,12 +43,11 @@
 <?php
     // Define errors after form submition
     $firstnameSetError = $lastnameSetError = $phoneSetError = $vatSetError = $locationSetError = $patientsSetError = $publicationsSetError = 
-    $experienceSetError = $specializationSet = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
+    $experienceSetError = $specializationSet = $imageSetError = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
     $confirmNewPasswordSetError = $updatesMessage = "";
 
     // Define new values after form submition
-    $firstnameSet = $lastnameSet = $phoneSet = $vatSet = $locationSet = $patientsSet = $publicationsSet = $experienceSet = $bioSet = 
-    $imageSet = $usernameSet = $emailSet = $newPasswordSet = "";
+    $firstnameSet = $lastnameSet = $phoneSet = $vatSet = $locationSet = $patientsSet = $publicationsSet = $experienceSet = $bioSet = $usernameSet = $emailSet = $newPasswordSet = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -122,12 +122,22 @@
       
 
         // Check if new profile picture is filled
-        if(!empty(trim($_POST["profile-picture"]))){
-          $imageSet = $_POST["profile-picture"];
+        if(!empty($_FILES["profile-picture"]['name']) && $_FILES['profile-picture']['size'] != 0){
+          $currImage = $_FILES["profile-picture"]["name"];
+          $currImage = str_replace(' ', '_', $currImage);
+          $tempname = $_FILES["profile-picture"]["tmp_name"];
+          $folder = "../../../src/resources/profile-images/doctors/" . $currImage;
+
+          // Now let's move the uploaded image into the folder: image
+          if (move_uploaded_file($tempname, $folder)) {
+            $imageSetError = "";
+          } else {
+            $imageSetError = "Failed to upload profile image!";
+          }
         }
 
         if (empty($firstnameSetError) && empty($lastnameSetError) && empty($phoneSetError) && empty($vatSetError) && empty($locationSetError) && 
-            empty($patientsSetError) && empty($publicationsSetError) && empty($experienceSetError) && !empty($doctorObj->id)) {
+            empty($patientsSetError) && empty($publicationsSetError) && empty($experienceSetError) && empty($imageSetError) && !empty($doctorObj->id)) {
 
            $curl = curl_init();
            curl_setopt_array($curl, array(
@@ -151,7 +161,7 @@
               \"work_experience_years\" : \"".$experienceSet."\",
               \"bio\" : \"".$bioSet."\",
               \"specialization\" : \"".$specializationSet."\",
-              \"image\" : \"".$imageSet."\"
+              \"image\" : \"".$currImage."\"
               }",
              CURLOPT_HTTPHEADER => array(
                'Content-Type: application/json'
@@ -178,6 +188,7 @@
            $currExperience = $doctorObj->work_experience_years;
            $currBio = $doctorObj->bio;
            $currSpecialization = $doctorObj->specialization;
+           $currImage = $doctorObj->image;
            $currUsername = $doctorObj->username;
            $currEmail = $doctorObj->email;
 
@@ -356,6 +367,7 @@
             $currExperience = $doctorObj->work_experience_years;
             $currBio = $doctorObj->bio;
             $currSpecialization = $doctorObj->specialization;
+            $currImage = $doctorObj->image;
             $currUsername = $doctorObj->username;
             $currEmail = $doctorObj->email;
 
@@ -374,7 +386,14 @@
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="../../resources/images/pfp/doctor-pfp.png" alt="Doctor Profile Pic" />
+          <?php
+              if (empty($doctorObj->image)) {
+                $file = "../../resources/images/pfp/user-pfp.png";
+              } else {
+                $file = "../../../src/resources/profile-images/doctors/$doctorObj->image";
+              }
+            ?>
+            <img src=<?php echo $file ?> alt="User Profile Pic" />
             <span></span>
           </div>
           <h2>Dr. <?php echo $doctorObj->firstname. " " .$doctorObj->lastname ?></h2>
@@ -430,7 +449,7 @@
           <div class="card-container hide" id="patients-container">
           </div>
           <div class="profile-settings hide" id="profile-settings" >
-            <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form enctype="multipart/form-data" class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Update your profile</h2>
               <div class="inputBox">
                 <input type="text" name="firstname" class="<?php echo (!empty($firstnameSetError)) ? 'is-invalid-update' : ''; ?>" value="<?php echo $currFirstname ?>" required >
@@ -503,7 +522,7 @@
                 </select>
               </div>
               <div class="inputBox">
-                <input type="file" name="profile-picture">
+                <input type="file" name="profile-picture" value="">
                 <span>Profile picture</span>
               </div>
               <div class="inputBox">

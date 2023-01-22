@@ -65,7 +65,7 @@
           $currImage = $_FILES["profile-picture"]["name"];
           $currImage = str_replace(' ', '_', $currImage);
           $tempname = $_FILES["profile-picture"]["tmp_name"];
-          $folder = "../../../src/resources/profile-images/" . $currImage;
+          $folder = "../../../src/resources/profile-images/patients/" . $currImage;
 
           // Now let's move the uploaded image into the folder: image
           if (move_uploaded_file($tempname, $folder)) {
@@ -318,7 +318,7 @@
               if (empty($patientObj->image)) {
                 $file = "../../resources/images/pfp/user-pfp.png";
               } else {
-                $file = "../../../src/resources/profile-images/$patientObj->image";
+                $file = "../../../src/resources/profile-images/patients/$patientObj->image";
               }
             ?>
             <img src=<?php echo $file ?> alt="User Profile Pic" />
