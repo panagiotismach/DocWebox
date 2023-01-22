@@ -11,18 +11,6 @@ const fetchData = async (url) => {
   return await fetch(url).then((res) => res.json());
 };
 
-const templateAppointment = (doctor, day) => {
-  const html = `
-              <a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Dr. ${doctor.firstname} ${doctor.lastname}</h5>
-              </div>
-              <p class="mb-1">${doctor.specialization},${doctor.location}</p>
-              <small class="text-muted">appointment days ${day}</small>
-              </a>`;
-  return html;
-};
-
 const templateDoctor = (doctor) => {
   const html = `
                <div class="card">
