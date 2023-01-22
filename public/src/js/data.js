@@ -1,8 +1,5 @@
 "use strict";
 
-import calculateDaysAppontment from "./calculateDaysAppointment.js";
-
-const container = document.querySelector(".list-group");
 const searchContainer = document.querySelector(".card-container");
 const searchButton = document.querySelector("#search-doctor");
 const inputDoctor = document.querySelector("#input-search");
@@ -45,29 +42,6 @@ const templateEmpty = () => {
   return html;
 };
 
-const addDoctors = async () => {
-  appointments = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/appointment.php?patient_id=${idpatient}`);
-  console.log(appointments);
-  const days = calculateDaysAppontment(appointments);
-  console.log(days);
-  appointments.sort((a, b) => {
-    const dateA = new Date(a.created);
-    const dateB = new Date(b.created);
-
-    return dateB.getTime() - dateA.getTime();
-  });
-  console.log(appointments);
-  const doctorsPromises = await appointments.map(async (appointment) => {
-    return await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=${appointment.doctor_id}`);
-  });
-
-  doctorsPromises.forEach((docrorPromise, i) =>
-    docrorPromise.then((doctor) => {
-      container.insertAdjacentHTML("beforeEnd", templateAppointment(doctor, days[i]));
-    })
-  );
-};
-
 const searchDoctor = async (lastaname) => {
   if (lastaname !== previousInput) {
     const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
@@ -84,8 +58,6 @@ const searchDoctor = async (lastaname) => {
 
   previousInput = lastaname;
 };
-
-window.addEventListener("load", addDoctors);
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
