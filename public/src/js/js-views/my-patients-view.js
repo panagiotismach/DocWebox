@@ -1,11 +1,12 @@
 "use strict";
 
 export default class MyPatientsView {
-  constructor() {
-    this.parentElement = ".list-group";
+  constructor(template, parentElPatients) {
+    this.parentElement = parentElPatients;
+    this.template = template;
   }
 
-  template(patientObj) {
+  templateForDoctorDashboard(patientObj) {
     return `
                 <a class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
@@ -15,6 +16,16 @@ export default class MyPatientsView {
                     <p class="mb-1">${patientObj.phone}</p>
                     <p class="mb-1">${patientObj.email}</p>
                 </a>
+            `;
+  }
+
+  templateForDoctorPrivateProfile(patientObj) {
+    return `
+            <div class="card">
+              <h3>${patientObj.firstname} ${patientObj.lastname}</h3>
+              <h4>${patientObj.phone}</h4>
+              <h4>${patientObj.email}</h4>
+            </div><br>
             `;
   }
 
@@ -28,7 +39,7 @@ export default class MyPatientsView {
 
     if (patientsData.length >= 1) {
       patientsData.forEach(function (patientObj) {
-        container.insertAdjacentHTML("afterbegin", that.template(patientObj));
+        container.insertAdjacentHTML("afterbegin", that[template](patientObj));
       });
     } else {
       container.insertAdjacentHTML("afterbegin", this.templateEmpty());

@@ -44,7 +44,9 @@
       });
     </script>
     <script>
-      const doctorid = <?php echo $doctorObj->id?>
+      const doctorid = <?php echo $doctorObj->id?>;
+      const template = "templateForDoctorDashboard";
+      const parentElPatients = ".list-group";
     </script>
     <script type="module" src="../../src/js/controllers/control-my-patients.js"></script>
 <?php

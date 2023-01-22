@@ -19,5 +19,5 @@ class MyPatientsController {
 }
 
 (function () {
-  new MyPatientsController(new MyPatients(doctorid), new MyPatientsView());
+  new MyPatientsController(new MyPatients(doctorid), new MyPatientsView(template, parentElPatients));
 })();
