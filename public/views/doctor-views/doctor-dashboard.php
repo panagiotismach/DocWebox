@@ -39,7 +39,11 @@
             center: "title",
             right: "month",
           },
-          // events: "load.php",
+          eventLimit: true,
+          editable: true,
+          events: "http://localhost/docwebox/src/scripts/APIs/appointment.php?doctor_id=<?php echo strval($doctorObj->id)?>", 
+          displayEventTime: false,
+          eventRender: function (event, element, view) {}
         });
       });
     </script>
