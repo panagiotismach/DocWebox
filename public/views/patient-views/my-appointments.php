@@ -14,10 +14,39 @@
   <link rel="stylesheet" href="../../styles/patient-views-styles/my-appointments.css" />
   <script defer src="../../src/js/utils/modals/edit-modal-appointments-controller.js"></script>
   <script defer type="module" src="../../src/js/controllers/control-appointment.js"></script>
-  <script>
+
+  <script >
     const idPatient = <?php echo $patientObj->id ?>;
     const template = "templateAppointment";
-  </script>
+    
+  const  deleteAppointment =  (appointmentId) => {
+    if (confirm("Delete")) {
+       
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+      let body = JSON.stringify({
+        id: appointmentId,
+        patientid: idPatient
+      });
+      
+    
+
+    let requestOptions = {
+      method: 'DELETE',
+      headers: myHeaders,
+      body: body,
+      redirect: 'follow'
+    };
+
+    
+
+  fetch("http://localhost/DocWebox/src/scripts/APIs/appointment.php", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  }}
+</script>
 
 <?php
   include '../includes/headers/patient-view-header.php';

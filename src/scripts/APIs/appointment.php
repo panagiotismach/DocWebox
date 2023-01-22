@@ -7,6 +7,7 @@
 
     $mysqli->select_db("docwebox");
     $appointmentService = new AppointmentService("appointment", $mysqli);
+    
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
@@ -43,10 +44,20 @@
         
     }else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
 
+        $body = file_get_contents('php://input');
+    
+        $appointment = json_decode($body);
+
         
-        if (isset($_GET["id"]) && isset($_GET["patientid"])){
-            $appointmentService->deleteAppointment($_GET["id"], $_GET["patientid"]);
+         
+        if ($appointment->id && $appointment->patientid){
+            
+            $appointmentService->deleteAppointment($appointment->id, $appointment->patientid);
         }
+        
+
+
+               
         
     }
 
