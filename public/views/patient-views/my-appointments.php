@@ -12,11 +12,12 @@
   }
 ?>
   <link rel="stylesheet" href="../../styles/patient-views-styles/my-appointments.css" />
+  <script type="module" src="/DocWebox/public/src/js/controllers/control-appointment.js" defer></script>
   <script src="/DocWebox/public/src/js/edit-modal-appointments-controller.js" defer></script>
   <script>const idPatient = <?php echo $patientObj->id ?>;
   const template = "templateAppointment";
   </script>
-  <script type="module" src="/DocWebox/public/src/js/controllers/control-appointment.js" defer></script>
+  
 
 <?php
   include '../../views/includes/headers/patient-view-header.php';
@@ -24,18 +25,7 @@
 <section>
   <div class="main-section">
     <div class="card-container" id="card-container">
-      <div class="card">
-        <h3>Appointment with {{Doctor Name}}</h3>
-        <button class="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button>
-        <button class="edit-modal-trigger-appointment edit-btn">Edit</button>
-        <h4>19/12/2020</h4>
-        <h4>9.00</h4>
-        <h4>Thessaloniki, Valtetsiou 3</h4>
-        <p>Appointment Description</p>
-      </div>
-      <br />
-      
-      
+    
       
     </div>
   </div>

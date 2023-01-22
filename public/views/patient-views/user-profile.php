@@ -289,7 +289,8 @@
 ?>
     <script src="../../src/js/user-profile-menu-navigator.js" defer></script>
     <script >
-      const idPatient =  <?php echo $patientObj->id ?>
+      const idPatient =  <?php echo $patientObj->id;?>;
+       const template = "template";
     </script>
     <script type="module" src="../../src/js/controllers/control-appointment.js"></script>
     <link rel="stylesheet" href="/DocWebox/public/styles/patient-views-styles/user-profile.css" />

@@ -41,6 +41,13 @@
        echo json_encode($appointment);
 
         
+    }else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
+
+        
+        if (isset($_GET["id"]) && isset($_GET["patientid"])){
+            $appointmentService->deleteAppointment($_GET["id"], $_GET["patientid"]);
+        }
+        
     }
 
     $mysqli->close();

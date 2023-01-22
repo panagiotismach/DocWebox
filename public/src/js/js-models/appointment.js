@@ -19,7 +19,7 @@ export default class Appointment {
         for (const appointmentObj of data) {
           const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
           appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
-          appointmentObj.location = doctorObj.location;
+          appointmentObj.location = doctorObj?.location;
           that.appointments.push(appointmentObj); //Add the appointment
           that.appointments.sort((a, b) => {
             const dateA = new Date(a.created);

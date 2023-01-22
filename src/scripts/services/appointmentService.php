@@ -54,5 +54,19 @@
                 echo 'Message: ' .$e->getMessage();
             } 
         }
+
+        public function deleteAppointment($id, $patientid){
+            try {
+                $patient = "SELECT patient_id FROM `$this->table`";
+                if($patient == $patientid){
+                    $sql = " DELETE FROM `$this->table` WHERE `id` = $id";
+                    $result = $this->mysqli->query($sql);
+                }
+                
+            }catch(Exception $e){
+                echo 'Message: ' .$e->getMessage();
+            } 
+        }
+    
     }
 ?>

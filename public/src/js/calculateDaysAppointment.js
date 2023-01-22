@@ -7,15 +7,17 @@ export default function (appointments) {
     const date = new Date().getDate();
     const month = new Date().getMonth();
     if (year === dateAp.getFullYear()) {
-      if (date === dateAp.getDate()) {
-        if (month === dateAp.getMonth()) {
-          return 0;
+      if (month === dateAp.getMonth()) {
+        if (date === dateAp.getDate()) {
+          return "To day";
+        } else {
+          return Math.abs(date - dateAp.getDate()) + "days";
         }
       } else {
-        return +(month - dateAp.getMonth());
+        return Math.abs(month - dateAp.getMonth()) + "Months";
       }
     } else {
-      return +(year === dateAp.getFullYear());
+      return Math.abs(year === dateAp.getFullYear());
     }
   });
 
