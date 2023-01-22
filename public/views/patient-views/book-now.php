@@ -37,11 +37,11 @@
                 <div class="bf-row">
                     <div class="bf-col-6">
                         <p class="label">Full Name</p>
-                        <input type="text" name="fname" id="fname" value="<?php echo $patientObj->firstname.' '. $patientObj->lastname ?>" placeholder="Full name">
+                        <input type="text" name="fname" id="fname" value="<?php echo $patientObj->firstname.' '. $patientObj->lastname ?>" placeholder="Full name" required>
                     </div>
                     <div class="bf-col-6">
                         <p class="label">Email Address</p>
-                        <input type="email" name="email" id="email" value="<?php echo $patientObj->email ?>" placeholder="Email Address">
+                        <input type="email" name="email" id="email" value="<?php echo $patientObj->email ?>" placeholder="Email Address" required>
                     </div>
                 </div>
                 <div class="bf-row">
