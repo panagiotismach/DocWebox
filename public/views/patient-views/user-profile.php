@@ -291,7 +291,7 @@
     <script >
       const idPatient =  <?php echo $patientObj->id ?>
     </script>
-    <script type="module" src="../../src/js/controllers/control-appointment.js"></script>
+    <script type="module" src="../../src/js/controllers/control-previous-appointments.js"></script>
     <link rel="stylesheet" href="../../styles/patient-views-styles/user-profile.css" />
 <?php
     include '../../views/includes/headers/patient-view-header.php';

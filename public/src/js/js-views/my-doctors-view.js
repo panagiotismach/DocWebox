@@ -25,6 +25,8 @@ export default class MyDoctorsView {
     const that = this;
     const container = document.querySelector(this.parentElement);
 
+    container.innerHTML = "";
+
     if (doctorsData.length >= 1) {
       doctorsData.forEach(function (doctorObj) {
         container.insertAdjacentHTML("afterbegin", that.template(doctorObj));
