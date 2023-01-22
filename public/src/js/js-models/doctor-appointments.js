@@ -21,8 +21,9 @@ export default class Appointment {
           appointmentObj.patientFullname = patientObj?.firstname + " " + patientObj?.lastname;
           that.appointments.push(appointmentObj); //Add the appointment
           that.appointments.sort((a, b) => {
-            const dateA = new Date(a.created);
-            const dateB = new Date(b.created);
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+
             return dateA - dateB;
           });
         }
