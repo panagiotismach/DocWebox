@@ -17,6 +17,7 @@
 
   <script >
     const idPatient = <?php echo $patientObj->id ?>;
+<<<<<<< HEAD
     const template = "templateAppointment";
     
   const  deleteAppointment =  (appointmentId) => {

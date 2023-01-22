@@ -10,7 +10,7 @@ export default class DoctorView {
            <a href="/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctorObj.id}"><div class="column">
                     <div class="card">
                         <div class="img-container">
-                        <img src="../../resources/images/pfp/doctor-pfp.png" />
+                        <img src="${doctorObj.image === "" ? "../../resources/images/pfp/doctor-pfp.png" : "../../../src/resources/profile-images/doctors/" + doctorObj.image}" />
                         </div>
                         <h3>Dr. ${doctorObj.firstname} ${doctorObj.lastname}</h3>
                         <h5>${doctorObj.specialization}</h5>

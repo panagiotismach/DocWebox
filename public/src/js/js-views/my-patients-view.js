@@ -13,8 +13,8 @@ export default class MyPatientsView {
                         <h5 class="mb-1">${patientObj.firstname} ${patientObj.lastname}</h5>
                     </div>
                     <br>
-                    <p class="mb-1">${patientObj.phone}</p>
-                    <p class="mb-1">${patientObj.email}</p>
+                    <p class="mb-1">tel: ${patientObj.phone}</p>
+                    <p class="mb-1">email: ${patientObj.email}</p>
                 </a>
             `;
   }
@@ -23,8 +23,8 @@ export default class MyPatientsView {
     return `
             <div class="card">
               <h3>${patientObj.firstname} ${patientObj.lastname}</h3>
-              <h4>${patientObj.phone}</h4>
-              <h4>${patientObj.email}</h4>
+              <h4>tel: ${patientObj.phone}</h4>
+              <h4>email: ${patientObj.email}</h4>
             </div><br>
             `;
   }

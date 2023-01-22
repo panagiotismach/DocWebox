@@ -20,9 +20,6 @@ export default class PreviousAppointment {
             const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
             appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
             let days = Math.floor((new Date() - new Date(appointmentObj.date)) / (1000 * 60 * 60 * 24));
-            if (days === 0) {
-              days = 1;
-            }
             appointmentObj.daysBefore = days;
             that.appointments.push(appointmentObj); //Add the appointment
           }

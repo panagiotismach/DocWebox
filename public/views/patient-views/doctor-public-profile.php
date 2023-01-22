@@ -29,7 +29,14 @@
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="../../resources/images/pfp/doctor-pfp.png" alt="Doctor Profile Pic" />
+          <?php
+              if (empty($doctorObj->image)) {
+                $file = "../../resources/images/pfp/user-pfp.png";
+              } else {
+                $file = "../../../src/resources/profile-images/doctors/$doctorObj->image";
+              }
+            ?>
+            <img src=<?php echo $file ?> alt="User Profile Pic" />
             <span></span>
           </div>
           <h2>Dr. <?php echo $doctorObj->firstname." ".$doctorObj->lastname?></h2>
