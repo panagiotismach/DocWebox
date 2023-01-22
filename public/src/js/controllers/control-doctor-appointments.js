@@ -1,7 +1,7 @@
 "use strict";
 
-import Appointment from "../js-models/appointment.js";
-import AppointmentView from "../js-views/patient-appointment-view.js";
+import Appointment from "../js-models/doctor-appointments.js";
+import AppointmentView from "../js-views/doctor-appointments-views.js";
 
 class AppointmentController {
   constructor(appointmentModel, appointmentView) {
@@ -20,5 +20,5 @@ class AppointmentController {
 }
 
 (function () {
-  new AppointmentController(new Appointment(idPatient), new AppointmentView());
+  new AppointmentController(new Appointment(doctorid), new AppointmentView());
 })();

@@ -1,14 +1,13 @@
 import { PATIENT_APPOINTMENTS_URL } from "../config.js";
 import { DOCTOR_OBJ_URL } from "../config.js";
 
-export default class Appointment {
-  //Appointment Model constructor
+export default class MyDoctors {
   constructor(patient_id) {
     this.patient_id = patient_id;
-    this.appointments = new Array();
+    this.myDoctors = new Array();
   }
 
-  async loadAppointments() {
+  async loadMyDoctors() {
     const that = this;
 
     await fetch(`${PATIENT_APPOINTMENTS_URL}?patient_id=${this.patient_id}`)
@@ -17,22 +16,21 @@ export default class Appointment {
       })
       .then(async function (data) {
         for (const appointmentObj of data) {
-          if (new Date() < new Date(appointmentObj.date)) {
-            const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
-            appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
-            appointmentObj.location = doctorObj.location;
-            that.appointments.push(appointmentObj); //Add the appointment
+          const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
+          let unique = true;
+          for (const doctor of that.myDoctors) {
+            if (doctor.id === doctorObj.id) {
+              unique = false;
+              break;
+            }
           }
-          that.appointments.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
-
-            return dateA - dateB;
-          });
+          if (unique) {
+            that.myDoctors.push(doctorObj); //Add the doctor
+          }
         }
       });
 
-    return this.appointments;
+    return this.myDoctors;
   }
 
   async getDoctor(id) {

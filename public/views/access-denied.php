@@ -16,7 +16,7 @@
       <hr class="w3-border-white" />
       <h3 class="w3-center">You dont have permission to view this page. Login first!</h3>
       <h6 class="w3-center">error code: 401 Unauthorized</h6>
-      <h5 class="w3-center"><a href="../views/login.php">Login</a></h5>
+      <h5 class="w3-center"><a href="login.php">Login</a></h5>
       <h5 class="w3-center">Move to <a href="../../index.php">Home</a> page</h5>
     </div>
   </body>

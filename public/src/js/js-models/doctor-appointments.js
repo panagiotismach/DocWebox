@@ -1,28 +1,25 @@
 import { PATIENT_APPOINTMENTS_URL } from "../config.js";
-import { DOCTOR_OBJ_URL } from "../config.js";
+import { PATIENT_OBJ_URL } from "../config.js";
 
 export default class Appointment {
   //Appointment Model constructor
-  constructor(patient_id) {
-    this.patient_id = patient_id;
+  constructor(doctor_id) {
+    this.doctor_id = doctor_id;
     this.appointments = new Array();
   }
 
   async loadAppointments() {
     const that = this;
 
-    await fetch(`${PATIENT_APPOINTMENTS_URL}?patient_id=${this.patient_id}`)
+    await fetch(`${PATIENT_APPOINTMENTS_URL}?doctor_id=${this.doctor_id}`)
       .then(function (response) {
         return response.json();
       })
       .then(async function (data) {
         for (const appointmentObj of data) {
-          if (new Date() < new Date(appointmentObj.date)) {
-            const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
-            appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
-            appointmentObj.location = doctorObj.location;
-            that.appointments.push(appointmentObj); //Add the appointment
-          }
+          const patientObj = await that.getPatient(appointmentObj.patient_id); //Get the patient
+          appointmentObj.patientFullname = patientObj?.firstname + " " + patientObj?.lastname;
+          that.appointments.push(appointmentObj); //Add the appointment
           that.appointments.sort((a, b) => {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
@@ -35,17 +32,17 @@ export default class Appointment {
     return this.appointments;
   }
 
-  async getDoctor(id) {
-    let doctorObj = null;
+  async getPatient(id) {
+    let patientObj = null;
 
-    await fetch(`${DOCTOR_OBJ_URL}?id=${id}`)
+    await fetch(`${PATIENT_OBJ_URL}?id=${id}`)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        doctorObj = data;
+        patientObj = data;
       });
 
-    return doctorObj;
+    return patientObj;
   }
 }

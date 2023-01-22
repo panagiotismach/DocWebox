@@ -5,11 +5,16 @@
     require "../../../src/scripts/auth/auth-patient.php";
     require "../../../src/scripts/models/doctor.php";
     
-  	include '../../views/includes/file-begin/file-begin.php';
+  	include '../includes/file-begin/file-begin.php';
 
     if(isset($_GET["id"])) {
       $doctor = file_get_contents("http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=".$_GET["id"]);
       $doctorObj = json_decode($doctor);
+
+      if (is_null($doctorObj)) {
+        $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+      }
+
       $_SESSION["doctorObjS"] = $doctorObj;
     } else {
       $doctorObj = new Doctor("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
@@ -17,7 +22,7 @@
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/doctor-public-profile.css" />
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
     <div class="header__wrapper">
       <div class="profile-header"></div>
@@ -65,5 +70,5 @@
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

@@ -197,6 +197,16 @@
   margin: 0px;
 }
 
+.doctor-profile-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.h3-my-doctors {
+  color: black !important;
+  font-size: 22px !important;
+}
+
 /* Responsiveness */
 
 @media (max-width: 993px) {

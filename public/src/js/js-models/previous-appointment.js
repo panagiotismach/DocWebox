@@ -1,8 +1,7 @@
 import { PATIENT_APPOINTMENTS_URL } from "../config.js";
 import { DOCTOR_OBJ_URL } from "../config.js";
 
-export default class Appointment {
-  //Appointment Model constructor
+export default class PreviousAppointment {
   constructor(patient_id) {
     this.patient_id = patient_id;
     this.appointments = new Array();
@@ -17,17 +16,21 @@ export default class Appointment {
       })
       .then(async function (data) {
         for (const appointmentObj of data) {
-          if (new Date() < new Date(appointmentObj.date)) {
+          if (new Date() > new Date(appointmentObj.date)) {
             const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
             appointmentObj.doctorName = doctorObj?.firstname + " " + doctorObj?.lastname;
-            appointmentObj.location = doctorObj.location;
+            let days = Math.floor((new Date() - new Date(appointmentObj.date)) / (1000 * 60 * 60 * 24));
+            if (days === 0) {
+              days = 1;
+            }
+            appointmentObj.daysBefore = days;
             that.appointments.push(appointmentObj); //Add the appointment
           }
           that.appointments.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
+            const dateA = new Date(a.daysBefore);
+            const dateB = new Date(b.daysBefore);
 
-            return dateA - dateB;
+            return dateB - dateA;
           });
         }
       });

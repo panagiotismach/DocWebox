@@ -5,14 +5,7 @@
     require "../../../src/scripts/models/doctor.php";
     require "../../../src/scripts/auth/auth-doctor.php";
 
-  	include '../../views/includes/file-begin/file-begin.php';
-?>
-    <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
-    <script src="../../src/js/doctor-prv-profile-menu-navigator.js" defer></script>
-<?php
-    include '../../views/includes/headers/doctor-view-header.php';
-?>
-<?php
+  	include '../includes/file-begin/file-begin.php';
 
     if(isset($_SESSION["doctorObj"])) {
       $doctorObj = unserialize($_SESSION['doctorObj']);
@@ -33,7 +26,20 @@
     $currSpecialization = $doctorObj->specialization;
     $currUsername = $doctorObj->username;
     $currEmail = $doctorObj->email;
-
+?>
+    <link rel="stylesheet" href="../../styles/doctor-views-styles/doctor-private-profile.css" />
+    <script src="../../src/js/utils/navs/doctor-prv-profile-menu-navigator.js" defer></script>
+    <script>
+      const doctorid = <?php echo $doctorObj->id?>;
+      const template = "templateForDoctorPrivateProfile";
+      const parentElPatients = "#patients-container";
+    </script>
+    <script type="module" src="../../src/js/controllers/control-my-patients.js"></script>
+    <script type="module" src="../../src/js/controllers/control-doctor-appointments.js"></script>
+<?php
+    include '../includes/headers/doctor-view-header.php';
+?>
+<?php
     // Define errors after form submition
     $firstnameSetError = $lastnameSetError = $phoneSetError = $vatSetError = $locationSetError = $patientsSetError = $publicationsSetError = 
     $experienceSetError = $specializationSet = $usernameSetError = $emailSetError = $currPasswordSetError = $newPasswordSetError = 
@@ -420,48 +426,8 @@
             <a href="doctor-dashboard.php"><button>HANDLE CALENDAR</button></a>
           </nav>
           <div class="card-container" id="appointment-container">
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>19/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>20/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment with {{Patient Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div><br>
-            <div class="card">
-              <h3>Appointment at {{Doctor Name}}</h3>
-              <h4>23/12/2020</h4>
-              <p>Appointment Description</p>
-            </div>
           </div>
           <div class="card-container hide" id="patients-container">
-            <div class="card">
-              <h3>{{Patient Name}}</h3>
-              <h4>Phone Number</h4>
-              <p> Last appointment description</p>
-            </div><br>
-            <div class="card">
-              <h3>{{Patient Name}}</h3>
-              <h4>Phone Number</h4>
-              <p> Last appointment description</p>
-            </div><br>
-            <div class="card">
-              <h3>{{Patient Name}}</h3>
-              <h4>Phone Number</h4>
-              <p> Last appointment description</p>
-            </div><br>
-            <div class="card">
-              <h3>{{Patient Name}}</h3>
-              <h4>Phone Number</h4>
-              <p> Last appointment description</p>
-            </div><br>
           </div>
           <div class="profile-settings hide" id="profile-settings" >
             <form class="personal-information" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -583,5 +549,5 @@
     </div>
   </div>
 <?php
-  include '../../views/includes/footers/doctor-view-footer.php';
+  include '../includes/footers/doctor-view-footer.php';
 ?>

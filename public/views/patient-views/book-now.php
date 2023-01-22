@@ -3,9 +3,10 @@
 
     require "../../../src/db/connect.php";
     require "../../../src/scripts/models/patient.php";
+    require "../../../src/scripts/models/doctor.php";
     require "../../../src/scripts/auth/auth-patient.php";
     
-    include '../../views/includes/file-begin/file-begin.php';
+    include '../includes/file-begin/file-begin.php';
 
     if(isset($_SESSION['patientObj'])){
         $patientObj = unserialize($_SESSION['patientObj']);
@@ -13,12 +14,18 @@
 
     if(isset($_SESSION['doctorObjS'])){
         $doctorObjS = $_SESSION['doctorObjS'];
+
+        if (empty($doctorObjS->id)) {
+            $doctorSelected = false;
+        } else {
+            $doctorSelected = true;
+        }
     }
 ?>
     <link rel="stylesheet" href="../../styles/patient-views-styles/book-now.css" />
-    <script type="module" src="../../src/js/controllers/controller-booking%20.js"></script>
+    <script type="module" src="../../src/js/controllers/controller-booking.js"></script>
 <?php
-  include '../../views/includes/headers/patient-view-header.php';
+  include '../includes/headers/patient-view-header.php';
 ?>
     <div class="bf-container">
         <div class="bf-body">
@@ -30,11 +37,11 @@
                 <div class="bf-row">
                     <div class="bf-col-6">
                         <p class="label">Full Name</p>
-                        <input type="text" name="fname" id="fname" value="<?php echo $patientObj->firstname.' '. $patientObj->lastname ?>" placeholder="Full name">
+                        <input type="text" name="fname" id="fname" value="<?php echo $patientObj->firstname.' '. $patientObj->lastname ?>" placeholder="Full name" required>
                     </div>
                     <div class="bf-col-6">
                         <p class="label">Email Address</p>
-                        <input type="email" name="email" id="email" value="<?php echo $patientObj->email ?>" placeholder="Email Address">
+                        <input type="email" name="email" id="email" value="<?php echo $patientObj->email ?>" placeholder="Email Address" required>
                     </div>
                 </div>
                 <div class="bf-row">
@@ -74,9 +81,12 @@
                         <input hidden name="doctor_id" value="<?php echo $doctorObjS->id?>" id="doctor_id"  ></input>
                 </div>
                 <div class="bf-row">
-                    <div class="bf-col-3">
-                        <input type="submit" value="Book now" id="submit">
-                    </div>
+                    <?php if ($doctorSelected) {
+                    echo '  <div class="bf-col-3">
+                                <input type="submit" value="Book now" id="submit">
+                            </div>
+                        ';
+                    }?>
                 </div>
                 <div class="bf-row" id="answer">
                         
@@ -88,5 +98,5 @@
         </div>
     </div>
 <?php
-  include '../../views/includes/footers/patient-view-footer.php';
+  include '../includes/footers/patient-view-footer.php';
 ?>

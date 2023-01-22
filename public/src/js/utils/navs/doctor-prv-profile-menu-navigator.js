@@ -1,3 +1,5 @@
+"use strict";
+
 function menu(option) {
   if (option == "a") {
     document.getElementById("a").classList.add("selected");

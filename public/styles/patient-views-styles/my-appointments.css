@@ -10,6 +10,7 @@ section {
   margin: 0 auto;
   padding: 60px 40px;
 }
+
 .card-container {
   overflow: hidden;
   overflow-y: auto;
@@ -18,26 +19,31 @@ section {
   padding: 20px;
   border-radius: 5px;
 }
+
 .card-container .card {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 2.5em rgba(111, 110, 110, 0.131);
 }
+
 .card-container h3 {
   color: var(--color-primary);
   font-size: 22px;
   padding: 5px;
 }
+
 .card-container h4 {
   color: var(--color-fourth);
   font-size: 18px;
   padding: 5px;
 }
+
 .card-container p {
   color: var(--color-primary);
   font-size: 17px;
   padding: 5px;
 }
+
 .admin-edit-form h2 {
   font-size: 21px;
   font-weight: bold;
@@ -54,6 +60,7 @@ section {
   float: right;
   cursor: pointer;
 }
+
 .delete-btn {
   background-color: red;
   color: white;
@@ -65,6 +72,7 @@ section {
   float: right;
   cursor: pointer;
 }
+
 .edit-modal-appointment {
   position: fixed;
   left: 0;
@@ -98,12 +106,15 @@ section {
   border-radius: 0.25rem;
   background-color: lightgray;
 }
+
 .inputBox {
   padding: 2px;
 }
+
 .inputBox input[type="text"] {
   width: 80%;
 }
+
 .inputBox input[type="submit"] {
   float: right;
   margin-top: 10px;
@@ -112,6 +123,7 @@ section {
   background-color: var(--color-primary);
   cursor: pointer;
 }
+
 .edit-modal-close-button:hover {
   background-color: darkgray;
 }
@@ -121,6 +133,10 @@ section {
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.h3-center {
+  text-align: center;
 }
 
 @media (max-width: 1400px) {
@@ -137,6 +153,7 @@ section {
   .main-section {
     width: 100%;
   }
+
   .edit-modal-content {
     width: 90%;
   }

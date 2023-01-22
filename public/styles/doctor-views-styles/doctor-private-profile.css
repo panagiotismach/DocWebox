@@ -66,6 +66,7 @@
   margin: 35px 0;
 }
 .header__wrapper .cols__container .left__col .about li {
+  margin-right: 7px;
   display: flex;
   flex-direction: column;
   color: #818181;
@@ -305,6 +306,14 @@
 .profile-ul a i {
   color: var(--color-seventh);
   text-decoration: none;
+}
+
+#Doc-Specialities {
+  word-wrap: normal;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* Responsiveness */

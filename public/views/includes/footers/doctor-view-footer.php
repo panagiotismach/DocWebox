@@ -9,13 +9,13 @@
           <a class="footer__link" href="doctor-private-profile.php">Profile</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/faq.php">FAQs</a>
+          <a class="footer__link" href="../faq.php">FAQs</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/src/scripts/logout/doctor-logout.php">Logout</a>
+          <a class="footer__link" href="../../../src/scripts/logout/doctor-logout.php">Logout</a>
         </li>
       </ul>
-      <a href="/DocWebox/public/views/doctor-views/doctor-dashboard.php"><img src="../../resources/logos/logo-doc-view-transparent.png" alt="Logo" class="footer__logo" /></a>
+      <a href="doctor-dashboard.php"><img src="../../resources/logos/logo-doc-view-transparent.png" alt="Logo" class="footer__logo" /></a>
       <p class="footer__copyright">
         &copy; Project owned by 
         <a class="footer__link" target="_blank" href="https://github.com/ics20044/DocWebox">Us.</a>

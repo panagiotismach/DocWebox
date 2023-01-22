@@ -1,9 +1,9 @@
 <?php
-  include '../views/includes/file-begin/file-begin.php';
+  include './includes/file-begin/file-begin.php';
 ?>
     <link rel="stylesheet" href="../styles/contact-styling.css" />
 <?php
-  include '../views/includes/headers/landing-header.php';
+  include './includes/headers/landing-header.php';
 ?>
     <section class="contact">
         <div class="content">
@@ -63,5 +63,5 @@
         </div>
     </section>
 <?php
-  include '../views/includes/footers/landing-footer.php';
+  include './includes/footers/landing-footer.php';
 ?>

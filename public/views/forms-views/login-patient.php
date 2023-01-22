@@ -121,9 +121,7 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-6 section-img" id="patient-c">
-            <img src="/DocWebox/public/resources/logos/logo-main-transparent.png" class="mx-auto d-block" />
-            <!-- <h4 class="header">Welcome to DocWebox</h4> -->
-            <!-- <a href="../../../DocWebox/index.php" id="back-home-patient" class="d-flex justify-content-center align-self-end">Back to home page</a> -->
+            <img src="../../resources/logos/logo-main-transparent.png" class="mx-auto d-block" />
           </div>
           <div class="col-lg-6 section-form">
             <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -159,7 +157,7 @@
               </div>
               <div class="form-row d-flex justify-content-center align-items-center">
                 <div class="col-lg-7">
-                  <a href="/DocWebox/public/views/forms-views/register-patient.php"><button type="button" class="btns my-2 p-1" id="patient-second-btn">Register as a Patient</button></a>
+                  <a href="register-patient.php"><button type="button" class="btns my-2 p-1" id="patient-second-btn">Register as a Patient</button></a>
                 </div>
               </div>
             </form>

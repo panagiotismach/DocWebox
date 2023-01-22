@@ -36,9 +36,13 @@
           header: {
             left: "prev,next today",
             center: "title",
-            right: "month,agendaWeek,agendaDay",
+            right: "month",
           },
-          // events: "load.php",
+          eventLimit: true,
+          editable: true,
+          events: "http://localhost/docwebox/src/scripts/APIs/appointment.php?patient_id=<?php echo strval($patientObj->id)?>", 
+          displayEventTime: false,
+          eventRender: function (event, element, view) {}
         });
       });
     </script>
@@ -47,14 +51,15 @@
       const template = "template";
     </script>
     <script defer type="module" src="../../src/js/data.js"></script>
+    <script defer type="module" src="../../src/js/controllers/control-my-doctors.js"></script>
 <?php
   include '../includes/headers/patient-view-header.php';
 ?>
     <div class="main-container">
       <h1>Welcome back <?php echo $patientObj->firstname?>!</h1>
       <h3>Your appointment is 4 clicks away!</h3>
-      <form action="/DocWebox/public/views/patient-views/doctors.php" class="search-area">
-        <select id="Doc-Specialities" name="Doc-Specialities">
+      <form action="doctors.php" class="search-area" method="get">
+        <select id="Doc-Specialities" name="specialization">
           <option value="None">Choose Doctor Specialization</option>
           <option value="General doctor">General doctor</option>
           <option value="Pathologist">Pathologist</option>

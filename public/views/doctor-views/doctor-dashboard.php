@@ -37,18 +37,24 @@
           header: {
             left: "prev,next today",
             center: "title",
-            right: "month,agendaWeek,agendaDay",
+            right: "month",
           },
-          // events: "load.php",
+          eventLimit: true,
+          editable: true,
+          events: "http://localhost/docwebox/src/scripts/APIs/appointment.php?doctor_id=<?php echo strval($doctorObj->id)?>", 
+          displayEventTime: false,
+          eventRender: function (event, element, view) {}
         });
       });
     </script>
     <script>
-      const doctorid = <?php echo $doctorObj->id?>
+      const doctorid = <?php echo $doctorObj->id?>;
+      const template = "templateForDoctorDashboard";
+      const parentElPatients = ".list-group";
     </script>
-    <script src= "../../src/js/patient-doctor.js" defer ></script>
+    <script type="module" src="../../src/js/controllers/control-my-patients.js"></script>
 <?php
-  include '../../views/includes/headers/doctor-view-header.php';
+  include '../includes/headers/doctor-view-header.php';
 ?>
     <div class="main-container">
       <h1>Welcome back Dr. <?php echo $doctorObj->firstname ?></h1>
@@ -60,11 +66,10 @@
           <h3>Your patients</h3>
           <div class="list-group">
             
-
           </div>
         </div>
       </div>
     </div>
 <?php
-  include '../../views/includes/footers/doctor-view-footer.php';
+  include '../includes/footers/doctor-view-footer.php';
 ?>

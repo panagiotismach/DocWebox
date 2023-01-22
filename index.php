@@ -1,17 +1,18 @@
 <?php
+    include "config.php";
     require_once "./src/scripts/configuration/init.php";
-    include 'public/views/includes/file-begin/file-begin.php';
+    include './public/views/includes/file-begin/file-begin.php';
      
 ?>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />
 <?php
-    include 'public/views/includes/headers/landing-header.php';
+    include './public/views/includes/headers/landing-header.php';
 ?>
     <div class="container">
         <h1>Welcome to DocWebox, the place where you find your doctor!</h1>
         <h3>Book an appointment with 4 clicks</h3>
-        <form action="/DocWebox/public/views/patient-views/doctors.php" method="get" class="search-area">
-            <select id="Doc-Specialities" name="Doc-Specialities">
+        <form action="./public/views/patient-views/doctors.php" method="get" class="search-area">
+            <select id="Doc-Specialities" name="specialization">
                 <option value="None">Choose Doctor Specialization</option>
                 <option value="General doctor">General doctor</option>
                 <option value="Pathologist">Pathologist</option>
@@ -81,8 +82,8 @@
             <i class="fa-solid fa-circle-info"></i>
         </div>
         <h2>DocWebox is an assignment for the lesson "Special Topics in Internet Programming" of Uom</h2>
-        <h3>Meet <a class="us-link"href="/DocWebox/public/views/our-team.php">our team</a></h3><br>
+        <h3>Meet <a class="us-link"href="./public/views/our-team.php">our team</a></h3><br>
     </div>  
 <?php
-  include 'public/views/includes/footers/landing-footer.php';
+  include './public/views/includes/footers/landing-footer.php';
 ?>

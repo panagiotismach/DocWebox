@@ -20,5 +20,5 @@ class DoctorController {
 }
 
 (function () {
-  new DoctorController(new Doctor(locationl, docSpeciality), new DoctorView());
+  new DoctorController(new Doctor(docLocation, docSpeciality), new DoctorView());
 })();

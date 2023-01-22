@@ -32,6 +32,8 @@ export default class BookingView {
     const that = this;
     const container = document.querySelector(this.parentElement);
 
+    container.innerHTML = "";
+
     if (answer) {
       container.insertAdjacentHTML("beforeEnd", that.template());
     } else {

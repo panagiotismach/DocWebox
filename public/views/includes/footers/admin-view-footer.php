@@ -6,10 +6,10 @@
           <a class="footer__link" href="admin-dashboard.php">Dashboard</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/public/views/faq.php">FAQs</a>
+          <a class="footer__link" href="../faq.php">FAQs</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="/DocWebox/src/scripts/logout/admin-logout.php">Logout</a>
+          <a class="footer__link" href="../../../src/scripts/logout/admin-logout.php">Logout</a>
         </li>
       </ul>
       <a href="admin-dashboard.php"><img src="../../resources/logos/admin-view-logo-transparent.png" alt="Logo" class="footer__logo" /></a>
