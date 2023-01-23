@@ -105,9 +105,9 @@
           <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's Lastname..."/>
           <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
         </form>
-      <div class="card-container">
+        <div class="card-container">
 
-      </div>
+        </div>
     </div>
   </div>
 <?php

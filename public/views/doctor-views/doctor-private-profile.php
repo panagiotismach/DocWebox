@@ -124,7 +124,8 @@
         // Check if new profile picture is filled
         if(!empty($_FILES["profile-picture"]['name']) && $_FILES['profile-picture']['size'] != 0){
           $currImage = $_FILES["profile-picture"]["name"];
-          $currImage = str_replace(' ', '_', $currImage);
+          $ext = pathinfo($currImage, PATHINFO_EXTENSION);
+          $currImage = $doctorObj->username . time() . "." . $ext;
           $tempname = $_FILES["profile-picture"]["tmp_name"];
           $folder = "../../../src/resources/profile-images/doctors/" . $currImage;
 
