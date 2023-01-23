@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 09 Νοε 2022 στις 19:57:44
--- Έκδοση διακομιστή: 10.4.18-MariaDB
--- Έκδοση PHP: 8.0.3
+-- Χρόνος δημιουργίας: 23 Ιαν 2023 στις 19:22:33
+-- Έκδοση διακομιστή: 10.4.20-MariaDB
+-- Έκδοση PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -15,12 +15,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Βάση δεδομένων: `docwebox`
 --
-
+CREATE DATABASE docwebox;
 -- --------------------------------------------------------
 
 --
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `created` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -41,13 +41,13 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `appointment` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `doctor_id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
   `date` varchar(50) NOT NULL,
   `time` varchar(20) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `created` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,7 +57,7 @@ CREATE TABLE `appointment` (
 --
 
 CREATE TABLE `doctor` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `firstname` varchar(40) NOT NULL,
   `lastname` varchar(40) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE `doctor` (
   `bio` varchar(1000) NOT NULL,
   `location` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `created` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -82,7 +82,7 @@ CREATE TABLE `doctor` (
 --
 
 CREATE TABLE `patient` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `firstname` varchar(40) NOT NULL,
   `lastname` varchar(40) NOT NULL,
   `username` varchar(20) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `patient` (
   `phone` varchar(50) NOT NULL,
   `location` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `created` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `created` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
