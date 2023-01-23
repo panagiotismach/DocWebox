@@ -50,7 +50,7 @@
       const idpatient = <?php echo $patientObj->id ?>;
       const template = "template";
     </script>
-    <script defer type="module" src="../../src/js/data.js"></script>
+    <script defer type="module" src="../../src/js/handlers/handle-search-by-lastname.js"></script>
     <script defer type="module" src="../../src/js/controllers/control-my-doctors.js"></script>
 <?php
   include '../includes/headers/patient-view-header.php';
@@ -105,7 +105,9 @@
           <input type="text" name="name" class="search-doctor" id="input-search" placeholder="Type your Doctor's Lastname..."/>
           <button type="submit" class="doctor-search-btn" id="search-doctor"><i class="fa fa-search"></i></button>
         </form>
-      <div class="card-container"></div>
+      <div class="card-container">
+
+      </div>
     </div>
   </div>
 <?php

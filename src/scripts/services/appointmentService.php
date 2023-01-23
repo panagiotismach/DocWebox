@@ -14,9 +14,12 @@
 
         public function findDoctorAppointments($id){
             $data = array();
+
             try {
                 $sql = "SELECT * FROM `$this->table` WHERE `doctor_id` = $id";   
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()) {
                     $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row['created']);
                     array_push($data, $appointment);
@@ -33,7 +36,9 @@
 
             try {
                 $sql = "SELECT * FROM `$this->table` WHERE `patient_id` = $id";   
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()) {
                     $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row["created"]);
                     array_push($data, $appointment);
@@ -49,6 +54,7 @@
             try {
                 $sql = "INSERT INTO `$this->table` (`id`, `doctor_id`, `patient_id`, `date`, `time`, `description`) VALUES ('$appointment->id', '$appointment->doctor_id', '$appointment->patient_id', '$appointment->date', '$appointment->time', '$appointment->description')";
                 $result = $this->mysqli->query($sql);
+                
                 return $appointment;
             }catch(Exception $e){
                 echo 'Message: ' .$e->getMessage();
@@ -59,18 +65,17 @@
             
             try {
                 $patient = "SELECT patient_id FROM `$this->table` WHERE `id` = $id";
-                 $idp = $this->mysqli->query($patient);
+
+                $idp = $this->mysqli->query($patient);
                  
                 if($ap = $idp->fetch_assoc()){
-                    echo "gbcv";
+
                     if($ap["patient_id"] == $patientid){
-                    $sql = " DELETE FROM `$this->table` WHERE `id` = $id";
-                    $result = $this->mysqli->query($sql);
-                }
+                        $sql = " DELETE FROM `$this->table` WHERE `id` = $id";
+                        $result = $this->mysqli->query($sql);
+                    }
                 }
                
-                
-                
             }catch(Exception $e){
                 echo 'Message: ' .$e->getMessage();
             } 

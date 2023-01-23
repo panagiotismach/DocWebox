@@ -18,8 +18,6 @@ export default class MyDoctors {
         for (const appointmentObj of data) {
           const doctorObj = await that.getDoctor(appointmentObj.doctor_id); //Get the doctor
           let unique = true;
-
-          console.log(doctorObj.id);
           for (const doctor of that.myDoctors) {
             if (doctor.id === doctorObj.id) {
               unique = false;

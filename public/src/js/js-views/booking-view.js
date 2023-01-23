@@ -24,7 +24,7 @@ export default class BookingView {
   removeTemplate() {
     setTimeout(() => {
       const boxEl = document.querySelector("#correct-answer");
-      boxEl.remove();
+      boxEl?.remove();
     }, 3000);
   }
 

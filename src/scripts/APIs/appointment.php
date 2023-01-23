@@ -6,6 +6,7 @@
     include "../../scripts/utils/validation-data.php";
 
     $mysqli->select_db("docwebox");
+    
     $appointmentService = new AppointmentService("appointment", $mysqli);
     
 
@@ -30,16 +31,13 @@
 
         $entityBody = file_get_contents('php://input');
 
-
         $appointentBody = json_decode($entityBody);
 
-       
+        $appointment = new Appointment( null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description, null); 
 
-      $appointment = new Appointment( null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description,null); 
+        $appointmentService->addAppointment($appointment);
 
-       $appointmentService->addAppointment($appointment);
-
-       echo json_encode($appointment);
+        echo json_encode($appointment);
 
         
     }else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
@@ -48,17 +46,9 @@
     
         $appointment = json_decode($body);
 
-        
-         
         if ($appointment->id && $appointment->patientid){
-            
             $appointmentService->deleteAppointment($appointment->id, $appointment->patientid);
         }
-        
-
-
-               
-        
     }
 
     $mysqli->close();

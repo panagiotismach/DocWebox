@@ -3,6 +3,7 @@
 const searchContainer = document.querySelector(".card-container");
 const searchButton = document.querySelector("#search-doctor");
 const inputDoctor = document.querySelector("#input-search");
+
 let previousInput = "";
 let appointments = [];
 let doctors = [];
@@ -12,7 +13,7 @@ const fetchData = async (url) => {
 };
 
 const templateDoctor = (doctor) => {
-  const html = `
+  return `
                <div class="card">
                   <a href="http://localhost/DocWebox/public/views/patient-views/doctor-public-profile.php?id=${doctor.id}" class="doctor-profile-link">
                     <h3>Dr. ${doctor.firstname} ${doctor.lastname}</h3>
@@ -21,13 +22,10 @@ const templateDoctor = (doctor) => {
                   </a>
                </div>
                `;
-  return html;
 };
 
 const templateEmpty = () => {
-  const html = `<h3>No doctors with this lastname</h3>`;
-
-  return html;
+  return `<h3>No doctors with this lastname</h3>`;
 };
 
 const searchDoctor = async (lastaname) => {
@@ -47,8 +45,7 @@ const searchDoctor = async (lastaname) => {
   previousInput = lastaname;
 };
 
-searchButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  // console.log(inputDoctor.textContent);
+searchButton.addEventListener("click", (evt) => {
+  evt.preventDefault();
   searchDoctor(inputDoctor.value);
 });
