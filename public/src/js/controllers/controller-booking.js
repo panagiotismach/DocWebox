@@ -6,6 +6,7 @@ import BookingView from "../js-views/booking-view.js";
 const form = document.querySelector("#booking");
 let date = document.querySelector("#date");
 let time = document.querySelector("#time");
+
 let previousDate = "";
 let previousTime = "";
 
@@ -16,8 +17,10 @@ class controllerBooking {
   constructor(m, v) {
     this.bookingModel = m;
     this.bookingView = v;
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
       if (time.value !== "Select Hour") {
         if (date.value !== previousDate && time.value !== previousTime) {
           this.submitForm(form);
@@ -34,11 +37,17 @@ class controllerBooking {
     let body = await this.bookingModel.toJson(form);
 
     previousDate = body.date;
-    previousTime = body.select;
+    previousTime = body["s-select"];
 
     previousTime = fetch("../../../src/scripts/APIs/appointment.php", {
       method: "POST",
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        doctor_id: body.doctor_id,
+        patient_id: body.patient_id,
+        date: body.date,
+        time: body["s-select"],
+        description: body.description,
+      }),
     })
       .then((res) => {
         this.bookingView.render(true);

@@ -12,7 +12,7 @@ export default class AppointmentView {
           <button class="delete-btn" onclick="deleteAppointment(${appointmentObj.id})">Delete</button>
           <button class="edit-modal-trigger-appointment edit-btn">Edit</button>
           <h4>${appointmentObj.date}</h4>
-          <h4>${appointmentObj.time}</h4>
+          <h4>${appointmentObj.time}.00</h4>
           <h4>${appointmentObj.location}</h4>
           <p>${appointmentObj.description}</p>
       </div>

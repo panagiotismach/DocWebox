@@ -9,7 +9,7 @@ export default class AppointmentView {
     return `
             <div class="card">
                 <h3>Appointment with ${appointmentObj.patientFullname}</h3>
-                <h4>${appointmentObj.date}</h4>
+                <h4>${appointmentObj.date} | ${appointmentObj.time}.00</h4>
                 <p>${appointmentObj.description}</p>
             </div>
             <br>

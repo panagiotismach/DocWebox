@@ -9,7 +9,6 @@
     
     $appointmentService = new AppointmentService("appointment", $mysqli);
     
-
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
 
@@ -26,6 +25,7 @@
         header("Content-Type: application/json");
         
         echo json_encode($data);
+        
     }else if($_SERVER['REQUEST_METHOD'] == "POST"){
         $data = null;
 
@@ -33,12 +33,11 @@
 
         $appointentBody = json_decode($entityBody);
 
-        $appointment = new Appointment( null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description, null); 
+        $appointment = new Appointment(null, $appointentBody->doctor_id, $appointentBody->patient_id, $appointentBody->date, $appointentBody->time, $appointentBody->description, null); 
 
         $appointmentService->addAppointment($appointment);
 
         echo json_encode($appointment);
-
         
     }else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
 

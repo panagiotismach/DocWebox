@@ -10,15 +10,17 @@ export default class BookingView {
                  <div class="bf-row" id="correct-answer" >
                     <div class="bf-col-12" id="correct"><p>You have completed your booking</p></div>
                  </div>
-             `;
+                `;
 
     return html;
   }
 
   templateError() {
-    return `<div class="bf-row" >
-              <div class="bf-col-12" id="error"><p>Something went wrong. Try again</p></div>
-           </div>`;
+    return `
+              <div class="bf-row" >
+                <div class="bf-col-12" id="error"><p>Something went wrong. Try again</p></div>
+              </div>
+           `;
   }
 
   removeTemplate() {
