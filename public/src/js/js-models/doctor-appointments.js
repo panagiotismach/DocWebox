@@ -25,7 +25,7 @@ export default class Appointment {
             const dateB = new Date(b.date);
 
             if (dateA.getTime() === dateB.getTime()) {
-              return a.time - b.time;
+              return Number(a.time) - Number(b.time);
             }
 
             return dateA - dateB;
