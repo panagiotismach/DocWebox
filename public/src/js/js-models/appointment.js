@@ -27,7 +27,11 @@ export default class Appointment {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
 
-            return dateA - dateB;
+            if (dateA.getTime() === dateB.getTime()) {
+              return b.time - a.time;
+            }
+
+            return dateB - dateA;
           });
         }
       });
