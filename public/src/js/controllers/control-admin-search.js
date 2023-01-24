@@ -14,9 +14,11 @@ form.addEventListener("submit", function (evt) {
   const selectedCategory = formFields[0][1];
   const searchValue = formFields[1][1];
 
-  const adminSearch = new AdminSearch(selectedCategory, searchValue);
+  if (selectedCategory !== "None") {
+    const adminSearch = new AdminSearch(selectedCategory, searchValue);
 
-  adminSearch.loadSearchingResults().then(function (data) {
-    new AdminSearchView().render(data, selectedCategory);
-  });
+    adminSearch.loadSearchingResults().then(function (data) {
+      new AdminSearchView().render(data, selectedCategory);
+    });
+  }
 });

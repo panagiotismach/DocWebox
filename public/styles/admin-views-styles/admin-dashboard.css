@@ -172,6 +172,8 @@
 .card-container {
   padding-top: 10px;
   padding-bottom: 10px;
+  overflow-y: auto;
+  height: 600px;
 }
 .card-container .card {
   margin-top: 10px;

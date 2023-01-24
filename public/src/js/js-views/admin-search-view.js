@@ -6,7 +6,6 @@ export default class AdminSearchView {
   }
 
   templateSearchResultDoctor(doctorObj) {
-    
     return `<div class="card">
                 <div class="data">
                     <h3>${doctorObj?.firstname} ${doctorObj?.lastname}</h3>
@@ -20,7 +19,6 @@ export default class AdminSearchView {
   }
 
   templateSearchResultPatient(patientObj) {
-
     return `<div class="card">
                 <div class="data">
                     <h3>${patientObj?.firstname} ${patientObj?.lastname}</h3>
@@ -34,7 +32,6 @@ export default class AdminSearchView {
   }
 
   templateSearchResultAppointment(appointmentObj) {
-
     return `<div class="card">
                 <div class="data">
                     <h3>${appointmentObj?.date}</h3>
