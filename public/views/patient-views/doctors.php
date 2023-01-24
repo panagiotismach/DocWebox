@@ -2,7 +2,6 @@
     require_once "../../../src/scripts/configuration/init.php";
     
     require "../../../src/db/connect.php";
-    require "../../../src/scripts/auth/auth-patient.php";
     
   	include '../includes/file-begin/file-begin.php';
 

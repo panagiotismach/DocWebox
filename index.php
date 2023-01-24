@@ -2,6 +2,12 @@
     include "config.php";
     require_once "./src/scripts/configuration/init.php";
     include './public/views/includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if (isset($_SESSION["redirecting-route"])) {
+        unset($_SESSION["redirecting-route"]);
+    }
      
 ?>
     <link rel="stylesheet" href="./public/styles/index-styling.css" />

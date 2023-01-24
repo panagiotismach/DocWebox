@@ -2,10 +2,11 @@
     require_once "../../../src/scripts/configuration/init.php";
     
     require "../../../src/db/connect.php";
-    require "../../../src/scripts/auth/auth-patient.php";
     require "../../../src/scripts/models/doctor.php";
     
   	include '../includes/file-begin/file-begin.php';
+
+    session_start();
 
     if(isset($_GET["id"])) {
       $doctor = file_get_contents("http://localhost/DocWebox/src/scripts/APIs/doctor.php?id=".$_GET["id"]);

@@ -73,8 +73,12 @@
                 $_SESSION["patient-loggedin"] = true;
                 $_SESSION["patientObj"] = serialize($patientObj);                        
                               
-                // Redirect user to welcome page
-                header("location: ../patient-views/user-dashboard.php");
+                if (empty($_SESSION["redirecting-route"])) {
+                  // Redirect user to welcome page
+                  header("location: ../patient-views/user-dashboard.php");
+                } else if (isset($_SESSION["redirecting-route"]) && !empty($_SESSION["redirecting-route"])){
+                  header("location: " . $_SESSION["redirecting-route"]);
+                }
               } else {
                 // Password is not valid
                 $loginErr = "Invalid username or password.";
