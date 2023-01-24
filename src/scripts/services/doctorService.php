@@ -17,9 +17,12 @@
 
             try{
                 $sql = "SELECT * FROM `$this->table`";
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
                     array_push($doctors, $doctor);
                 }
             }catch(Exception $error){
@@ -31,10 +34,14 @@
 
         public function findDoctorById($id){
             $doctor = null;
+
             try {
                 $sql = "SELECT * FROM `$this->table` WHERE `id` = $id";
+
                 $result = $this->mysqli->query($sql);
+
                 $row = $result->fetch_assoc();
+
                 if($result->num_rows > 0){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
                 }
@@ -50,9 +57,12 @@
 
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `firstname` = '$firstname'";
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
                     array_push($doctors, $doctor);
                 }
             }catch(Exception $error){
@@ -67,9 +77,12 @@
             
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `lastname` = '$lastname'";
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()){
                     $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
                     array_push($doctors, $doctor);
                 }
             }catch(Exception $error){
@@ -101,12 +114,16 @@
 
         public function findAllDoctorsByLocation($location){
             $doctors = array();
+
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `location` = '$location'";
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()){
                    
                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
                     array_push($doctors, $doctor);
                  }  
             }catch(Exception $error){
@@ -118,12 +135,16 @@
 
         public function findAllDoctorsBySpecialization($specialization){
             $doctors = array();
+
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `specialization` = '$specialization'";
+
                 $result = $this->mysqli->query($sql);
+
                 while($row = $result->fetch_assoc()){
                    
                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
                     array_push($doctors, $doctor);
                  }  
             }catch(Exception $error){
@@ -138,7 +159,9 @@
 
             try{
                 $sql = "SELECT * FROM `$this->table` WHERE `location` = '$location' AND `specialization` = '$specialization'";
+
                 $result = $this->mysqli->query($sql);
+                
                 while($row = $result->fetch_assoc()){
                    
                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);

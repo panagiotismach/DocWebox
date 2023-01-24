@@ -90,9 +90,29 @@
             return $data;
         }
 
+        public function findAppointmentsByDate($date) {
+            $appointments = array();
+
+            try {
+                $sql = "SELECT * FROM `$this->table` WHERE `date` = '$date'";  
+
+                $result = $this->mysqli->query($sql);
+                
+                while($row = $result->fetch_assoc()) {
+                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row["created"]);
+                    array_push($appointments, $appointment);
+                }
+            }catch(Exception $error){
+                echo 'Error Message: ' .$error->getMessage();
+            }
+            
+            return $appointments;
+        }
+
         public function addAppointment($appointment){
             try {
                 $sql = "INSERT INTO `$this->table` (`id`, `doctor_id`, `patient_id`, `date`, `time`, `description`) VALUES ('$appointment->id', '$appointment->doctor_id', '$appointment->patient_id', '$appointment->date', '$appointment->time', '$appointment->description')";
+
                 $result = $this->mysqli->query($sql);
                 
                 return $appointment;

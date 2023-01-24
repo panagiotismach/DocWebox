@@ -25,6 +25,11 @@
             $patient_id = validate_data($_GET['patient_id']);
             $data = $appointmentService->findPatientAppointments($patient_id);       
         }
+
+        if(isset($_GET["date"])){
+            $date = validate_data($_GET['date']);
+            $data = $appointmentService->findAppointmentsByDate($date);       
+        }
         
         header("Content-Type: application/json");
         

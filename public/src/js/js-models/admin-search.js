@@ -7,7 +7,7 @@ import { PATIENT_APPOINTMENTS_URL } from "../config.js";
 export default class AdminSearch {
   constructor(searchingCategory, searchingExtraValue) {
     this.searchingCategory = searchingCategory;
-    this.searchingExtraValue = searchingExtraValue;
+    this.searchingExtraValue = searchingExtraValue.trim();
     this.results = new Array();
   }
 
@@ -16,11 +16,23 @@ export default class AdminSearch {
     let url = "";
 
     if (this.searchingCategory === "doctor") {
-      url = `${DOCTOR_OBJ_URL}`;
+      if (this.searchingExtraValue === "") {
+        url = `${DOCTOR_OBJ_URL}`;
+      } else {
+        url = `${DOCTOR_OBJ_URL}?lastname=${this.searchingExtraValue}`;
+      }
     } else if (this.searchingCategory === "patient") {
-      url = `${PATIENT_OBJ_URL}`;
+      if (this.searchingExtraValue === "") {
+        url = `${PATIENT_OBJ_URL}`;
+      } else {
+        url = `${PATIENT_OBJ_URL}?lastname=${this.searchingExtraValue}`;
+      }
     } else if (this.searchingCategory === "appointment") {
-      url = `${PATIENT_APPOINTMENTS_URL}`;
+      if (this.searchingExtraValue === "") {
+        url = `${PATIENT_APPOINTMENTS_URL}`;
+      } else {
+        url = `${PATIENT_APPOINTMENTS_URL}?date=${this.searchingExtraValue}`;
+      }
     }
 
     await fetch(url)
