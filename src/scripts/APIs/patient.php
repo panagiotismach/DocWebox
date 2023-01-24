@@ -9,6 +9,10 @@
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
 
+        if (count($_GET) == 0) {
+            $data = $patientService->findAllPatients();
+        }
+
         if(isset($_GET["id"])){
             $id = validate_data($_GET['id']);
             $data = $patientService->findPatientById($id);

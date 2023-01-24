@@ -12,6 +12,26 @@
             $this->mysqli = $mysqliConnection;
         }
 
+        public function findAllPatients() {
+            $patients = array();
+
+            try{
+                $sql = "SELECT * FROM `$this->table`";
+
+                $result = $this->mysqli->query($sql);
+                
+                while($row = $result->fetch_assoc()){
+                    $patient = new Patient($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["location"], $row["image"], $row["created"]);
+
+                    array_push($patients, $patient);
+                }
+            }catch(Exception $error){
+                echo 'Message: ' .$error->getMessage();
+            }
+
+            return $patients;
+        }
+
         public function findPatientById($id){
             $patient = null;
             try {

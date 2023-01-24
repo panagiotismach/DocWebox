@@ -12,6 +12,10 @@
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $data = null;
 
+        if (count($_GET) == 0) {
+            $data = $appointmentService->findAllAppointments();
+        }
+
         if(isset($_GET["doctor_id"])){
             $doctor_id = validate_data($_GET['doctor_id']);
             $data = $appointmentService->findDoctorAppointments($doctor_id);

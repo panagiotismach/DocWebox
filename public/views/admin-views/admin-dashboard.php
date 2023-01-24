@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../styles/admin-views-styles/admin-dashboard.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="../../src/js/utils/modals/edit-modal-controller.js" defer></script>
+    <script type="module" src="../../src/js/controllers/control-admin-search.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -27,50 +28,21 @@
     <div class="main-container">
       <h1 style="color:white;">Welcome back!</h1>
       <h3 style="color:white;">Search for doctor or patient or appointment</h3>
-      <form action="" class="search-area"  >
-        <select id="D-P" name="Doctor-Patient">
+      <form action="" class="search-area" id="form-search">
+        <select id="D-P" name="select-list">
           <option value="None">Choose option</option>
-          <option value="General doctor">Doctor</option>
-          <option value="General patient">Patient</option>
-          <option value="General doctor">Appointment</option>
+          <option value="doctor">Doctor</option>
+          <option value="patient">Patient</option>
+          <option value="appointment">Appointment</option>
         </select>
         <input type="text" placeholder="Name or Appointment date" name="search" />
         <button type="submit"><img src="../../resources/images/tools/search.png" /></button>
       </form>
     </div>
     <div class="doctor-search-container">
-      <h2>Results based on your search</h2>
-    <div class="card-container">
-            <div class="card">
-             <div class="data">
-              <h3>{{Doctor Full name}}</h3>
-              </div>
-              <ul class="buttonpd">
-                <li><button class="edit-modal-trigger-doctor" id="edit-btn">Edit</button></li>
-                <li><button id="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button></li>
-              </ul>
-            </div>
-            <div class="card">
-             <div class="data">
-              <h3>{{Patient Full name}}</h3>
-              </div>
-              <ul class="buttonpd">
-                <li><button class="edit-modal-trigger-patient" id="edit-btn">Edit</button></li>
-                <li><button id="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button></li>
-              </ul>
-            </div>
-            <div class="card">
-             <div class="data">
-              <h3>{{Appointment Date}}</h3>
-              <p>{{Appointment hour}}</p>
-              <p>{{Doctor Full name}} {{Patient Fullname}}</p>
-              </div>
-              <ul class="buttonpd">
-                <li><button class="edit-modal-trigger-appointment" id="edit-btn">Edit</button></li>
-                <li><button id="delete-btn" onclick="return confirm('⚠ Deleting is permanent and cannot be reversed')">Delete</button></li>
-              </ul>
-            </div>
-      </div>
+        <h2>Results based on your search</h2>
+        <div class="card-container">
+        </div>
     </div>
    </div>
     <div class="edit-modal-doctor">

@@ -12,6 +12,26 @@
             $this->mysqli = $mysqliConnection;
         }
 
+        public function findAllAppointments() {
+            $appointments = array();
+
+            try{
+                $sql = "SELECT * FROM `$this->table`";
+
+                $result = $this->mysqli->query($sql);
+                
+                while($row = $result->fetch_assoc()){
+                    $appointment = new Appointment($row["id"], $row["doctor_id"], $row["patient_id"], $row["date"], $row["time"], $row["description"], $row['created']);
+
+                    array_push($appointments, $appointment);
+                }
+            }catch(Exception $error){
+                echo 'Message: ' .$error->getMessage();
+            }
+
+            return $appointments;
+        }
+
         public function findAppointmentById($id){
             $appointment = null;
 
