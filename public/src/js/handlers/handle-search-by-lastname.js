@@ -28,9 +28,9 @@ const templateEmpty = () => {
   return `<h3>No doctors with this lastname</h3>`;
 };
 
-const searchDoctor = async (lastaname) => {
-  if (lastaname !== previousInput) {
-    const searchDoctors = await fetchData(`http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=${lastaname}`);
+const searchDoctor = async (api, searchInput) => {
+  if (searchInput !== previousInput) {
+    const searchDoctors = await fetchData(`${api}${searchInput}`);
 
     searchContainer.innerHTML = "";
 
@@ -42,10 +42,16 @@ const searchDoctor = async (lastaname) => {
     }
   }
 
-  previousInput = lastaname;
+  previousInput = searchInput;
 };
 
 searchButton.addEventListener("click", (evt) => {
   evt.preventDefault();
-  searchDoctor(inputDoctor.value);
+  searchDoctor("http://localhost/DocWebox/src/scripts/APIs/doctor.php?lastname=", inputDoctor.value);
+});
+
+inputDoctor.addEventListener("keyup", (evt) => {
+  if (evt.target.value !== "") {
+    searchDoctor("http://localhost/DocWebox/src/scripts/APIs/doctor.php?startsWith=", evt.target.value);
+  }
 });

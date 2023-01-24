@@ -79,6 +79,26 @@
             return $doctors;
         }
 
+        public function findDoctorByFirstCharsInLastname($startsWith){
+            $doctors = array();
+            
+            try{
+                $sql = "SELECT * FROM `$this->table` WHERE lastname LIKE '".$startsWith."%'";
+
+                $result = $this->mysqli->query($sql);
+
+                while($row = $result->fetch_assoc()){
+                    $doctor = new Doctor($row["id"], $row["firstname"], $row["lastname"], $row["username"], $row["email"], $row["password"], $row["phone"], $row["specialization"], $row["vat"], $row["num_patients"], $row["num_publications"], $row["work_experience_years"], $row["bio"], $row["location"], $row["image"], $row["created"]);
+
+                    array_push($doctors, $doctor);
+                }
+            }catch(Exception $error){
+                echo 'Message: ' .$e->getMessage();
+            }
+
+            return $doctors;
+        }
+
         public function findAllDoctorsByLocation($location){
             $doctors = array();
             try{

@@ -28,6 +28,11 @@
             $data = $doctorService->findDoctorByLastname($lastname);
         }
 
+        if (isset($_GET["startsWith"])) {
+            $startsWith = validate_data($_GET['startsWith']);
+            $data = $doctorService->findDoctorByFirstCharsInLastname($startsWith);
+        }
+
         if(isset($_GET["location"]) && !isset($_GET["specialization"])){
             $location = validate_data($_GET['location']);
             $data = $doctorService->findAllDoctorsByLocation($location);
