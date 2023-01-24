@@ -4,9 +4,16 @@
     require "../../../src/db/connect.php";
     require "../../../src/scripts/models/patient.php";
     require "../../../src/scripts/models/doctor.php";
-    require "../../../src/scripts/auth/auth-patient.php";
     
     include '../includes/file-begin/file-begin.php';
+
+    session_start();
+
+    if(!isset($_SESSION["patient-loggedin"]) || $_SESSION["patient-loggedin"] === false){
+        $_SESSION["redirecting-route"] = "../patient-views/book-now.php";
+        header("location: ../access-denied.php");
+        die();
+    }    
 
     if(isset($_SESSION['patientObj'])){
         $patientObj = unserialize($_SESSION['patientObj']);
