@@ -34,7 +34,7 @@
             <p>Try another search</p>
             <form action="doctors.php" class="search-area" method="get">
                 <select id="Doc-Specialities" name="specialization">
-                    <option value="None">Choose Doctor Specialization</option>
+                    <option value="None">All doctors</option>
                     <option value="General doctor">General doctor</option>
                     <option value="Pathologist">Pathologist</option>
                     <option value="Pediatrician">Pediatrician</option>

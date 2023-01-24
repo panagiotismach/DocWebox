@@ -18,7 +18,9 @@
           <label for="check" class="checkbtn">
               <i class="fas fa-bars"></i>
           </label>
-          <a class="header-logo"href="../../../index.php"><img src="../../resources/logos/logo-doc-view-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" /></a>
+          <a class="header-logo"href="doctor-dashboard.php">
+            <img src="../../resources/logos/logo-doc-view-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" />
+          </a>
           <ul class="header-ul">
             <li class="header-li">
               <a class="header-a" href="doctor-dashboard.php">Dashboard</a>

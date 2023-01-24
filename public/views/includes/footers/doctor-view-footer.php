@@ -9,9 +9,6 @@
           <a class="footer__link" href="doctor-private-profile.php">Profile</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href="../faq.php">FAQs</a>
-        </li>
-        <li class="footer__item">
           <a class="footer__link" href="../../../src/scripts/logout/doctor-logout.php">Logout</a>
         </li>
       </ul>

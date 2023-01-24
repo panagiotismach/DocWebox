@@ -18,7 +18,7 @@
           <label for="check" class="checkbtn">
               <i class="fas fa-bars"></i>
           </label>
-          <a href="../../../index.php"><img src="../../resources/logos/admin-view-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" /></a>
+          <a href="admin-dashboard.php"><img src="../../resources/logos/admin-view-logo-transparent.png" alt="DocWebox logo" class="nav__logo" id="logo" /></a>
           <ul class="header-ul">
             <li class="header-li">
               <a class="header-a" href="admin-dashboard.php">Dashboard</a>
