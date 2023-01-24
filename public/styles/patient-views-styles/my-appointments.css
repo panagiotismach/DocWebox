@@ -127,6 +127,11 @@ section {
 
 .appointment-updated {
   background-color: #ccfcc0;
+  transition: 0.5s;
+}
+
+.appointment-normal {
+  background-color: white;
   transition: 2s;
 }
 
