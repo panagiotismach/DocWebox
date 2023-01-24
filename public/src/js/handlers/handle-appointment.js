@@ -86,8 +86,16 @@ const updateAppointment = () => {
             appointmentEl.childNodes.forEach((el) => {
               if (el.id === "appointment-date") {
                 el.textContent = newDate;
+                el.classList.add("appointment-updated");
+                setTimeout(() => {
+                  el.classList.remove("appointment-updated");
+                }, 2500);
               } else if (el.id === "appointment-time") {
                 el.textContent = newTime + ".00";
+                el.classList.add("appointment-updated");
+                setTimeout(() => {
+                  el.classList.remove("appointment-updated");
+                }, 2500);
               }
             });
 

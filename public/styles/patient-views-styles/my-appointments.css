@@ -125,6 +125,11 @@ section {
   cursor: pointer;
 }
 
+.appointment-updated {
+  background-color: #ccfcc0;
+  transition: 2s;
+}
+
 .edit-modal-close-button:hover {
   background-color: darkgray;
 }
