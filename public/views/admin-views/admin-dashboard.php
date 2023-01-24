@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../styles/admin-views-styles/admin-dashboard.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="../../src/js/utils/modals/edit-modal-controller.js" defer></script>
+    <script src="../../src/js/utils/select/handle-admin-select.js" defer></script>
     <script type="module" src="../../src/js/controllers/control-admin-search.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -35,7 +36,7 @@
           <option value="patient">Patient</option>
           <option value="appointment">Appointment</option>
         </select>
-        <input type="text" placeholder="Name or Appointment date" name="search" />
+        <input id="search-input" type="text" placeholder="" name="search" />
         <button type="submit"><img src="../../resources/images/tools/search.png" /></button>
       </form>
     </div>
