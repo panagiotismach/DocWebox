@@ -115,7 +115,8 @@ section {
   width: 80%;
 }
 
-.inputBox input[type="submit"] {
+.inputBox input[type="submit"],
+.inputBox input[type="button"] {
   float: right;
   margin-top: 10px;
   padding: 3px;

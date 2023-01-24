@@ -48,6 +48,18 @@
         if ($appointment->id && $appointment->patientid){
             $appointmentService->deleteAppointment($appointment->id, $appointment->patientid);
         }
+    } else if ($_SERVER['REQUEST_METHOD'] == "PUT"){
+
+        //Data will pass into body in json format
+        $appointmentBody = file_get_contents('php://input');
+        
+        $appointmentProvided = json_decode($appointmentBody);
+        
+        $data = $appointmentService->updateAppointmentInfo($appointmentProvided);
+        
+        header("Content-Type: application/json");
+
+        echo json_encode($data);
     }
 
     $mysqli->close();

@@ -10,9 +10,11 @@ export default class AppointmentView {
       <div class="card">
           <h3>Appointment with ${appointmentObj.doctorName}</h3>
           <button class="delete-btn" onclick="deleteAppointment(${appointmentObj.id})">Delete</button>
-          <button class="edit-modal-trigger-appointment edit-btn">Edit</button>
-          <h4>${appointmentObj.date}</h4>
-          <h4>${appointmentObj.time}.00</h4>
+          <button class="edit-modal-trigger-appointment edit-btn" onclick="setSelectedAppointment(${appointmentObj.id})">
+            Edit
+          </button>
+          <h4 id="appointment-date">${appointmentObj.date}</h4>
+          <h4 id="appointment-time">${appointmentObj.time}.00</h4>
           <h4>${appointmentObj.location}</h4>
           <p>${appointmentObj.description}</p>
       </div>

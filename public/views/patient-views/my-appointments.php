@@ -33,15 +33,15 @@
       <span class="edit-modal-close-button-appointment">×</span>
       <form class="admin-edit-form">
         <i class="fa-solid fa-file-pen"></i>
-        <h2>Currently editing {{Appointment_id}}</h2>
+        <h2>Edit Appointment</h2>
         <div class="inputBox">
           <span>Appointment date</span><br />
           <input type="date" name="date" id="date" />
         </div>
         <div class="inputBox">
           <span>Appointment hour</span><br />
-          <select name="s-select">
-            <option>Select Hour</option>
+          <select name="s-select" id="date-select">
+            <option value="">Select Hour</option>
             <option value="9">9.00</option>
             <option value="10">10.00</option>
             <option value="11">11.00</option>
@@ -57,7 +57,7 @@
           </select>
         </div>
         <div class="inputBox">
-          <input type="submit" name="Submit" value="Confirm changes" />
+          <input id="update-appointment-btn" type="button" name="submit" value="Confirm changes" onclick="updateAppointment()" />
         </div>
       </form>
     </div>
