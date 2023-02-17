@@ -95,6 +95,6 @@
 
 <p float="left">
 <img src="github_screenshots/patient-mobile.png" height="550" />
-<img src="github_screenshots/patient-mobile.png" height="550" />
-<img src="github_screenshots/patient-mobile.png" height="550" />
+<img src="github_screenshots/appointments-mobile.png" height="550" />
+<img src="github_screenshots/doctor-private-mobile.jpg" height="550" />
 </p>
