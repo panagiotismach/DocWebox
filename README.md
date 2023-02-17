@@ -99,6 +99,9 @@
 <img src="github_screenshots/doctor-private-mobile.jpg" height="550" />
 </p>
 
+# How to create Admin?
+<h4>The admin can only be created by phpmyadmin. You only need to provide a username and password. The password must be md5 encrypted during the creation.</h4>
+
 # DB structure
 
 ```
