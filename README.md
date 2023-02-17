@@ -1,9 +1,9 @@
 # DocWebox
 <h4>DocWebox is an online health services platform. Via of the platform visitors will be able to search for doctors of various types specialties, choose the appropriate one, and make an appointment. The doctors they can through the platform update their data, add useful information for their services, and to be informed about their appointments. The platform will be managed by the administrators who will have access to processing (and removal) of all data.</h4>
 
-<p>This is a project that was implemented in the course of our university, "Special topics of web programming".</p>
+<p>This is a project that was implemented in the course of the University of Macedonia, "Special topics of web programming".</p>
 
-<h4>Contributors:</h4>
+<h4>Team:</h4>
 <ul>
   <li><b><i>Charakopoulos Minas - Theodoros</i></b></li>
   <li><b><i>Lougaris Dionisis </i></b></li>
@@ -95,6 +95,99 @@
 
 <p float="left">
 <img src="github_screenshots/patient-mobile.png" height="550" />
-<img src="github_screenshots/patient-mobile.png" height="550" />
-<img src="github_screenshots/patient-mobile.png" height="550" />
+<img src="github_screenshots/appointments-mobile.png" height="550" />
+<img src="github_screenshots/doctor-private-mobile.jpg" height="550" />
 </p>
+
+# DB structure
+
+```
+DATABASE docwebox;
+
+--
+-- Structure for table `admin`
+--
+
+TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for table `appointment`
+--
+
+TABLE `appointment` (
+  `id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `time` varchar(20) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for table `doctor`
+--
+
+TABLE `doctor` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `specialization` varchar(255) NOT NULL,
+  `vat` varchar(40) NOT NULL,
+  `num_patients` int(11) UNSIGNED NOT NULL,
+  `num_publications` int(11) UNSIGNED NOT NULL,
+  `work_experience_years` int(11) UNSIGNED NOT NULL,
+  `bio` varchar(1000) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for table `patient`
+--
+
+TABLE `patient` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+# Local Installation
+```
+- Download the zip from github, extract it and store or move the app root folder in <PATH>\xampp\htdocs
+  Note: It is important that the root folder of the app is located directly inside the htdocs, and not embedded in another folder.
+- Open XAMPP and start Apache and MySQL modules
+- Open browser in http://localhost/<FOLDER_NAME_THAT_YOU_STORE_IN_HTDOCS_BEFORE>/ 
+  (At the same time, the 'docwebox' database with the necessary tables will also be created if it does not already exist.)
+```
+
+# Use testing data
+<h4>Data is available for testing.</h4>
+<ul>
+<li><h4>In case the database and tables already exist, then execution by phpmyadmin of the {ROOT_FOLDER}/src/db/only_inserts.sql file, which only has inserts.</h4</li>
+<li><h4>In case the database 'docwebox' does not already exist, then you can run the file {ROOT_FOLDER}/src/db/full_data_db.sql, which will create the database and tables, and then insert the testing data.</h4></li>
+</ul>
