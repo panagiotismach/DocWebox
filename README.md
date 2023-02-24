@@ -11,7 +11,7 @@
   <li><b><i>Stefou George-John</i></b></li>
 </ul>
 
-<h4>Video presentation of the app on YouTube: <a href=""><b><i>presentation video</i></b><a/></h4>
+<h4>Video presentation of the app on YouTube: <a href="https://www.youtube.com/watch?v=1t7TSkMyHvQ"><b><i>presentation video</i></b><a/></h4>
 
 # App's basic pages  
 <img src="github_screenshots/index-page.png" width="850" />
